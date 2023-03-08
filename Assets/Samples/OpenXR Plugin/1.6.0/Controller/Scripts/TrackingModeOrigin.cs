@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.XR;
 
 namespace UnityEngine.XR.OpenXR.Samples.ControllerSample
 {
@@ -58,7 +56,7 @@ namespace UnityEngine.XR.OpenXR.Samples.ControllerSample
 
         public void OnDesiredSelectionChanged(int newValue)
         {
-            desiredTrackingOriginMode  = (TrackingOriginModeFlags)(newValue == 0 ? 0 : (1 << (newValue - 1)));
+            desiredTrackingOriginMode = (TrackingOriginModeFlags)(newValue == 0 ? 0 : (1 << (newValue - 1)));
         }
 
         private void TrackingOriginUpdated(XRInputSubsystem obj)
@@ -71,14 +69,14 @@ namespace UnityEngine.XR.OpenXR.Samples.ControllerSample
             XRInputSubsystem subsystem = null;
 
             SubsystemManager.GetInstances(s_InputSubsystems);
-            if(s_InputSubsystems.Count > 0)
+            if (s_InputSubsystems.Count > 0)
             {
                 subsystem = s_InputSubsystems[0];
             }
 
             m_SupportedTrackingOriginModes = subsystem?.GetSupportedTrackingOriginModes() ?? TrackingOriginModeFlags.Unknown;
 
-            if(m_CurrentTrackingOriginMode != m_DesiredTrackingOriginMode & m_DesiredTrackingOriginMode != TrackingOriginModeFlags.Unknown)
+            if (m_CurrentTrackingOriginMode != m_DesiredTrackingOriginMode & m_DesiredTrackingOriginMode != TrackingOriginModeFlags.Unknown)
             {
                 subsystem?.TrySetTrackingOriginMode(m_DesiredTrackingOriginMode);
             }
@@ -87,7 +85,7 @@ namespace UnityEngine.XR.OpenXR.Samples.ControllerSample
             if (m_CurrentTrackingOriginModeDisplay != null)
                 m_CurrentTrackingOriginModeDisplay.text = m_CurrentTrackingOriginMode.ToString();
 
-            if(m_RecenteredImage != null)
+            if (m_RecenteredImage != null)
             {
                 float lerp = (Time.time - m_LastRecenteredTime) / m_RecenteredColorResetTime;
                 lerp = Mathf.Clamp(lerp, 0.0f, 1.0f);
