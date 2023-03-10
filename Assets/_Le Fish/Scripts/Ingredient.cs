@@ -35,7 +35,10 @@ public class Ingredient : MonoBehaviour
     public void Slice()
     {
         if (CurrentSlice < ingredients.Count - 1)
+        {
             CurrentSlice++;
+            meshFilter.mesh = ingredients[CurrentSlice].meshes[(int)CurrentState];
+        }
     }
 }
 
