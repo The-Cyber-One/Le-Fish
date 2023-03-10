@@ -17,8 +17,7 @@ public class CustomerBehavior : MonoBehaviour
     {
         Spawned,
         Ordering,
-        ReadyToGo,
-        Leaving
+        ReadyToGo
     }
 
     // The current state of the customer.
@@ -81,7 +80,7 @@ public class CustomerBehavior : MonoBehaviour
         gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, customerDonePosition, speed * Time.deltaTime);
         if (gameObject.transform.position == customerDonePosition)
         {
-            StartCoroutine(SpawnCooldown());
+          StartCoroutine(SpawnCooldown());
         }
     }
 
@@ -90,6 +89,7 @@ public class CustomerBehavior : MonoBehaviour
         yield return new WaitForSeconds(orderingTime);
         currentState = CustomerState.ReadyToGo;
     }
+
     IEnumerator SpawnCooldown()
     {
         yield return new WaitForSeconds(spawncooldown);
