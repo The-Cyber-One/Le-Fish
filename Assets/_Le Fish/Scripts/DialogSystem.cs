@@ -17,7 +17,7 @@ public class DialogSystem : MonoBehaviour
     {
         [SerializeField] string title;
         [SerializeField] public float DisplayTime;
-        [SerializeField, TextArea] public string Text;
+        [SerializeField, TextArea(1,10)] public string Text;
     }
 
     private IEnumerator Start()
