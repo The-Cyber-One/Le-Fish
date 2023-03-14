@@ -10,6 +10,7 @@ public class CustomerSpawner : MonoBehaviour
 
     void Start()
     {
+        //Spawns the first customer to start the sequence, if the number of customers is smaller than the max amount of customers
         SpawnCustomers();
     }
 
