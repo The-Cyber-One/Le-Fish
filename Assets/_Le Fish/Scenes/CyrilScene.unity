@@ -1126,6 +1126,7 @@ GameObject:
   - component: {fileID: 1233828050}
   - component: {fileID: 1233828049}
   - component: {fileID: 1233828048}
+  - component: {fileID: 1233828053}
   m_Layer: 0
   m_Name: Banana
   m_TagString: Ingredient
@@ -1227,6 +1228,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1233828053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233828047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e0277d5c97ac143a4348d1f24a30a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTimerUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  onTimerFinished:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1433878031
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,7 +1575,6 @@ GameObject:
   - component: {fileID: 2098618762}
   - component: {fileID: 2098618761}
   - component: {fileID: 2098618764}
-  - component: {fileID: 2098618763}
   - component: {fileID: 2098618765}
   - component: {fileID: 2098618766}
   m_Layer: 0
@@ -1589,24 +1607,6 @@ Transform:
   m_Father: {fileID: 1932278541}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2098618763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2098618758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49e0277d5c97ac143a4348d1f24a30a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onTimerUpdate:
-    m_PersistentCalls:
-      m_Calls: []
-  onTimerFinished:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &2098618764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1619,7 +1619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb65d6dc2362f5e4a9f0d34cfb2e0a47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 2098618763}
+  timer: {fileID: 0}
 --- !u!65 &2098618765
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1650,7 +1650,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2098618764}
         m_TargetAssemblyTypeName: Bake, Assembly-CSharp
-        m_MethodName: set_ingredientInside
+        m_MethodName: set_IngredientInside
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1665,7 +1665,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2098618764}
         m_TargetAssemblyTypeName: Bake, Assembly-CSharp
-        m_MethodName: set_ingredientInside
+        m_MethodName: set_IngredientInside
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
