@@ -1,5 +1,5 @@
-using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace UnityEngine.XR.OpenXR.Samples.ControllerSample
 {
@@ -13,7 +13,7 @@ namespace UnityEngine.XR.OpenXR.Samples.ControllerSample
         Slider slider = null;
 
         Graphic graphic = null;
-        Graphic[] graphics = new Graphic[]{ };
+        Graphic[] graphics = new Graphic[] { };
 
         private void OnEnable()
         {
