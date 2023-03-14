@@ -27,7 +27,7 @@ public class DialogSystem : MonoBehaviour
         foreach (Dialog dialog in dialogs)
         {
             textMeshPro.text = string.Empty;
-            var matches = Regex.Matches(dialog.Text, @"<[^<]*>");
+            var matches = Regex.Matches(dialog.Text, @"<[^<]*>"); // Find tags that are contained with <> so that these tags will be typed all at once
             List<string> text = new();
             for (int i = 0; i < dialog.Text.Length; i++)
             {
