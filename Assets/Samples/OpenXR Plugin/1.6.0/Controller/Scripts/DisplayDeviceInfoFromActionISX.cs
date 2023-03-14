@@ -1,5 +1,5 @@
-using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace UnityEngine.XR.OpenXR.Samples.ControllerSample
 {
@@ -26,7 +26,7 @@ namespace UnityEngine.XR.OpenXR.Samples.ControllerSample
 
         void Update()
         {
-            if(m_Property != null && m_Property.action != null && m_Property.action.controls.Count > 0)
+            if (m_Property != null && m_Property.action != null && m_Property.action.controls.Count > 0)
             {
 
                 if (m_RootObject != null)
@@ -39,7 +39,7 @@ namespace UnityEngine.XR.OpenXR.Samples.ControllerSample
                 {
                     m_TargetText.text = $"{device.name}\n{device.deviceId}\n";
                     bool useComma = false;
-                    foreach(var usg in device.usages)
+                    foreach (var usg in device.usages)
                     {
                         if (!useComma)
                         {
