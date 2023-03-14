@@ -21,7 +21,7 @@ public class CustomerBehavior : MonoBehaviour
 
     // The current state of the customer.
     private CustomerState _currentState = CustomerState.Spawned;
-
+    //Gets the position given in the customer spawner to move the customer around
     public void Setup(Transform orderPoint, Transform donePoint, CustomerSpawner spawner)
     {
         _orderPoint = orderPoint;
@@ -45,7 +45,7 @@ public class CustomerBehavior : MonoBehaviour
                 break;
         }
     }
-
+    //If the customer is spawned 
     public void CheckIfSpawned()
     {
         transform.position = Vector3.MoveTowards(transform.position, _orderPoint.transform.position, speed * Time.deltaTime);
