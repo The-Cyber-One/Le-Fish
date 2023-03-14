@@ -290,8 +290,9 @@ MonoBehaviour:
   - {fileID: 7384600065612720416, guid: 78898b3f862c4054498eaef5ea53d699, type: 3}
   - {fileID: 1212324492822872877, guid: 066a593cc1126f24d89c3bb5819a9ab9, type: 3}
   spawnPoint: {fileID: 541162027}
-  noCustomers: 1
   maxNumberOfCustomers: 7
+  orderPoint: {fileID: 1096332920}
+  customerDonePoint: {fileID: 270222052}
 --- !u!4 &375317709
 Transform:
   m_ObjectHideFlags: 0
