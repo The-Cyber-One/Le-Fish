@@ -1,32 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CustomerSpawner : MonoBehaviour
 {
-    public GameObject[] customers;
-    public GameObject spawnPoint;
-    public bool noCustomers;
+    [SerializeField] GameObject[] customers;
+    [SerializeField] GameObject spawnPoint;
     [SerializeField] float maxNumberOfCustomers = 8;
-    private float customerNumber;
+    [SerializeField] Transform orderPoint, customerDonePoint;
+    private int _customerNumber;
 
     void Start()
     {
-        noCustomers = true;
+        SpawnCustomers();
     }
 
-    public void SpawnCustomers(Vector3 spawnPointPosition)
+    public void SpawnCustomers()
     {
-        if (noCustomers && customerNumber < maxNumberOfCustomers)
+        if (_customerNumber++ < maxNumberOfCustomers)
         {
-            Instantiate(customers[Random.Range(0, customers.Length)], spawnPointPosition, Quaternion.identity);
-            customerNumber += 1f;
-            noCustomers = false;
+            CustomerBehavior instance = Instantiate(customers[Random.Range(0, customers.Length)], spawnPoint.transform.position, Quaternion.identity).GetComponent<CustomerBehavior>();
+            instance.Setup(orderPoint, customerDonePoint, this);
         }
-    }
-
-    void Update()
-    {
-        SpawnCustomers(spawnPoint.transform.position);
     }
 }

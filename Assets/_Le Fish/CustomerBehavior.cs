@@ -1,41 +1,38 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CustomerBehavior : MonoBehaviour
 {
-    public Transform orderPoint, customerDonePoint;
-    private CustomerSpawner customerSpawner;
-    private Vector3 customerPosition, orderPointPosition, customerDonePosition;
-    public float speed = 1f;
-    public float orderingTime = 6;
-    public float spawncooldown = 3;
-   [SerializeField] public bool doneEating;
+    [SerializeField] float speed = 1f;
+    [SerializeField] float orderingTime = 6;
+    [SerializeField] float spawnCooldown = 3;
+    [SerializeField] bool doneEating;
+    private Transform _orderPoint, _customerDonePoint;
+    private CustomerSpawner _customerSpawner;
 
     // Define the possible states for the customer.
     public enum CustomerState
     {
         Spawned,
         Ordering,
-        ReadyToGo
+        ReadyToGo,
+        Despawning
     }
 
     // The current state of the customer.
-    private CustomerState currentState = CustomerState.Spawned;
+    private CustomerState _currentState = CustomerState.Spawned;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Setup(Transform orderPoint, Transform donePoint, CustomerSpawner spawner)
     {
-        orderPoint = GameObject.Find("OrderPoint").transform;
-        customerDonePoint = GameObject.Find("DoneEatingPoint").transform;
-        customerSpawner = GameObject.Find("CustomerSpawner").GetComponent<CustomerSpawner>();
-        SetPositions(orderPoint.transform.position, customerDonePoint.transform.position);
+        _orderPoint = orderPoint;
+        _customerDonePoint = donePoint;
+        _customerSpawner = spawner;
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch (currentState)
+        switch (_currentState)
         {
             case CustomerState.Spawned:
                 CheckIfSpawned();
@@ -46,22 +43,15 @@ public class CustomerBehavior : MonoBehaviour
             case CustomerState.ReadyToGo:
                 CheckReadytoGo();
                 break;
-           
         }
-    }
-
-    public void SetPositions(Vector3 orderPointPos, Vector3 customerDonePos)
-    {
-        orderPointPosition = orderPointPos;
-        customerDonePosition = customerDonePos;
     }
 
     public void CheckIfSpawned()
     {
-        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, orderPointPosition, speed * Time.deltaTime);
-        if (gameObject.transform.position == orderPoint.transform.position)
+        transform.position = Vector3.MoveTowards(transform.position, _orderPoint.transform.position, speed * Time.deltaTime);
+        if (transform.position == _orderPoint.transform.position)
         {
-            currentState = CustomerState.Ordering;
+            _currentState = CustomerState.Ordering;
             StartCoroutine(Ordering());
         }
     }
@@ -71,29 +61,30 @@ public class CustomerBehavior : MonoBehaviour
         //Check if the customer gets a dish
         if (doneEating)
         {
-            currentState = CustomerState.ReadyToGo;
+            _currentState = CustomerState.ReadyToGo;
         }
     }
 
     public void CheckReadytoGo()
     {
-        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, customerDonePosition, speed * Time.deltaTime);
-        if (gameObject.transform.position == customerDonePosition)
+        transform.position = Vector3.MoveTowards(transform.position, _customerDonePoint.transform.position, speed * Time.deltaTime);
+        if (transform.position == _customerDonePoint.transform.position)
         {
-          StartCoroutine(SpawnCooldown());
+            _currentState = CustomerState.Despawning;
+            StartCoroutine(SpawnCooldown());
         }
     }
 
     IEnumerator Ordering()
     {
         yield return new WaitForSeconds(orderingTime);
-        currentState = CustomerState.ReadyToGo;
+        _currentState = CustomerState.ReadyToGo;
     }
 
     IEnumerator SpawnCooldown()
     {
-        yield return new WaitForSeconds(spawncooldown);
-        customerSpawner.noCustomers = true;
+        yield return new WaitForSeconds(spawnCooldown);
+        _customerSpawner.SpawnCustomers();
         Destroy(gameObject);
     }
 }
