@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
 public class HandPresence : MonoBehaviour
 {
-    public InputDeviceCharacteristics controllerCharacteristics;    
+    public InputDeviceCharacteristics controllerCharacteristics;
     private InputDevice targetDevice;
     public Animator handAnimator;
 
@@ -27,7 +26,7 @@ public class HandPresence : MonoBehaviour
 
     void UpdateHandAnimation()
     {
-        if(targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
+        if (targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
         {
             handAnimator.SetFloat("Trigger", triggerValue);
         }
@@ -49,7 +48,7 @@ public class HandPresence : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!targetDevice.isValid)
+        if (!targetDevice.isValid)
         {
             TryInitialize();
         }
