@@ -205,7 +205,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1932278541}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!65 &269641012
 BoxCollider:
@@ -301,7 +301,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1932278541}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
 --- !u!1 &463697580
 GameObject:
@@ -384,7 +384,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1932278541}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &623827408
 GameObject:
@@ -397,10 +397,7 @@ GameObject:
   - component: {fileID: 623827409}
   - component: {fileID: 623827415}
   - component: {fileID: 623827414}
-  - component: {fileID: 623827413}
-  - component: {fileID: 623827412}
   - component: {fileID: 623827411}
-  - component: {fileID: 623827410}
   m_Layer: 0
   m_Name: DishFloor
   m_TagString: DishFloor
@@ -421,51 +418,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1932278541}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &623827410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 623827408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1baf57893d5c164baf0daf7069bd9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onEnterTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 623827413}
-        m_TargetAssemblyTypeName: Bake, Assembly-CSharp
-        m_MethodName: set_ingredientInside
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  onExitTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 623827413}
-        m_TargetAssemblyTypeName: Bake, Assembly-CSharp
-        m_MethodName: set_ingredientInside
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  objectTag: 
 --- !u!65 &623827411
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -479,37 +433,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.678503, z: 1.0000001}
   m_Center: {x: 0, y: -0.83925074, z: 0}
---- !u!114 &623827412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 623827408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49e0277d5c97ac143a4348d1f24a30a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onTimerUpdate:
-    m_PersistentCalls:
-      m_Calls: []
-  onTimerFinished:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &623827413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 623827408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb65d6dc2362f5e4a9f0d34cfb2e0a47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timer: {fileID: 623827412}
 --- !u!23 &623827414
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -641,7 +564,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1932278541}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &726238303
 GameObject:
@@ -729,7 +652,7 @@ Transform:
   m_Children:
   - {fileID: 2009965796}
   m_Father: {fileID: 1932278541}
-  m_RootOrder: 0
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 37.556}
 --- !u!65 &726238307
 BoxCollider:
@@ -771,6 +694,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2098618764}
+        m_TargetAssemblyTypeName: Bake, Assembly-CSharp
+        m_MethodName: StartTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onExitTrigger:
     m_PersistentCalls:
       m_Calls:
@@ -778,6 +713,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Bake, Assembly-CSharp
         m_MethodName: set_DoorOpened
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2098618764}
+        m_TargetAssemblyTypeName: Bake, Assembly-CSharp
+        m_MethodName: StopTimer
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -920,7 +867,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1932278541}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1033393579
 GameObject:
@@ -1127,6 +1074,7 @@ GameObject:
   - component: {fileID: 1233828049}
   - component: {fileID: 1233828048}
   - component: {fileID: 1233828053}
+  - component: {fileID: 1233828054}
   m_Layer: 0
   m_Name: Banana
   m_TagString: Ingredient
@@ -1183,7 +1131,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 126e3c7723d4f1c428a277104305f709, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1226,7 +1174,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1233828053
 MonoBehaviour:
@@ -1246,6 +1194,28 @@ MonoBehaviour:
   onTimerFinished:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1233828054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233828047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaa4ad84bee05224782b08444bd542e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshFilter: {fileID: 1233828051}
+  ingredients:
+  - states: 000000000100000002000000
+    meshes:
+    - {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  cookingTime: 60
+  burnTime: 40
+  IsCooking: 0
 --- !u!1 &1433878031
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,7 +1297,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1932278541}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1505715352
 GameObject:
@@ -1455,7 +1425,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 726238306}
   - {fileID: 677179511}
   - {fileID: 846934917}
   - {fileID: 1433878034}
@@ -1464,6 +1433,7 @@ Transform:
   - {fileID: 2098618762}
   - {fileID: 269641011}
   - {fileID: 623827409}
+  - {fileID: 726238306}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1574,9 +1544,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2098618762}
   - component: {fileID: 2098618761}
-  - component: {fileID: 2098618764}
   - component: {fileID: 2098618765}
+  - component: {fileID: 2098618764}
   - component: {fileID: 2098618766}
+  - component: {fileID: 2098618767}
   m_Layer: 0
   m_Name: Dish
   m_TagString: Untagged
@@ -1605,7 +1576,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1932278541}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2098618764
 MonoBehaviour:
@@ -1619,7 +1590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb65d6dc2362f5e4a9f0d34cfb2e0a47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 0}
+  timer: {fileID: 2098618767}
 --- !u!65 &2098618765
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1650,8 +1621,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2098618764}
         m_TargetAssemblyTypeName: Bake, Assembly-CSharp
-        m_MethodName: set_IngredientInside
-        m_Mode: 6
+        m_MethodName: AddIngredient
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1665,8 +1636,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2098618764}
         m_TargetAssemblyTypeName: Bake, Assembly-CSharp
-        m_MethodName: set_IngredientInside
-        m_Mode: 6
+        m_MethodName: RemoveIngredient
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1675,7 +1646,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  objectTag: 
+  objectTag: Ingredient
+--- !u!114 &2098618767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098618758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e0277d5c97ac143a4348d1f24a30a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTimerUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  onTimerFinished:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2102542814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1782,13 +1771,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2102542814}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.53, z: -3.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2129911112
 PrefabInstance:
