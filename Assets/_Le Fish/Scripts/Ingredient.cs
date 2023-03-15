@@ -11,6 +11,9 @@ public class Ingredient : MonoBehaviour
 
     [SerializeField] MeshFilter meshFilter;
     [SerializeField] List<IngredientData> ingredients = new();
+    [SerializeField] public int cookingTime;
+    [SerializeField] public int burnTime;
+    public bool IsCooking = false;
 
     [Serializable]
     public class IngredientData
