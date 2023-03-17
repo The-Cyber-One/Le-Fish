@@ -13,7 +13,9 @@ public class Ingredient : MonoBehaviour
     [SerializeField] List<IngredientData> ingredients = new();
     [SerializeField] public int cookingTime;
     [SerializeField] public int burnTime;
+    [SerializeField] public Timer timer;
     public bool IsCooking = false;
+    public bool percentage;
 
     [Serializable]
     public class IngredientData
