@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class Slicer : MonoBehaviour
 {
-    void OnTriggerEnter(Collider other)
-
+    void OnCollisionEnter(Collision collision)
     {
-        other.GetComponent<Ingredient>().Slice();
-
+        if (collision.collider.TryGetComponent(out Ingredient ingredient))
+        {
+            ingredient.Slice();
+        }
     }
 }
 
