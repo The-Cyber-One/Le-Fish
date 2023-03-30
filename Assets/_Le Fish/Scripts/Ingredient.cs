@@ -8,17 +8,18 @@ public class Ingredient : MonoBehaviour
 {
     public IngredientState CurrentState { get; private set; }
     public int CurrentSlice { get; private set; }
-
     [SerializeField] MeshFilter meshFilter;
-    [SerializeField] List<IngredientData> ingredients = new();
-    [SerializeField] public int cookingTime;
-    [SerializeField] public int burnTime;
-    [SerializeField] public Timer timer;
+    [SerializeField] List<IngredientDataTmp> ingredients = new();
+    public Timer timer;//
+    public int cookingTime;//
+    public int burnTime;//
+    public int category;   //         // to know if we care about cooking : 0 = dont care : 1 = care
     public bool IsCooking = false;
     public bool percentage;
+    public string ingredient_name;//
 
     [Serializable]
-    public class IngredientData
+    public class IngredientDataTmp//
     {
         [SerializeField] public IngredientState[] states;
         [SerializeField] public Mesh[] meshes;
@@ -48,7 +49,7 @@ public class Ingredient : MonoBehaviour
 }
 
 #if UNITY_EDITOR
-[CustomPropertyDrawer(typeof(Ingredient.IngredientData))]
+[CustomPropertyDrawer(typeof(Ingredient.IngredientDataTmp))]
 public class IngredientDataDrawer : PropertyDrawer
 {
     const float PROPERTY_HEIGHT = 18;
@@ -62,8 +63,8 @@ public class IngredientDataDrawer : PropertyDrawer
 
     private void Setup(SerializedProperty property)
     {
-        SerializedProperty meshesField = property.FindPropertyRelative(nameof(Ingredient.IngredientData.meshes));
-        SerializedProperty statesField = property.FindPropertyRelative(nameof(Ingredient.IngredientData.states));
+        SerializedProperty meshesField = property.FindPropertyRelative(nameof(Ingredient.IngredientDataTmp.meshes));
+        SerializedProperty statesField = property.FindPropertyRelative(nameof(Ingredient.IngredientDataTmp.states));
         for (int i = 0; i < _ingredientStates.Length; i++)
         {
             meshesField.InsertArrayElementAtIndex(i);
@@ -74,7 +75,7 @@ public class IngredientDataDrawer : PropertyDrawer
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
-        if (property.FindPropertyRelative(nameof(Ingredient.IngredientData.meshes)).arraySize < _ingredientStates.Length)
+        if (property.FindPropertyRelative(nameof(Ingredient.IngredientDataTmp.meshes)).arraySize < _ingredientStates.Length)
             Setup(property);
 
         EditorGUI.BeginProperty(position, label, property);
@@ -84,7 +85,7 @@ public class IngredientDataDrawer : PropertyDrawer
         labelStyle.normal.textColor = Color.white;
         EditorGUI.LabelField(labelPosition, label.text.Replace("Element", "Slice"), labelStyle);
 
-        SerializedProperty meshesField = property.FindPropertyRelative(nameof(Ingredient.IngredientData.meshes));
+        SerializedProperty meshesField = property.FindPropertyRelative(nameof(Ingredient.IngredientDataTmp.meshes));
 
         for (int i = 0; i < _ingredientStates.Length; i++)
         {
