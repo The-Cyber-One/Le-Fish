@@ -1253,6 +1253,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Hand
       objectReference: {fileID: 0}
+    - target: {fileID: 7002848759265058243, guid: 55770af7c3c315740a168c561bfce84b, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55770af7c3c315740a168c561bfce84b, type: 3}
 --- !u!4 &6011391998429523645 stripped

@@ -13,6 +13,8 @@ public class FingerTarget : MonoBehaviour
     [SerializeField] float activationDistance = 0.1f, activationSmoothing = 0.01f;
     [SerializeField] float poseSmoothingSpeed = 0.05f;
 
+    public bool IsPosing { get; private set; }
+
     private Transform desiredTarget;
     private float _offset;
     private float ActivationSmoothingEnd => activationDistance - activationSmoothing;
@@ -29,7 +31,8 @@ public class FingerTarget : MonoBehaviour
     {
         Collider[] colliders = Physics.OverlapSphere(activationCenter.position, activationDistance, layerMask, QueryTriggerInteraction.Ignore);
         chainIK.weight = 0;
-        if (rootRay == null || colliders.Length == 0)
+        IsPosing = rootRay != null && colliders.Length > 0;
+        if (!IsPosing)
         {
             transform.position = desiredTarget.position = chainIK.data.tip.position;
             return;

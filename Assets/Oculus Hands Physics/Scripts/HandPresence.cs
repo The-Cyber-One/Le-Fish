@@ -1,12 +1,15 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.XR;
 
 public class HandPresence : MonoBehaviour
 {
-    public InputDeviceCharacteristics controllerCharacteristics;
+    [SerializeField] InputDeviceCharacteristics controllerCharacteristics;
+    [SerializeField] Animator handAnimator;
+    [SerializeField] FingerTarget[] fingerTargets;
+
     private InputDevice targetDevice;
-    public Animator handAnimator;
 
     void Start()
     {
@@ -21,6 +24,23 @@ public class HandPresence : MonoBehaviour
         if (devices.Count > 0)
         {
             targetDevice = devices[0];
+        }
+    }
+
+    void Update()
+    {
+        if (!targetDevice.isValid)
+        {
+            TryInitialize();
+        }
+        else if (fingerTargets.All(target => !target.IsPosing))
+        {
+            UpdateHandAnimation();
+        }
+        else
+        {
+            handAnimator.SetFloat("Trigger", 0);
+            handAnimator.SetFloat("Grip", 0);
         }
     }
 
@@ -42,19 +62,6 @@ public class HandPresence : MonoBehaviour
         else
         {
             handAnimator.SetFloat("Grip", 0);
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (!targetDevice.isValid)
-        {
-            TryInitialize();
-        }
-        else
-        {
-            UpdateHandAnimation();
         }
     }
 }
