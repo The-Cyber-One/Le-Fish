@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static IngredientData;
 
 public class Bake : MonoBehaviour
 {
@@ -14,19 +15,19 @@ public class Bake : MonoBehaviour
         {
             for (i = 0; i < _ingredients.Count; i++)
             {
-                if (_ingredients[i].CurrentState == Ingredient.IngredientState.Raw && _ingredients[i].IsCooking == false)
+                if (_ingredients[i].CurrentState == IngredientState.Raw && _ingredients[i].IsCooking == false)
                 {
                     _ingredients[i].timer.onTimerUpdate.AddListener(Percentage);
                     _ingredients[i].timer.onTimerFinished.AddListener(() => StateCook(i));
-                    _ingredients[i].timer.StartTimer(_ingredients[i].cookingTime);
+                    _ingredients[i].timer.StartTimer(_ingredients[i].Data.CookingTime);
                     _ingredients[i].IsCooking = true;
                 }
 
-                if (_ingredients[i].CurrentState == Ingredient.IngredientState.Cooked && _ingredients[i].IsCooking == false)
+                if (_ingredients[i].CurrentState == IngredientState.Cooked && _ingredients[i].IsCooking == false)
                 {
                     _ingredients[i].timer.onTimerFinished.AddListener(() => StateBurn(i));
                     _ingredients[i].timer.onTimerUpdate.AddListener(Percentage);
-                    _ingredients[i].timer.StartTimer(_ingredients[i].burnTime);
+                    _ingredients[i].timer.StartTimer(_ingredients[i].Data.BurnTime);
                     _ingredients[i].IsCooking = true;
                 }
             }
@@ -62,7 +63,7 @@ public class Bake : MonoBehaviour
         _ingredients[i].timer.onTimerFinished.RemoveAllListeners();
         _ingredients[i].timer.onTimerUpdate.RemoveAllListeners();
         _ingredients[i].IsCooking = false;
-        _ingredients[i].NextState(Ingredient.IngredientState.Cooked);
+        _ingredients[i].SetState(IngredientState.Cooked);
     }
 
     void StateBurn(int i)
@@ -71,7 +72,7 @@ public class Bake : MonoBehaviour
         _ingredients[i].timer.onTimerFinished.RemoveAllListeners();
         _ingredients[i].timer.onTimerUpdate.RemoveAllListeners();
         _ingredients[i].IsCooking = false;
-        _ingredients[i].NextState(Ingredient.IngredientState.Burnt);
+        _ingredients[i].SetState(IngredientState.Burnt);
     }
 
     void Percentage(float percentage)
