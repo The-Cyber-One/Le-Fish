@@ -9,15 +9,12 @@ public class FingerTarget : MonoBehaviour
     [SerializeField] ChainIKConstraint chainIK;
     [SerializeField] Transform rootRay;
     [SerializeField] LayerMask layerMask;
-    [SerializeField] Transform activationCenter;
-    [SerializeField] float activationDistance = 0.1f, activationSmoothing = 0.01f;
     [SerializeField] float poseSmoothingSpeed = 0.05f;
 
     public bool IsPosing { get; private set; }
 
     private Transform desiredTarget;
     private float _offset;
-    private float ActivationSmoothingEnd => activationDistance - activationSmoothing;
 
     private void Start()
     {
@@ -29,27 +26,11 @@ public class FingerTarget : MonoBehaviour
 
     private void Update()
     {
-        Collider[] colliders = Physics.OverlapSphere(activationCenter.position, activationDistance, layerMask, QueryTriggerInteraction.Ignore);
-        chainIK.weight = 0;
-        IsPosing = rootRay != null && colliders.Length > 0;
-        if (!IsPosing)
+        if (rootRay == null || chainIK.weight == 0)
         {
             transform.position = desiredTarget.position = chainIK.data.tip.position;
             return;
         }
-
-        float weight = 0;
-        foreach (Collider collider in colliders)
-        {
-            Vector3 hitPoint = collider.ClosestPoint(activationCenter.position);
-            float distance = Vector3.Distance(hitPoint, activationCenter.position);
-            float hitWeight = Mathf.InverseLerp(activationDistance, ActivationSmoothingEnd, distance);
-            weight = Mathf.Max(weight, hitWeight);
-            
-            if (weight == 1) 
-                break;
-        }
-        chainIK.weight = weight;
 
         Transform ray = rootRay;
         while (ray.childCount > 0)
@@ -70,14 +51,8 @@ public class FingerTarget : MonoBehaviour
     [SerializeField] private bool showGizmos;
     private void OnDrawGizmos()
     {
-        if (!showGizmos || rootRay == null || activationCenter == null)
+        if (!showGizmos || rootRay == null)
             return;
-
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(activationCenter.position, activationDistance);
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(activationCenter.position, ActivationSmoothingEnd);
 
         Gizmos.color = Color.magenta;
         Transform ray = rootRay;

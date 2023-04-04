@@ -4,28 +4,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 public class DialogSystem : MonoBehaviour
 {
     [SerializeField] TextMeshPro textMeshPro;
     [SerializeField] float displaySpeed = 0.5f;
+    [SerializeField] int currentDialogIndex = 0;
     [SerializeField] Dialog[] dialogs;
 
     [Serializable]
     public class Dialog
     {
-        [SerializeField] string title;
+        [SerializeField, HideInInspector] string _inspectorTitle; //Used to set a title in the inspector
+        [SerializeField] public string Title;
         [SerializeField] public float DisplayTime;
-        [SerializeField, TextArea(1,10)] public string Text;
+        [SerializeField, TextArea(1, 10)] public string Text;
+
+        public void UpdateInspectorTitle(int index) => _inspectorTitle = $"{index} - {Title}";
+    }
+
+    private void OnValidate()
+    {
+        for (int i = 0; i < dialogs.Length; i++)
+            dialogs[i].UpdateInspectorTitle(i);
     }
 
     private IEnumerator Start()
     {
         var waitForChar = new WaitForSeconds(displaySpeed);
 
-        foreach (Dialog dialog in dialogs)
+        for (; currentDialogIndex < dialogs.Length; currentDialogIndex++)
         {
+            Dialog dialog = dialogs[currentDialogIndex];
             textMeshPro.text = string.Empty;
             var matches = Regex.Matches(dialog.Text, @"<[^<]*>"); // Find tags that are contained with <> so that these tags will be typed all at once
             List<string> text = new();

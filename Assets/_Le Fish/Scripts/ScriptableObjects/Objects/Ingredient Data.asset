@@ -14,7 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   CanChangeState: 0
+  Slices:
+  - States: 000000000100000002000000
+    Meshes:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - States: 000000000100000002000000
+    Meshes:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   CookingTime: 0
   BurnTime: 0
-  States: 
-  Meshes: []
