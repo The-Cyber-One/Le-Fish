@@ -526,6 +526,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5196678998083032006, guid: e5f134cd8efc6bd41bbf2af55ea9ef7d, type: 3}
+      propertyPath: showGizmos
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5751871184466883630, guid: e5f134cd8efc6bd41bbf2af55ea9ef7d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -853,6 +857,7 @@ GameObject:
   - component: {fileID: 1859268998}
   - component: {fileID: 1859268997}
   - component: {fileID: 1859269002}
+  - component: {fileID: 1859269003}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -1079,6 +1084,22 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &1859269003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859268996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaa4ad84bee05224782b08444bd542e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshFilter: {fileID: 0}
+  timer: {fileID: 0}
+  IsCooking: 0
+  Data: {fileID: 0}
 --- !u!1 &1970552316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,6 +1261,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -71.848
       objectReference: {fileID: 0}
+    - target: {fileID: 6011391999045430910, guid: 55770af7c3c315740a168c561bfce84b, type: 3}
+      propertyPath: showGizmos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011391999045430910, guid: 55770af7c3c315740a168c561bfce84b, type: 3}
+      propertyPath: activationCenter
+      value: 
+      objectReference: {fileID: 2119466292}
     - target: {fileID: 6011391999045430911, guid: 55770af7c3c315740a168c561bfce84b, type: 3}
       propertyPath: m_Name
       value: Left Hand
@@ -1254,3 +1283,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55770af7c3c315740a168c561bfce84b, type: 3}
+--- !u!4 &2119466292 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 722095853808707005, guid: 55770af7c3c315740a168c561bfce84b, type: 3}
+  m_PrefabInstance: {fileID: 2119466291}
+  m_PrefabAsset: {fileID: 0}
