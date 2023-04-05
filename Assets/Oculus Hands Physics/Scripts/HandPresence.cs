@@ -10,10 +10,9 @@ public class HandPresence : MonoBehaviour
     [SerializeField] ChainIKConstraint[] fingerChains;
     [SerializeField] Transform activationCenter;
     [SerializeField] float activationDistance = 0.1f, activationSmoothing = 0.02f;
-    [SerializeField] LayerMask layerMask;
 
     private InputDevice targetDevice;
-    private bool _useButtons, _usePoser;
+    private bool _useButtons = true, _usePoser;
     private HandPoser _handPoser;
 
     private void TryInitialize()
@@ -29,15 +28,19 @@ public class HandPresence : MonoBehaviour
 
     private void Start()
     {
+        foreach (var chain in fingerChains)
+        {
+            chain.weight = 0;
+        }
+
         TryInitialize();
     }
 
-    private readonly Collider[] _colliders = new Collider[5];
     private float GetFingerWeight()
     {
-        Physics.OverlapSphereNonAlloc(activationCenter.position, activationDistance, _colliders, layerMask, QueryTriggerInteraction.Ignore);
+        Collider[] colliders = Physics.OverlapSphere(activationCenter.position, activationDistance, ~(-1 << gameObject.layer), QueryTriggerInteraction.Ignore);
         float weight = 0;
-        foreach (Collider collider in _colliders)
+        foreach (Collider collider in colliders)
         {
             Vector3 hitPoint = collider.ClosestPoint(activationCenter.position);
             float distance = Vector3.Distance(hitPoint, activationCenter.position);

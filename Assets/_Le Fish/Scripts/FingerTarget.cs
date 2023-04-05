@@ -8,7 +8,6 @@ public class FingerTarget : MonoBehaviour
 {
     [SerializeField] ChainIKConstraint chainIK;
     [SerializeField] Transform rootRay;
-    [SerializeField] LayerMask layerMask;
     [SerializeField] float poseSmoothingSpeed = 0.05f;
 
     public bool IsPosing { get; private set; }
@@ -37,8 +36,9 @@ public class FingerTarget : MonoBehaviour
         {
             Transform child = ray.GetChild(0);
             Vector3 direction = child.position - ray.position;
-            if (Physics.Raycast(ray.position, direction, out RaycastHit hitInfo, direction.magnitude, layerMask, QueryTriggerInteraction.Ignore))
+            if (Physics.Raycast(ray.position, direction, out RaycastHit hitInfo, direction.magnitude, ~(-1 << gameObject.layer), QueryTriggerInteraction.Ignore))
             {
+                Debug.Log(name);
                 desiredTarget.position = hitInfo.point + hitInfo.normal * _offset;
                 break;
             }

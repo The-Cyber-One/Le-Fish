@@ -46,12 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chainIK: {fileID: 1301351173238587628}
   rootRay: {fileID: 4912502159832867041}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 63
-  activationCenter: {fileID: 722095853808707005}
-  activationDistance: 0.1
-  activationSmoothing: 0.02
   poseSmoothingSpeed: 0.01
   showGizmos: 0
 --- !u!1 &1937888849447738569
@@ -196,12 +190,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chainIK: {fileID: 4797339110416042224}
   rootRay: {fileID: 2787797231570408319}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 63
-  activationCenter: {fileID: 722095853808707005}
-  activationDistance: 0.1
-  activationSmoothing: 0.02
   poseSmoothingSpeed: 0.01
   showGizmos: 0
 --- !u!1 &2802972158946698817
@@ -617,12 +605,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chainIK: {fileID: 8785457066084824144}
   rootRay: {fileID: 7273433996458171803}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 63
-  activationCenter: {fileID: 722095853808707005}
-  activationDistance: 0.1
-  activationSmoothing: 0.02
   poseSmoothingSpeed: 0.01
   showGizmos: 0
 --- !u!1 &5031624133123426200
@@ -906,12 +888,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chainIK: {fileID: 7137327225005844054}
   rootRay: {fileID: 4141541271054883989}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 63
-  activationCenter: {fileID: 722095853808707005}
-  activationDistance: 0.1
-  activationSmoothing: 0.02
   poseSmoothingSpeed: 0.01
   showGizmos: 0
 --- !u!1 &5870173918017926115
@@ -994,12 +970,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controllerCharacteristics: 320
   handAnimator: {fileID: 818280808115014791}
-  fingerTargets:
-  - {fileID: 5196678997484163846}
-  - {fileID: 8696936974735786003}
-  - {fileID: 3525516374655593728}
-  - {fileID: 5724773175206048536}
-  - {fileID: 626388365067649110}
+  fingerChains:
+  - {fileID: 893458000885702322}
+  - {fileID: 1301351173238587628}
+  - {fileID: 7137327225005844054}
+  - {fileID: 8785457066084824144}
+  - {fileID: 4797339110416042224}
+  activationCenter: {fileID: 722095853808707005}
+  activationDistance: 0.1
+  activationSmoothing: 0.02
+  showGizmos: 0
 --- !u!54 &7002848759265058243
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1094,12 +1074,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chainIK: {fileID: 893458000885702322}
   rootRay: {fileID: 190723485572446782}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 63
-  activationCenter: {fileID: 722095853808707005}
-  activationDistance: 0.1
-  activationSmoothing: 0.02
   poseSmoothingSpeed: 0.01
   showGizmos: 0
 --- !u!1 &7129767520703005441
