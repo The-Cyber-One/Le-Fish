@@ -12,7 +12,7 @@ public class FingerTarget : MonoBehaviour
 
     public bool IsPosing { get; private set; }
 
-    private Transform desiredTarget;
+    private Transform desiredTarget, startTarget;
     private float _offset;
 
     private void Start()
@@ -20,6 +20,9 @@ public class FingerTarget : MonoBehaviour
         desiredTarget = new GameObject("Desired Target").transform;
         desiredTarget.SetParent(transform.parent);
         desiredTarget.position = transform.position = chainIK.data.tip.position;
+        startTarget = new GameObject("Start Target").transform;
+        startTarget.SetParent(transform.parent);
+        startTarget.position = transform.position = chainIK.data.tip.position;
         _offset = chainIK.data.tip.parent.GetComponentsInChildren<CapsuleCollider>().Last().radius;
     }
 
@@ -27,7 +30,7 @@ public class FingerTarget : MonoBehaviour
     {
         if (rootRay == null || chainIK.weight == 0)
         {
-            transform.position = desiredTarget.position = chainIK.data.tip.position;
+            transform.position = desiredTarget.position = startTarget.position;
             return;
         }
 
@@ -38,7 +41,6 @@ public class FingerTarget : MonoBehaviour
             Vector3 direction = child.position - ray.position;
             if (Physics.Raycast(ray.position, direction, out RaycastHit hitInfo, direction.magnitude, ~(-1 << gameObject.layer), QueryTriggerInteraction.Ignore))
             {
-                Debug.Log(name);
                 desiredTarget.position = hitInfo.point + hitInfo.normal * _offset;
                 break;
             }

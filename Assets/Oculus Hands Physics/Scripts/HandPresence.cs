@@ -10,10 +10,13 @@ public class HandPresence : MonoBehaviour
     [SerializeField] ChainIKConstraint[] fingerChains;
     [SerializeField] Transform activationCenter;
     [SerializeField] float activationDistance = 0.1f, activationSmoothing = 0.02f;
+    [SerializeField] bool ignoreControllers;
 
     private InputDevice targetDevice;
-    private bool _useButtons = true, _usePoser;
-    private HandPoser _handPoser;
+    private bool _useButtons = true;
+    private bool _isPosing = false;
+
+    private int InvertedLayer => ~(-1 << gameObject.layer);
 
     private void TryInitialize()
     {
@@ -36,9 +39,25 @@ public class HandPresence : MonoBehaviour
         TryInitialize();
     }
 
+    private void StartPosing()
+    {
+        _useButtons = false;
+        handAnimator.SetFloat("Trigger", 0);
+        handAnimator.SetFloat("Grip", 0);
+    }
+
+    private void StopPosing()
+    {
+        _useButtons = true;
+        foreach (ChainIKConstraint chain in fingerChains)
+        {
+            chain.weight = 0;
+        }
+    }
+
     private float GetFingerWeight()
     {
-        Collider[] colliders = Physics.OverlapSphere(activationCenter.position, activationDistance, ~(-1 << gameObject.layer), QueryTriggerInteraction.Ignore);
+        Collider[] colliders = Physics.OverlapSphere(activationCenter.position, activationDistance, InvertedLayer, QueryTriggerInteraction.Ignore);
         float weight = 0;
         foreach (Collider collider in colliders)
         {
@@ -53,35 +72,29 @@ public class HandPresence : MonoBehaviour
         return weight;
     }
 
-    public void StartPosing(Collider collider)
-    {
-        _useButtons = false;
-        _usePoser = collider.TryGetComponent(out _handPoser);
-        handAnimator.SetFloat("Trigger", 0);
-        handAnimator.SetFloat("Grip", 0);
-    }
-
-    public void StopPosing(Collider collider)
-    {
-        _useButtons = true;
-        _handPoser = null;
-    }
-
     private void Update()
     {
-        if (!targetDevice.isValid)
+        if (!ignoreControllers && !targetDevice.isValid)
         {
             TryInitialize();
             return;
         }
 
+        bool inRange = Physics.CheckSphere(activationCenter.position, activationDistance, InvertedLayer, QueryTriggerInteraction.Ignore);
+        if (inRange && !_isPosing)
+        {
+            _isPosing = true;
+            StartPosing();
+        }
+        else if (!inRange && _isPosing)
+        {
+            _isPosing = false;
+            StopPosing();
+        }
+
         if (_useButtons)
         {
             UpdateHandAnimation();
-        }
-        else if (_usePoser)
-        {
-            
         }
         else
         {

@@ -9,7 +9,7 @@ public class ColliderDetector : MonoBehaviour
     [SerializeField] UnityEvent<Collision> onEnterCollider;
     [SerializeField] UnityEvent<Collision> onExitCollider;
 
-    private void OnTriggerStay(Collider collider)
+    private void OnTriggerEnter(Collider collider)
     {
         if (objectTag == string.Empty || collider.gameObject.CompareTag(objectTag))
         {
