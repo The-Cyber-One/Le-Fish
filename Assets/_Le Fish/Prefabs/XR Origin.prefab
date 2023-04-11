@@ -525,7 +525,6 @@ GameObject:
   - component: {fileID: 5751871185524985858}
   - component: {fileID: 3151741013856468072}
   - component: {fileID: 8368086175731433959}
-  - component: {fileID: 8634668481522826880}
   m_Layer: 0
   m_Name: LeftHand Controller
   m_TagString: Untagged
@@ -824,55 +823,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.06006899
   m_Center: {x: -0.04278999, y: -0.05953952, z: -0.0351845}
---- !u!114 &8634668481522826880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5751871185524986360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1baf57893d5c164baf0daf7069bd9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectTag: 
-  onEnterTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6011391998429523646}
-        m_TargetAssemblyTypeName: HandPresence, Assembly-CSharp
-        m_MethodName: StartPosing
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onExitTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6011391998429523646}
-        m_TargetAssemblyTypeName: HandPresence, Assembly-CSharp
-        m_MethodName: StopPosing
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onEnterCollider:
-    m_PersistentCalls:
-      m_Calls: []
-  onExitCollider:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5751871186028350231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1303,10 +1253,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Hand
       objectReference: {fileID: 0}
-    - target: {fileID: 7002848759265058243, guid: 55770af7c3c315740a168c561bfce84b, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55770af7c3c315740a168c561bfce84b, type: 3}
 --- !u!4 &6011391998429523645 stripped
@@ -1314,17 +1260,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6011391999045430909, guid: 55770af7c3c315740a168c561bfce84b, type: 3}
   m_PrefabInstance: {fileID: 616431808}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6011391998429523646 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6011391999045430910, guid: 55770af7c3c315740a168c561bfce84b, type: 3}
-  m_PrefabInstance: {fileID: 616431808}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99b4a737903b82a43bb95804a2149147, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &7002848759729708291 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 7002848759265058243, guid: 55770af7c3c315740a168c561bfce84b, type: 3}
