@@ -14,6 +14,7 @@ public class CustomerBehavior : MonoBehaviour
     private CustomerType _randomCustomerType;
     private bool _isSatisfied = true;
     private float eatingTime = 40.0f;
+    public ListRecipe listRecipe;
 
     // Define the possible states for the customer.
     public enum CustomerState
@@ -193,26 +194,6 @@ public class CustomerBehavior : MonoBehaviour
 
             default:
                 Debug.Log("No Customer Type defined");
-                break;
-        }
-    }
-
-    public void CustomerAssociateRecipe()
-    {
-        int random = UnityEngine.Random.Range(1, 3);
-
-        switch (random)
-        {
-            case 1:
-
-                break;
-
-            case 2:
-
-                break;
-
-            case 3:
-
                 break;
         }
     }

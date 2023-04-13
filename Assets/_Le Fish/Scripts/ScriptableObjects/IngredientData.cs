@@ -47,9 +47,11 @@ public class IngredientDataEditor : Editor
         if (_canChangeState.boolValue)
         {
             EditorGUI.indentLevel++;
+            serializedObject.Update();
             EditorGUILayout.PropertyField(_cookingTime);
             EditorGUILayout.PropertyField(_burnTime);
             EditorGUILayout.PropertyField(_slices);
+            serializedObject.ApplyModifiedProperties();
             EditorGUI.indentLevel--;
         }
     }
