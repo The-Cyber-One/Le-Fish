@@ -194,6 +194,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8410fc332f6163b43a2fe39277cc2383, type: 2}
+    - target: {fileID: -2034148968241356654, guid: 412d2f6c2e5574e4fa412e46265da48c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.17
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 412d2f6c2e5574e4fa412e46265da48c, type: 3}
       propertyPath: m_Name
       value: more complicated restaurant
