@@ -4,16 +4,16 @@ using UnityEngine.Events;
 public class ColliderDetector : MonoBehaviour
 {
     [SerializeField, Tooltip("If empty will be ignored!")] string objectTag;
-    [SerializeField] UnityEvent<Collider> onEnterTrigger;
-    [SerializeField] UnityEvent<Collider> onExitTrigger;
-    [SerializeField] UnityEvent<Collision> onEnterCollider;
-    [SerializeField] UnityEvent<Collision> onExitCollider;
+    public UnityEvent<Collider> OnEnterTrigger;
+    public UnityEvent<Collider> OnExitTrigger;
+    public UnityEvent<Collision> OnEnterCollider;
+    public UnityEvent<Collision> OnExitCollider;
 
     private void OnTriggerEnter(Collider collider)
     {
         if (objectTag == string.Empty || collider.gameObject.CompareTag(objectTag))
         {
-            onEnterTrigger.Invoke(collider);
+            OnEnterTrigger.Invoke(collider);
         }
     }
 
@@ -21,7 +21,7 @@ public class ColliderDetector : MonoBehaviour
     {
         if (objectTag == string.Empty || collider.gameObject.CompareTag(objectTag))
         {
-            onExitTrigger.Invoke(collider);
+            OnExitTrigger.Invoke(collider);
         }
     }
 
@@ -29,7 +29,7 @@ public class ColliderDetector : MonoBehaviour
     {
         if (objectTag == string.Empty || collision.gameObject.CompareTag(objectTag))
         {
-            onEnterTrigger.Invoke(GetComponent<Collider>());
+            OnEnterTrigger.Invoke(GetComponent<Collider>());
         }
     }
 
@@ -37,7 +37,7 @@ public class ColliderDetector : MonoBehaviour
     {
         if (objectTag == string.Empty || collision.gameObject.CompareTag(objectTag))
         {
-            onExitTrigger.Invoke(GetComponent<Collider>());
+            OnExitTrigger.Invoke(GetComponent<Collider>());
         }
     }
 }
