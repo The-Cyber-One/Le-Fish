@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dee2e279709076c4e8038eedef335ea2, type: 3}
+  m_Name: KatsuTwo
+  m_EditorClassIdentifier: 
+  Name: KatsuTwo
+  ingredients:
+  - Ingredient: {fileID: 11400000, guid: ef7f182db7909ac40a8bb6b53012b34a, type: 2}
+    CookingState: 0
+    SliceState: 0
+  - Ingredient: {fileID: 11400000, guid: 614fc86bfb3511045b929d439e276453, type: 2}
+    CookingState: 1
+    SliceState: 0
+  - Ingredient: {fileID: 11400000, guid: e8a893323824d7d43ae39cdfaff73521, type: 2}
+    CookingState: 1
+    SliceState: 2
+  - Ingredient: {fileID: 11400000, guid: 98a8a2b63c9ff3847b6b6b7514ce01a0, type: 2}
+    CookingState: 0
+    SliceState: 0
+  - Ingredient: {fileID: 11400000, guid: e0beaf3da83ff994493edacd3a430fde, type: 2}
+    CookingState: 0
+    SliceState: 0
+  - Ingredient: {fileID: 11400000, guid: e7fae4561acd6d2478372c2a1503fd1e, type: 2}
+    CookingState: 1
+    SliceState: 1
+  - Ingredient: {fileID: 11400000, guid: b922848238ae9c0429c9b3232759e211, type: 2}
+    CookingState: 0
+    SliceState: 0

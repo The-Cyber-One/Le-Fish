@@ -1896,32 +1896,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshFilter: {fileID: 1233828051}
-  ingredients:
-  - states: 000000000100000002000000
-    meshes:
-    - {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-    - {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
-    - {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
-  - states: 000000000100000002000000
-    meshes:
-    - {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-    - {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
-    - {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
-  - states: 000000000100000002000000
-    meshes:
-    - {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-    - {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
-    - {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
-  - states: 000000000100000002000000
-    meshes:
-    - {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-    - {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
-    - {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
-  cookingTime: 60
-  burnTime: 40
   timer: {fileID: 0}
   IsCooking: 0
-  percentage: 0
+  Data: {fileID: 0}
 --- !u!114 &1233828055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2313,7 +2290,7 @@ GameObject:
   - component: {fileID: 1531715909}
   m_Layer: 0
   m_Name: Tomato
-  m_TagString: Untagged
+  m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2409,37 +2386,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshFilter: {fileID: 1531715906}
-  ingredients:
-  - states: 000000000100000002000000
-    meshes:
-    - {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-    - {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
-    - {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  - states: 000000000100000002000000
-    meshes:
-    - {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
-    - {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
-    - {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  - states: 000000000100000002000000
-    meshes:
-    - {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
-    - {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
-    - {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  - states: 000000000100000002000000
-    meshes:
-    - {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-    - {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
-    - {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  - states: 000000000100000002000000
-    meshes:
-    - {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
-    - {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
-    - {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  cookingTime: 2
-  burnTime: 3
   timer: {fileID: 0}
   IsCooking: 0
-  percentage: 0
+  Data: {fileID: 11400000, guid: ec18668897b29c347b319a8594d82601, type: 2}
 --- !u!114 &1531715909
 MonoBehaviour:
   m_ObjectHideFlags: 0

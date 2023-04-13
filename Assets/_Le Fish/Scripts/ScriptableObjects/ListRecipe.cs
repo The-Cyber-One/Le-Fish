@@ -2,21 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 using UnityEngine;
+using System;
 
 [CreateAssetMenu(fileName = "ListRecipe", menuName = "ScriptableObjects/List of Recipes")]
 public class ListRecipe : ScriptableObject
 {
-    [SerializeField] private Dictionary<string, Recipe> list_recipe;
+    [SerializeField] public List<MyKeyValuePair> listRecipes = new();
 
-    public void Initialize()
+    [Serializable]
+    public class MyKeyValuePair
     {
-        list_recipe = new();
-
-        Recipe banana_split = new();
-        banana_split.recipe_name = "banana_split";
-        //banana_split.ingredients = 
-
-        list_recipe.Add("banana_split", banana_split);
-        
+        [SerializeField] public string key;
+        [SerializeField] public RecipeData data;
     }
 }
