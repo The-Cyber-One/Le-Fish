@@ -2069,6 +2069,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -1.785
       objectReference: {fileID: 0}
+    - target: {fileID: -4683669308469848369, guid: 40910e24d0131574b8e2e113a94b2628, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 36d804184488c544384fc34ea461980b, type: 2}
+    - target: {fileID: -4683669308469848369, guid: 40910e24d0131574b8e2e113a94b2628, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3dd8822956888c5489d189ec179db29f, type: 2}
     - target: {fileID: 919132149155446097, guid: 40910e24d0131574b8e2e113a94b2628, type: 3}
       propertyPath: m_Name
       value: Plantgrower
