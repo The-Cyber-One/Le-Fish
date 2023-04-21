@@ -9,5 +9,5 @@ public class Propositions : ScriptableObject
     public string Name;
     public IngredientData SpecialIngredient;
 
-    [SerializeField] private RecipeData[] recipes = new RecipeData[3];
+    [SerializeField] public RecipeData[] Recipes = new RecipeData[3];
 }
