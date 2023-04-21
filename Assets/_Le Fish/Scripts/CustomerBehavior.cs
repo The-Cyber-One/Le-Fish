@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static CustomerBehavior;
 
 public class CustomerBehavior : MonoBehaviour
 {
@@ -11,7 +9,7 @@ public class CustomerBehavior : MonoBehaviour
     [SerializeField] float spawnCooldown = 1.0f;
     [SerializeField] bool doneEating;
     private CustomerSpawner _customerSpawner;
-    private Recipe _proposition;
+    private RecipeData _proposition;
 
     private CustomerType _randomCustomerType;
     private bool _isSatisfied = true;
@@ -92,54 +90,7 @@ public class CustomerBehavior : MonoBehaviour
 
     public void CheckReadytoGo()
     {
-        if (_isSatisfied)
-        {
-            int i = 0;
-            bool endLoop = false;
-            bool seatFull = false;
-
-            if (_customerSpawner.eatPoint != null)
-                while (endLoop == false && _customerSpawner.seatAvailable[i] == false)
-                {
-                    i++;
-                    if (i >= _customerSpawner.seatAvailable.Count)
-                    {
-                        endLoop = true;
-                        seatFull = true;
-                        i = 0;
-                    }
-                }
-
-            if (seatFull == true)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, _customerSpawner.awayPoint.transform.position, speed * Time.deltaTime);
-                if (transform.position == _customerSpawner.awayPoint.transform.position)
-                {
-                    _currentState = CustomerState.Despawning;
-                    StartCoroutine(SpawnCooldown());
-                }
-            }
-
-            else
-            {
-                do
-                {
-                    i = UnityEngine.Random.Range(0, _customerSpawner.seatAvailable.Count - 1);
-                }
-                while (_customerSpawner.seatAvailable[i] == false);
-
-
-                transform.position = Vector3.MoveTowards(transform.position, _customerSpawner.eatPoint[i].transform.position, speed * Time.deltaTime);
-                if (transform.position == _customerSpawner.eatPoint[i].transform.position)
-                {
-                    _customerSpawner.seatAvailable[i] = false;
-                    _currentState = CustomerState.Eating;
-                    StartCoroutine(Eating(i));
-                }
-            }
-        }
-
-        else
+        if (!_isSatisfied)
         {
             transform.position = Vector3.MoveTowards(transform.position, _customerSpawner.awayPoint.transform.position, speed * Time.deltaTime);
             if (transform.position == _customerSpawner.awayPoint.transform.position)
@@ -147,8 +98,54 @@ public class CustomerBehavior : MonoBehaviour
                 _currentState = CustomerState.Despawning;
                 StartCoroutine(SpawnCooldown());
             }
+            return;
         }
 
+        int i = 0;
+        bool endLoop = false;
+        bool seatFull = false;
+
+        if (_customerSpawner.eatPoint != null)
+        {
+            while (endLoop == false && _customerSpawner.seatAvailable[i] == false)
+            {
+                i++;
+                if (i >= _customerSpawner.seatAvailable.Count)
+                {
+                    endLoop = true;
+                    seatFull = true;
+                    i = 0;
+                }
+            }
+        }
+
+        if (seatFull)
+        {
+            //TODO: Maybe order another customer to be done and take that seat instead of moving outside
+
+            transform.position = Vector3.MoveTowards(transform.position, _customerSpawner.awayPoint.transform.position, speed * Time.deltaTime);
+            if (transform.position == _customerSpawner.awayPoint.transform.position)
+            {
+                _currentState = CustomerState.Despawning;
+                StartCoroutine(SpawnCooldown());
+            }
+        }
+        else
+        {
+            do
+            {
+                i = UnityEngine.Random.Range(0, _customerSpawner.seatAvailable.Count - 1);
+            }
+            while (_customerSpawner.seatAvailable[i] == false);
+
+            transform.position = Vector3.MoveTowards(transform.position, _customerSpawner.eatPoint[i].transform.position, speed * Time.deltaTime);
+            if (transform.position == _customerSpawner.eatPoint[i].transform.position)
+            {
+                _customerSpawner.seatAvailable[i] = false;
+                _currentState = CustomerState.Eating;
+                StartCoroutine(Eating(i));
+            }
+        }
     }
 
     IEnumerator Ordering()
@@ -202,53 +199,33 @@ public class CustomerBehavior : MonoBehaviour
         }
     }
 
-    public Recipe AssociateRandomRecipe()
+    public RecipeData AssociateRandomRecipe()
     {
-        int i = UnityEngine.Random.Range(0, 4);
-        int j = UnityEngine.Random.Range(0, 2);
-
-        Propositions _proposition = new();
-        Recipe _recipe = new();
-
-        switch (i)
+        PropositionData _proposition = UnityEngine.Random.Range(0, 4) switch
         {
-            case 0:
-                _proposition = Resources.Load<Propositions>("Propositions/BeefPropositions");
-                break;
-
-            case 1:
-                _proposition = Resources.Load<Propositions>("Propositions/CarrotDogPropositions");
-                break;
-
-            case 2:
-                _proposition = Resources.Load<Propositions>("Propositions/KaripapPropositions");
-                break;
-
-            case 3:
-                _proposition = Resources.Load<Propositions>("Propositions/KatsuPropositions");
-                break;
-
-            case 4:
-                _proposition = Resources.Load<Propositions>("Propositions/PennePropositions");
-                break;
-
-            default:
-                break;
+            0 => Resources.Load<PropositionData>("Propositions/BeefPropositions"),
+            1 => Resources.Load<PropositionData>("Propositions/CarrotDogPropositions"),
+            2 => Resources.Load<PropositionData>("Propositions/KaripapPropositions"),
+            3 => Resources.Load<PropositionData>("Propositions/KatsuPropositions"),
+            4 => Resources.Load<PropositionData>("Propositions/PennePropositions"),
+            _ => throw new NotImplementedException()
         };
 
+        RecipeData _dish = new();
+        int j = UnityEngine.Random.Range(0, 2);
         switch (j)
         {
             case 0:
-                _recipe.Name = _proposition.Recipes[0].Name;
-                return _recipe;
+                _dish.Name = _proposition.Recipes[0].Name;
+                return _dish;
 
             case 1:
-                _recipe.Name = _proposition.Recipes[1].Name;
-                return _recipe;
+                _dish.Name = _proposition.Recipes[1].Name;
+                return _dish;
 
             case 2:
-                _recipe.Name = _proposition.Recipes[2].Name;
-                return _recipe;
+                _dish.Name = _proposition.Recipes[2].Name;
+                return _dish;
 
             default:
                 return null;
@@ -270,12 +247,12 @@ public class CustomerBehavior : MonoBehaviour
 
     public void CheckProposedRecipe(Collider collider)
     {
-        Recipe dishRecipe = collider.GetComponent<Recipe>();
+        RecipeData dishRecipe = collider.GetComponent<RecipeData>();
         WaitingDish = false;
 
-        if (dishRecipe.Name == _proposition.Name)            
+        if (dishRecipe.Name == _proposition.Name)
             _isSatisfied = true;
-        
+
         else _isSatisfied = false;
 
         _currentState = CustomerState.ReadyToGo;
