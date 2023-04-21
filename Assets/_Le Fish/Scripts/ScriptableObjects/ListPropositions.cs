@@ -12,6 +12,6 @@ public class ListPropositions : ScriptableObject
     public class MyKeyValuePair
     {
         [SerializeField] public string key;
-        [SerializeField] public Propositions data;
+        [SerializeField] public PropositionData data;
     }
 }

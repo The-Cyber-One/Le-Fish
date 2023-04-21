@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Plate : MonoBehaviour
 {
-    Recipe _recipeReady;
+    RecipeData _recipeReady;
 
     // Start is called before the first frame update
     public void AddStuff(Collider collider)
     {
-        collider.TryGetComponent<Recipe>(out _recipeReady);
+        collider.TryGetComponent<RecipeData>(out _recipeReady);
     }
 
     // Update is called once per frame

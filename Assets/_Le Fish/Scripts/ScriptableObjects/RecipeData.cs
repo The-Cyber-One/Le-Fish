@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,8 +6,9 @@ using UnityEngine;
 public class RecipeData : ScriptableObject
 {
     public string Name;
+    public GameObject DishPrefab;
 
-    [SerializeField] public List<DataStateSlice> Ingredients;
+    public List<DataStateSlice> Ingredients;
 
     [Serializable]
     public class DataStateSlice
