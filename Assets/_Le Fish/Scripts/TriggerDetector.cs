@@ -9,7 +9,7 @@ public class TriggerDetector : MonoBehaviour
     [SerializeField] UnityEvent<Collider> onExitTrigger;
     [SerializeField, Tooltip("If empty will be ignored !")] private string objectTag;
     
-    private void OnTriggerStay(Collider collider)
+    private void OnTriggerEnter(Collider collider)
     {
         if (objectTag == string.Empty || collider.gameObject.CompareTag(objectTag))
         {

@@ -13,13 +13,10 @@ MonoBehaviour:
   m_Name: BeefOne
   m_EditorClassIdentifier: 
   Name: BeefOne
-  ingredients:
-  - Ingredient: {fileID: 11400000, guid: 027e8f29e4fac1f409e1cc206dc61415, type: 2}
-    CookingState: 1
-    SliceState: 0
-  - Ingredient: {fileID: 11400000, guid: dee2567dcde86374fb01e81e64206270, type: 2}
+  Ingredients:
+  - Ingredient: {fileID: 11400000, guid: fdfc8023346e7b347bfe85d2390fdcd4, type: 2}
     CookingState: 0
     SliceState: 0
-  - Ingredient: {fileID: 11400000, guid: b922848238ae9c0429c9b3232759e211, type: 2}
+  - Ingredient: {fileID: 11400000, guid: e8a893323824d7d43ae39cdfaff73521, type: 2}
     CookingState: 0
     SliceState: 0

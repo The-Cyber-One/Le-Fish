@@ -8,7 +8,7 @@ public class RecipeData : ScriptableObject
 {
     public string Name;
 
-    [SerializeField] private List<DataStateSlice> ingredients;
+    [SerializeField] public List<DataStateSlice> Ingredients;
 
     [Serializable]
     public class DataStateSlice
