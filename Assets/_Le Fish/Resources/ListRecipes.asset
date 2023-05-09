@@ -13,5 +13,18 @@ MonoBehaviour:
   m_Name: ListRecipes
   m_EditorClassIdentifier: 
   ListRecipes:
-  - key: Beef One
-    data: {fileID: 11400000, guid: 0f5cbae05d65d1e42a567dfa3fea57d6, type: 2}
+  - {fileID: 11400000, guid: 0f5cbae05d65d1e42a567dfa3fea57d6, type: 2}
+  - {fileID: 11400000, guid: 5b9e5aa05a3a45f4aaf20dfca8848606, type: 2}
+  - {fileID: 11400000, guid: 9af618555b7e3214296996f9c3a7ab02, type: 2}
+  - {fileID: 11400000, guid: 034bdbb7c20c2fa4a97a76cb36d559b3, type: 2}
+  - {fileID: 11400000, guid: 977c1f8bc4ebdbc4fa847fa5c498f4e0, type: 2}
+  - {fileID: 11400000, guid: 6778f554227c4224ea96bbfefed69e46, type: 2}
+  - {fileID: 11400000, guid: 77b5549080e30f240a1857a9b043176f, type: 2}
+  - {fileID: 11400000, guid: 321293fd65878f7439d58f4e51033dec, type: 2}
+  - {fileID: 11400000, guid: 1a43b03b34bdb9846b71f15f143e1bce, type: 2}
+  - {fileID: 11400000, guid: 764acbe5333cd844fa8fad2359bd16bb, type: 2}
+  - {fileID: 11400000, guid: 8bc0e7f54d6bf3b4d832d7762f2ede4c, type: 2}
+  - {fileID: 11400000, guid: bbb0b70d9c16f394a8b6eb2fc07e9665, type: 2}
+  - {fileID: 11400000, guid: 01da459cfd4275e4ebb004d22cc82621, type: 2}
+  - {fileID: 11400000, guid: e3bbd5cb56c4b104bb3267285b268dc0, type: 2}
+  - {fileID: 11400000, guid: b9bb4b8f67882ac4fb143b8e19e7e677, type: 2}

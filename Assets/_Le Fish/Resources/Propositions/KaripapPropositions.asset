@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf851ceb3dc43142bdbbcf6b151d676, type: 3}
   m_Name: KaripapPropositions
   m_EditorClassIdentifier: 
-  Name: 
-  SpecialIngredient: {fileID: 0}
+  Name: KaripapProposition
+  SpecialIngredient: {fileID: 11400000, guid: f182bf6e97b6c3c4e96fe1a38451012f, type: 2}
   Recipes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 77b5549080e30f240a1857a9b043176f, type: 2}
+  - {fileID: 11400000, guid: 321293fd65878f7439d58f4e51033dec, type: 2}
+  - {fileID: 11400000, guid: 1a43b03b34bdb9846b71f15f143e1bce, type: 2}
