@@ -1,29 +1,26 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
-using static CustomerBehavior;
+using UnityEngine.AI;
 
 public class CustomerBehavior : MonoBehaviour
 {
     [SerializeField] float speed = 1.0f;
-    [SerializeField] float orderingTime = 1.0f;
+    [SerializeField] float orderingTime = 5.0f;
     [SerializeField] float spawnCooldown = 1.0f;
     [SerializeField] bool doneEating;
-    private CustomerSpawner _customerSpawner;
-    private CustomerType _randomCustomerType;
-    private bool _isSatisfied = true;
-    private float eatingTime = 40.0f;
 
-    // Define the possible states for the customer.
-    public enum CustomerState
-    {
-        Spawned,
-        Ordering,
-        ReadyToGo,
-        Eating,
-        Despawning
-    }
+    private CustomerSpawner _customerSpawner;
+    private RecipeData _proposition;
+    private IngredientData _specialIngredient;
+    private GameObject _spawnedSpecialIngredient;
+    private NavMeshAgent _navMeshAgent;
+
+    private CustomerType _randomCustomerType;
+    private bool _customerWaiting = false;
+    private bool _isSatisfied;
 
     public enum CustomerType
     {
@@ -34,123 +31,294 @@ public class CustomerBehavior : MonoBehaviour
         CLASSIC
     }
 
-    // The current state of the customer.
-    private CustomerState _currentState = CustomerState.Spawned;
-    //Gets the position given in the customer spawner to move the customer around
-    public void Setup(CustomerSpawner spawner)
+    // Get the position given in the customer spawner to move the customer around
+    public void GetSpawner(CustomerSpawner spawner)
     {
         _customerSpawner = spawner;
     }
 
     private void Start()
     {
-        // Give a random type to the customer : Melancholic, happy...
+        // Initialization
         Array values = Enum.GetValues(typeof(CustomerType));
         _randomCustomerType = (CustomerType)values.GetValue(UnityEngine.Random.Range(0, values.Length));
-    }
+        _proposition = AssociateRandomRecipe();
+        // serialize
+        //_orderingTime = UnityEngine.Random.Range(40.0f, 80.0f);
 
-    // Update is called once per frame
-    void Update()
-    {
-        switch (_currentState)
+        if (gameObject.TryGetComponent<NavMeshAgent>(out NavMeshAgent navMeshAgent))
         {
-            case CustomerState.Spawned:
-                CheckIfSpawned();
-                break;
-            case CustomerState.Ordering:
-                CheckIfDishReady();
-                break;
-            case CustomerState.ReadyToGo:
-                CheckReadytoGo();
-                break;
+            _navMeshAgent = navMeshAgent;
         }
-    }
-    //If the customer is spawned 
-    public void CheckIfSpawned()
-    {
-        transform.position = Vector3.MoveTowards(transform.position, _customerSpawner.orderPoint.position, speed * Time.deltaTime);
-        if (transform.position == _customerSpawner.orderPoint.position)
-        {
-            _currentState = CustomerState.Ordering;
-            StartCoroutine(Ordering());
-        }
-    }
-
-    public void CheckIfDishReady()
-    {
-        //Check if the customer gets a dish
-        if (doneEating)
-        {
-            _currentState = CustomerState.ReadyToGo;
-        }
-    }
-
-    public void CheckReadytoGo()
-    {
-        if (_isSatisfied)
-        {
-            int i = 0;
-            bool endLoop = false;
-            bool seatFull = false;
-
-            if (_customerSpawner.eatPoint != null)
-                while (endLoop == false && _customerSpawner.seatAvailable[i] == false)
-                {
-                    i++;
-                    if (i >= _customerSpawner.seatAvailable.Count)
-                    {
-                        endLoop = true;
-                        seatFull = true;
-                        i = 0;
-                    }
-                }
-
-            if (seatFull == true)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, _customerSpawner.awayPoint.transform.position, speed * Time.deltaTime);
-                if (transform.position == _customerSpawner.awayPoint.transform.position)
-                {
-                    _currentState = CustomerState.Despawning;
-                    StartCoroutine(SpawnCooldown());
-                }
-            }
-
-            else
-            {
-                do
-                {
-                    i = UnityEngine.Random.Range(0, _customerSpawner.seatAvailable.Count - 1);
-                }
-                while (_customerSpawner.seatAvailable[i] == false);
-
-
-                transform.position = Vector3.MoveTowards(transform.position, _customerSpawner.eatPoint[i].transform.position, speed * Time.deltaTime);
-                if (transform.position == _customerSpawner.eatPoint[i].transform.position)
-                {
-                    _customerSpawner.seatAvailable[i] = false;
-                    _currentState = CustomerState.Eating;
-                    StartCoroutine(Eating(i));
-                }
-            }
-        }
-
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, _customerSpawner.awayPoint.transform.position, speed * Time.deltaTime);
-            if (transform.position == _customerSpawner.awayPoint.transform.position)
-            {
-                _currentState = CustomerState.Despawning;
-                StartCoroutine(SpawnCooldown());
-            }
+            Debug.Log("No NavMeshAgent Component !");
+            return;
         }
 
+        Debug.Log("Going to order");
+        StartCoroutine(MoveToOrder());
     }
 
-    IEnumerator Ordering()
+    public void Update()
     {
-        yield return new WaitForSeconds(orderingTime);
-        _currentState = CustomerState.ReadyToGo;
+        // Probably can be optimized
+        if (_customerWaiting)
+            DetectDish();
     }
+
+    public RecipeData AssociateRandomRecipe()
+    {
+        PropositionData _proposition = UnityEngine.Random.Range(0, 4) switch
+        {
+            0 => Resources.Load<PropositionData>("Propositions/BeefPropositions"),
+            1 => Resources.Load<PropositionData>("Propositions/CarrotDogPropositions"),
+            2 => Resources.Load<PropositionData>("Propositions/KaripapPropositions"),
+            3 => Resources.Load<PropositionData>("Propositions/KatsuPropositions"),
+            4 => Resources.Load<PropositionData>("Propositions/PennePropositions"),
+            _ => throw new NotImplementedException()
+        };
+
+        // Assign at the same time which special ingredient we will instantiate
+        _specialIngredient = _proposition.SpecialIngredient;
+
+        RecipeData _dish = new();
+        int j = UnityEngine.Random.Range(0, 2);
+        switch (j)
+        {
+            case 0:
+                _dish.Name = _proposition.Recipes[0].Name;
+                return _dish;
+
+            case 1:
+                _dish.Name = _proposition.Recipes[1].Name;
+                return _dish;
+
+            case 2:
+                _dish.Name = _proposition.Recipes[2].Name;
+                return _dish;
+
+            default:
+                return null;
+        }
+    }
+
+    IEnumerator MoveToOrder()
+    {
+        _navMeshAgent.SetDestination(_customerSpawner.OrderPoint.position);
+        yield return IsDoneMoving();
+        Debug.Log("Waiting for order");
+        StartCoroutine(WaitForOrder());
+    }
+
+    IEnumerator IsDoneMoving()
+    {
+        yield return null;
+        yield return new WaitUntil(() => _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance);
+    }
+
+    IEnumerator WaitForOrder()
+    {
+        if (!_specialIngredient || !_specialIngredient.IngredientPrefab)
+        {
+            Debug.Log("Cannot instanciate special ingredient");
+            yield break;
+        }
+
+        _spawnedSpecialIngredient = Instantiate(_specialIngredient.IngredientPrefab, _customerSpawner.ingredientSpawn, false);
+
+        TellStory();
+        _customerWaiting = true;
+        yield return new WaitForSeconds(orderingTime);
+
+        _isSatisfied = false;
+        // Do something when he leaves the restaurant
+        Debug.Log("Too Late !!!");
+
+        if (_spawnedSpecialIngredient)
+        {
+            Destroy(_spawnedSpecialIngredient);
+        }
+
+        _navMeshAgent.SetDestination(_customerSpawner.AwayPoint.position);
+        yield return LeaveRestaurant();
+
+        _customerSpawner.SpawnCustomers();
+    }
+
+    IEnumerator LeaveRestaurant()
+    {
+        yield return IsDoneMoving();
+        Destroy(gameObject);
+    }
+
+    public void DetectDish()
+    {
+        if (_customerSpawner.WaitingDish == null)
+            return;
+
+        Debug.Log("dish detected");
+
+        StopCoroutine(nameof(WaitForOrder));
+        _customerWaiting = false;
+
+        if (MatchDish(_customerSpawner.WaitingDish.GetComponent<RecipeData>()))
+        {
+            // change
+            int randomNumber;
+            do
+                randomNumber = UnityEngine.Random.Range(0, _customerSpawner.EatPoints.Count);
+            while (_customerSpawner.AvailableSeats[randomNumber] == false);
+
+            _navMeshAgent.SetDestination(_customerSpawner.EatPoints[randomNumber].position);
+            Destroy(_customerSpawner.WaitingDish);
+            StartCoroutine(EatingTable());
+        }
+        else
+        {
+            // Not happy, leave
+            StartCoroutine(LeaveRestaurant());
+            Destroy(_customerSpawner.WaitingDish);
+        }
+    }
+
+    public bool MatchDish(RecipeData receivedDish)
+    {
+        if (!receivedDish)
+            return false;
+
+        if (receivedDish.Ingredients.Count != _proposition.Ingredients.Count)
+            return false;
+
+        _proposition.Ingredients.OrderBy(ingredients => ingredients.Ingredient.Name).ToList();
+        receivedDish.Ingredients.OrderBy(ingredients => ingredients.Ingredient.Name).ToList();
+
+        for (int i = 0; i < _proposition.Ingredients.Count; i++)
+        {
+            if (_proposition.Ingredients[i].Ingredient.Name != receivedDish.Ingredients[i].Ingredient.Name)
+                return false;
+        }
+
+        return true;
+    }
+
+    public void TellStory()
+    {
+        switch (_proposition.Name)
+        {
+            case "BeefOne":
+                break;
+
+            case "BeefTwo":
+                break;
+
+            case "BeefThree":
+                break;
+
+            case "CarrotDogsOne":
+                break;
+
+            case "CarrotDogsTwo":
+                break;
+
+            case "CarrotDogsThree":
+                break;
+
+            case "KaripapOne":
+                break;
+
+            case "KaripapTwo":
+                break;
+
+            case "KaripapThree":
+                break;
+
+            case "KatsuOne":
+                break;
+
+            case "KatsuTwo":
+                break;
+
+            case "KatsuThree":
+                break;
+
+            case "PenneOne":
+                break;
+
+            case "PenneTwo":
+                break;
+
+            case "PenneThree":
+                break;
+        }
+    }
+
+    IEnumerator EatingTable()
+    {
+        _customerSpawner.SpawnCustomers();
+        yield return new WaitForSeconds(UnityEngine.Random.Range(20.0f, 40.0f));
+        yield return LeaveRestaurant();
+    }
+
+    //public void CheckReadytoGo()
+    //{
+    //    if (!_isSatisfied)
+    //    {
+    //        transform.position = Vector3.MoveTowards(transform.position, _customerSpawner.awayPoint.transform.position, speed * Time.deltaTime);
+    //        if (transform.position == _customerSpawner.awayPoint.transform.position)
+    //        {
+    //            _currentState = CustomerState.DESPAWNING;
+    //            StartCoroutine(SpawnCooldown());
+    //        }
+    //        return;
+    //    }
+
+    //    int i = 0;
+    //    bool endLoop = false;
+    //    bool seatFull = false;
+
+    //    if (_customerSpawner.eatPoint != null)
+    //    {
+    //        while (endLoop == false && _customerSpawner.seatAvailable[i] == false)
+    //        {
+    //            i++;
+    //            if (i >= _customerSpawner.seatAvailable.Count)
+    //            {
+    //                endLoop = true;
+    //                seatFull = true;
+    //                i = 0;
+    //            }
+    //        }
+    //    }
+
+    //    if (seatFull)
+    //    {
+    //        //TODO: Maybe order another customer to be done and take that seat instead of moving outside
+
+    //        transform.position = Vector3.MoveTowards(transform.position, _customerSpawner.awayPoint.transform.position, speed * Time.deltaTime);
+    //        if (transform.position == _customerSpawner.awayPoint.transform.position)
+    //        {
+    //            _currentState = CustomerState.DESPAWNING;
+    //            StartCoroutine(SpawnCooldown());
+    //        }
+    //    }
+    //    else
+    //    {
+    //        do
+    //        {
+    //            i = UnityEngine.Random.Range(0, _customerSpawner.seatAvailable.Count - 1);
+    //        }
+    //        while (_customerSpawner.seatAvailable[i] == false);
+
+    //        transform.position = Vector3.MoveTowards(transform.position, _customerSpawner.eatPoint[i].transform.position, speed * Time.deltaTime);
+    //        if (transform.position == _customerSpawner.eatPoint[i].transform.position)
+    //        {
+    //            _customerSpawner.seatAvailable[i] = false;
+    //            _currentState = CustomerState.EATING;
+    //            StartCoroutine(Eating(i));
+    //        }
+    //    }
+    //}
 
     IEnumerator SpawnCooldown()
     {
@@ -162,8 +330,8 @@ public class CustomerBehavior : MonoBehaviour
     IEnumerator Eating(int index)
     {
         _customerSpawner.SpawnCustomers();
-        yield return new WaitForSeconds(eatingTime);
-        _customerSpawner.seatAvailable[index] = true;
+        yield return new WaitForSeconds(orderingTime);
+        _customerSpawner.AvailableSeats[index] = true;
         Destroy(gameObject);
     }
 
@@ -197,23 +365,16 @@ public class CustomerBehavior : MonoBehaviour
         }
     }
 
-    public void CustomerAssociateRecipe()
-    {
-        int random = UnityEngine.Random.Range(1, 3);
+    //public void CheckProposedRecipe(Collider collider)
+    //{
+    //    RecipeData dishRecipe = collider.GetComponent<RecipeData>();
+    //    receivedDish = false;
 
-        switch (random)
-        {
-            case 1:
+    //    if (dishRecipe.Name == _proposition.Name)
+    //        _isSatisfied = true;
 
-                break;
+    //    else _isSatisfied = false;
 
-            case 2:
-
-                break;
-
-            case 3:
-
-                break;
-        }
-    }
+    //    _currentState = CustomerState.READYTOSEAT;
+    //}
 }

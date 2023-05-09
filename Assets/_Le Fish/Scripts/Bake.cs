@@ -17,17 +17,17 @@ public class Bake : MonoBehaviour
             {
                 if (_ingredients[i].CurrentState == IngredientState.Raw && _ingredients[i].IsCooking == false)
                 {
-                    _ingredients[i].timer.onTimerUpdate.AddListener(Percentage);
-                    _ingredients[i].timer.onTimerFinished.AddListener(() => StateCook(i));
-                    _ingredients[i].timer.StartTimer(_ingredients[i].Data.CookingTime);
+                    _ingredients[i].Timer.onTimerUpdate.AddListener(Percentage);
+                    _ingredients[i].Timer.onTimerFinished.AddListener(() => StateCook(i));
+                    _ingredients[i].Timer.StartTimer(_ingredients[i].Data.CookingTime);
                     _ingredients[i].IsCooking = true;
                 }
 
                 if (_ingredients[i].CurrentState == IngredientState.Cooked && _ingredients[i].IsCooking == false)
                 {
-                    _ingredients[i].timer.onTimerFinished.AddListener(() => StateBurn(i));
-                    _ingredients[i].timer.onTimerUpdate.AddListener(Percentage);
-                    _ingredients[i].timer.StartTimer(_ingredients[i].Data.BurnTime);
+                    _ingredients[i].Timer.onTimerFinished.AddListener(() => StateBurn(i));
+                    _ingredients[i].Timer.onTimerUpdate.AddListener(Percentage);
+                    _ingredients[i].Timer.StartTimer(_ingredients[i].Data.BurnTime);
                     _ingredients[i].IsCooking = true;
                 }
             }
@@ -41,7 +41,7 @@ public class Bake : MonoBehaviour
             
             for (i = 0; i < _ingredients.Count; i++)
             {
-                _ingredients[i].timer.StopAllCoroutines();
+                _ingredients[i].Timer.StopAllCoroutines();
                 _ingredients[i].IsCooking = false;
             }
         }
@@ -60,8 +60,8 @@ public class Bake : MonoBehaviour
     void StateCook(int i)
     {
         Debug.Log("Ingredient is Cooked !");
-        _ingredients[i].timer.onTimerFinished.RemoveAllListeners();
-        _ingredients[i].timer.onTimerUpdate.RemoveAllListeners();
+        _ingredients[i].Timer.onTimerFinished.RemoveAllListeners();
+        _ingredients[i].Timer.onTimerUpdate.RemoveAllListeners();
         _ingredients[i].IsCooking = false;
         _ingredients[i].SetState(IngredientState.Cooked);
     }
@@ -69,8 +69,8 @@ public class Bake : MonoBehaviour
     void StateBurn(int i)
     {
         Debug.Log("Ingredient is Burned !!!");
-        _ingredients[i].timer.onTimerFinished.RemoveAllListeners();
-        _ingredients[i].timer.onTimerUpdate.RemoveAllListeners();
+        _ingredients[i].Timer.onTimerFinished.RemoveAllListeners();
+        _ingredients[i].Timer.onTimerUpdate.RemoveAllListeners();
         _ingredients[i].IsCooking = false;
         _ingredients[i].SetState(IngredientState.Burnt);
     }
