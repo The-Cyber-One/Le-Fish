@@ -8,10 +8,12 @@ public class IngredientData : ScriptableObject
 {
     public string Name;
     public bool CanChangeState;
+    public GameObject IngredientPrefab;
+
     [HideInInspector] public IngredientSlice[] Slices;
     [HideInInspector] public int CookingTime;
     [HideInInspector] public int BurnTime;
-
+    
     [Serializable]
     public class IngredientSlice
     {
@@ -47,9 +49,11 @@ public class IngredientDataEditor : Editor
         if (_canChangeState.boolValue)
         {
             EditorGUI.indentLevel++;
+            serializedObject.Update();
             EditorGUILayout.PropertyField(_cookingTime);
             EditorGUILayout.PropertyField(_burnTime);
             EditorGUILayout.PropertyField(_slices);
+            serializedObject.ApplyModifiedProperties();
             EditorGUI.indentLevel--;
         }
     }
