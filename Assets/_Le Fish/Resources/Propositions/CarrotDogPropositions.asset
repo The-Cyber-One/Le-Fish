@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf851ceb3dc43142bdbbcf6b151d676, type: 3}
   m_Name: CarrotDogPropositions
   m_EditorClassIdentifier: 
-  Name: 
-  SpecialIngredient: {fileID: 0}
+  Name: CarrotDogProposition
+  SpecialIngredient: {fileID: 11400000, guid: eb0b4dcb6024b66478b93112fd8b409e, type: 2}
   Recipes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 034bdbb7c20c2fa4a97a76cb36d559b3, type: 2}
+  - {fileID: 11400000, guid: 977c1f8bc4ebdbc4fa847fa5c498f4e0, type: 2}
+  - {fileID: 11400000, guid: 6778f554227c4224ea96bbfefed69e46, type: 2}

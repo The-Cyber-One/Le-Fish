@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: CoteBoeuf
   CanChangeState: 1
+  IngredientPrefab: {fileID: 853865435197446609, guid: 2b359b1ee577a1040b19868dc7493c98, type: 3}
   Slices:
   - States: 000000000100000002000000
     Meshes:

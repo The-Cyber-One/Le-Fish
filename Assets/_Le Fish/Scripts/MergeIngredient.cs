@@ -10,9 +10,9 @@ public class MergeIngredient : MonoBehaviour
     void Awake()
     {
         _listRecipe = Resources.Load<ListRecipeData>("ListRecipes");
-    }
 
-    // TODO: Add ingredient removed
+        if (_listRecipe == null) Debug.Log("ListRecipes not define !");
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,9 +25,18 @@ public class MergeIngredient : MonoBehaviour
         CreateDish();
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (!other.gameObject.TryGetComponent(out Ingredient ingredient))
+            return;
+
+        _ingredients.Remove(ingredient);
+        ingredient.transform.SetParent(null);
+    }
+
     private void CreateDish()
     {
-        if (_listRecipe.TryFindDish(_ingredients.Select(ingredient => ingredient.Data).ToList(), out var dish))
+        if (_listRecipe.TryFindDish(_ingredients, out var dish))
         {
             Instantiate(dish.DishPrefab, _ingredients[^1].transform.position, Quaternion.identity);
             _ingredients.ForEach(ingredient => Destroy(ingredient.gameObject));

@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Plate : MonoBehaviour
 {
-    RecipeData _recipeReady;
+    private RecipeData _recipeReady;
+    private IngredientData _ingredient;
 
-    // Start is called before the first frame update
+    // Do it with item socket
     public void AddStuff(Collider collider)
     {
-        collider.TryGetComponent<RecipeData>(out _recipeReady);
+        if(collider.TryGetComponent<RecipeData>(out _recipeReady))
+        {
+            return;
+        }
+
+        if (collider.TryGetComponent<IngredientData>(out _ingredient))
+        {
+            return;
+        }
     }
 
-    // Update is called once per frame
     public void RemoveStuff()
     {
         

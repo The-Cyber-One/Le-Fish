@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using static IngredientData;
+using static RecipeData;
 
 [Serializable]
 public class Ingredient : MonoBehaviour
@@ -11,6 +12,12 @@ public class Ingredient : MonoBehaviour
     public Timer timer;
     public bool IsCooking = false;
     public IngredientData Data;
+
+    public static implicit operator DataStateSlice(Ingredient ingredient) => new() {
+        Ingredient = ingredient.Data,
+        CookingState = ingredient.CurrentState,
+        SliceState = ingredient.CurrentSlice
+    };
 
     public void SetState(IngredientState state)
     {
