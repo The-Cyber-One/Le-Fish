@@ -21,6 +21,7 @@ public class DialogSystem : MonoBehaviour
         [SerializeField] public string Title;
         [SerializeField] public float DisplayTime;
         [SerializeField, TextArea(1, 10)] public string Text;
+        [SerializeField] public float EmptyTime;
 
         public void UpdateInspectorTitle(int index) => _inspectorTitle = $"{index} - {Title}";
     }
@@ -62,6 +63,9 @@ public class DialogSystem : MonoBehaviour
             }
 
             yield return new WaitForSeconds(dialog.DisplayTime);
+
+            textMeshPro.text = "";
+            yield return new WaitForSeconds(dialog.EmptyTime);
         }
     }
 }
