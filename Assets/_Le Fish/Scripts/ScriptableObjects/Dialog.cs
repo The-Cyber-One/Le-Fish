@@ -18,7 +18,7 @@ public class Dialog : ScriptableObject
         [SerializeField] public string Title;
         [SerializeField] public bool WaitForTrigger;
         [SerializeField] public float DisplayTime;
-        [SerializeField, TextArea(2, 10)] public string Content;
+        [SerializeField, TextArea(3, 10)] public string Content;
         [SerializeField] public float EmptyTime;
 
         public void UpdateInspectorTitle(int index) => _inspectorTitle = $"{index} - {Title}";
