@@ -12,7 +12,7 @@ public class ConchyAI : MonoBehaviour
 
     [Header("Text")]
     [SerializeField] bool useText = true;
-    [SerializeField] DialogShower speechBubble;
+    [SerializeField] SpeechBubble speechBubble;
     [SerializeField] Dialog tutorialDialog;
     [SerializeField] Waypoint[] tutorialTextWaypoints;
 
@@ -21,6 +21,8 @@ public class ConchyAI : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip[] tutorialSpeechClips;
     [SerializeField] Waypoint[] tutorialSpeechWaypoints;
+
+    [SerializeField] Transform tutorialEndpoint;
 
     [Serializable]
     public class Waypoint
@@ -31,6 +33,7 @@ public class ConchyAI : MonoBehaviour
 
     private void Start()
     {
+        speechBubble.
         StartCoroutine(C_Tutorial());
     }
 
@@ -42,7 +45,8 @@ public class ConchyAI : MonoBehaviour
             foreach (Waypoint waypoint in tutorialTextWaypoints)
             {
                 yield return new WaitUntil(() => speechBubble.DialogIndex == waypoint.DialogIndex);
-                yield return C_Move(waypoint.SubWaypoints);
+                for (int i = 0; i < waypoint.SubWaypoints.Length; i++)
+                    yield return C_Move(waypoint.SubWaypoints[i]);
             }
         }
         else
@@ -50,45 +54,67 @@ public class ConchyAI : MonoBehaviour
             int waypointIndex = 0;
             for (int i = 0; i < tutorialSpeechClips.Length; i++)
             {
-                if (tutorialSpeechWaypoints.Length > 0 && tutorialSpeechWaypoints[waypointIndex].DialogIndex == i)
-                    yield return C_Move(tutorialSpeechWaypoints[waypointIndex++].SubWaypoints);
+                if (tutorialSpeechWaypoints.Length > 0 && waypointIndex < tutorialSpeechWaypoints.Length && tutorialSpeechWaypoints[waypointIndex].DialogIndex == i)
+                {
+                    for (int j = 0; j < tutorialSpeechWaypoints[waypointIndex].SubWaypoints.Length; j++)
+                        yield return C_Move(tutorialSpeechWaypoints[waypointIndex].SubWaypoints[i]);
+                    waypointIndex++;
+                }
 
                 audioSource.clip = tutorialSpeechClips[i];
                 audioSource.Play();
                 yield return new WaitUntil(() => !audioSource.isPlaying);
             }
         }
+
+        yield return C_Move(tutorialEndpoint, true);
     }
 
-    private IEnumerator C_Move(Transform[] subWaypoints)
+    private IEnumerator C_Move(Transform waypoint, bool isLast = false)
     {
-        foreach (Transform subWaypoint in subWaypoints)
+        bool rotate = animator.GetFloat("Move") != 1;
+
+        // Rotate towards destination
+        Vector3 waypointDirection = (waypoint.position - transform.position).normalized;
+        Quaternion waypointRotation = Quaternion.LookRotation(waypointDirection);
+        float startAngle = rotate ? Quaternion.Angle(transform.rotation, waypointRotation) : 0;
+        while (transform.rotation != waypointRotation)
         {
-            // Move towards destination
-            Vector3 waypointDirection = (subWaypoint.position - transform.position).normalized;
-            Quaternion waypointRotation = Quaternion.LookRotation(waypointDirection);
-            bool inRange;
-            animator.SetFloat("Move", 1);
-            do
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, waypointRotation, maxRotationDegree);
+            if (rotate)
             {
-                float distance = Vector3.Distance(transform.position, subWaypoint.position);
-                inRange = distance <= waypointDistance;
-                transform.position += waypointDirection * (inRange ? distance : movementSpeed);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, waypointRotation, maxRotationDegree);
-                yield return null;
+                float t = Mathf.InverseLerp(startAngle, 0, Quaternion.Angle(transform.rotation, waypointRotation));
+                animator.SetFloat("Move", t);
             }
-            while (!inRange);
-            animator.SetFloat("Move", 0);
+            yield return null;
         }
 
-        // Rotate towards player
-        Vector3 playerDirection = lookPointPlayer.position - transform.position;
-        playerDirection.y = 0;
-        Quaternion playerRotation = Quaternion.LookRotation(playerDirection);
-        while (transform.rotation != playerRotation)
+        // Move towards destination
+        bool inRange;
+        do
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, playerRotation, maxRotationDegree);
+            float distance = Vector3.Distance(transform.position, waypoint.position);
+            inRange = distance <= waypointDistance;
+            transform.position += waypointDirection * (inRange ? distance : movementSpeed);
             yield return null;
+        }
+        while (!inRange);
+
+        if (isLast)
+        {
+            // Rotate towards player
+            Vector3 playerDirection = lookPointPlayer.position - transform.position;
+            playerDirection.y = 0;
+            Quaternion playerRotation = Quaternion.LookRotation(playerDirection);
+            while (transform.rotation != playerRotation)
+            {
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, playerRotation, maxRotationDegree);
+                yield return null;
+            }
+
+            animator.SetFloat("Move", 0.1f);
+            yield return null;
+            animator.SetFloat("Move", 0);
         }
     }
 }

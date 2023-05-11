@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(TextMeshPro))]
-public class DialogShower : MonoBehaviour
+public class SpeechBubble : MonoBehaviour
 {
     public int DialogIndex => _dialogIndex;
 
@@ -28,6 +28,7 @@ public class DialogShower : MonoBehaviour
     private void Awake()
     {
         _textMeshPro = _textMeshPro != null ? _textMeshPro : GetComponent<TextMeshPro>();
+        _textMeshPro.text = string.Empty;
     }
 
     public void ShowDialog(Dialog dialog)
