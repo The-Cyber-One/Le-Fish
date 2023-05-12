@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class HandPresence : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class HandPresence : MonoBehaviour
     private InputDevice targetDevice;
     private bool _useButtons = true;
     private bool _isPosing = false;
+    private bool _isGrabbing = false;
+    private int _previousLayer;
 
     private int InvertedLayer => ~(-1 << gameObject.layer);
 
@@ -55,12 +58,28 @@ public class HandPresence : MonoBehaviour
         }
     }
 
+    public void Grab(SelectEnterEventArgs args)
+    {
+        _isGrabbing = true;
+        _previousLayer = args.interactableObject.transform.gameObject.layer;
+        args.interactableObject.transform.gameObject.layer = gameObject.layer;
+    }
+
+    public void Release(SelectExitEventArgs args)
+    {
+        _isGrabbing = false;
+        args.interactableObject.transform.gameObject.layer = _previousLayer;
+    }
+
     private float GetFingerWeight()
     {
         Collider[] colliders = Physics.OverlapSphere(activationCenter.position, activationDistance, InvertedLayer, QueryTriggerInteraction.Ignore);
         float weight = 0;
         foreach (Collider collider in colliders)
         {
+            if (collider is MeshCollider)
+                continue;
+
             Vector3 hitPoint = collider.ClosestPoint(activationCenter.position);
             float distance = Vector3.Distance(hitPoint, activationCenter.position);
             float hitWeight = Mathf.InverseLerp(activationDistance, activationDistance - activationSmoothing, distance);
@@ -80,7 +99,7 @@ public class HandPresence : MonoBehaviour
             return;
         }
 
-        bool inRange = Physics.CheckSphere(activationCenter.position, activationDistance, InvertedLayer, QueryTriggerInteraction.Ignore);
+        bool inRange = !_isGrabbing && Physics.CheckSphere(activationCenter.position, activationDistance, InvertedLayer, QueryTriggerInteraction.Ignore);
         if (inRange && !_isPosing)
         {
             _isPosing = true;
