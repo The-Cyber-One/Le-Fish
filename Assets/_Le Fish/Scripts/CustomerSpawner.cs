@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class CustomerSpawner : MonoBehaviour
+public class CustomerSpawner : Singleton<CustomerSpawner>
 {
     public List<Transform> EatPoints = new();
     public Transform ingredientSpawn;
@@ -22,8 +22,6 @@ public class CustomerSpawner : MonoBehaviour
         int i;
         for (i = 0; i < EatPoints.Count; i++)
             AvailableSeats.Add(true);
-
-        SpawnCustomers();
     }
 
     public void SpawnCustomers()
