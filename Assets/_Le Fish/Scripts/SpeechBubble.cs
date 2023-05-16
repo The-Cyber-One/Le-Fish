@@ -6,16 +6,20 @@ using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(TextMeshPro))]
-public class SpeechBubble : MonoBehaviour
+public class SpeechBubble : Singleton<SpeechBubble>
 {
     public int DialogIndex => _dialogIndex;
 
     [SerializeField] float typeSpeed = 0.05f;
+    [SerializeField] Transform camera;
+    [SerializeField] float smoothing = 0.1f;
 
-    int _dialogIndex;
+    [SerializeField] int _dialogIndex;
     TextMeshPro _textMeshPro;
     bool _playNextText = true;
+    Vector3 _cameraOffset;
 
+    Coroutine _coroutine;
     WaitForSeconds _waitForChar;
     WaitUntil _waitForPlayNextText;
 
@@ -25,16 +29,25 @@ public class SpeechBubble : MonoBehaviour
         _waitForPlayNextText = new WaitUntil(() => _playNextText);
     }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _textMeshPro = _textMeshPro != null ? _textMeshPro : GetComponent<TextMeshPro>();
         _textMeshPro.text = string.Empty;
     }
 
+    private void Update()
+    {
+        Vector3 textDirection = Vector3.Lerp(transform.parent.forward, camera.forward, smoothing);
+        textDirection.y = 0;
+        transform.parent.SetPositionAndRotation(Vector3.Lerp(transform.parent.position, camera.position, smoothing), Quaternion.LookRotation(textDirection));
+    }
+
     public void ShowDialog(Dialog dialog)
     {
-        StopAllCoroutines();
-        StartCoroutine(C_ShowDialog(dialog));
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
+        _coroutine = StartCoroutine(C_ShowDialog(dialog));
     }
 
     private IEnumerator C_ShowDialog(Dialog dialog)
