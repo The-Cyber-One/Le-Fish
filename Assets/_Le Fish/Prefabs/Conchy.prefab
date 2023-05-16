@@ -671,26 +671,26 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d81570bd4ba1a6544bd06e9020281b23, type: 3}
   waypointRoot: {fileID: 0}
   tutorialWaypoints:
-  - SpeechIndex: 0
+  - SpeechIndex: 1
     TextIndex: 2
     SubWaypoints:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
-  - SpeechIndex: 0
+  - SpeechIndex: 3
     TextIndex: 13
     SubWaypoints:
     - {fileID: 0}
-  - SpeechIndex: 0
+  - SpeechIndex: 4
     TextIndex: 17
     SubWaypoints:
     - {fileID: 0}
-  - SpeechIndex: 0
+  - SpeechIndex: 5
     TextIndex: 19
     SubWaypoints:
     - {fileID: 0}
-  - SpeechIndex: 0
+  - SpeechIndex: 6
     TextIndex: 21
     SubWaypoints:
     - {fileID: 0}
