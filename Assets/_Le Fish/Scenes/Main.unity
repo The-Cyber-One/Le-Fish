@@ -1668,6 +1668,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1426440903 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4222046910082286731, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
+  m_PrefabInstance: {fileID: 5054333425279877193}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1426440906
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426440903}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11
+  m_Center: {x: 0.0021543195, y: 0.000000391721, z: 0.12}
 --- !u!1 &1454835053
 GameObject:
   m_ObjectHideFlags: 0
@@ -1725,14 +1743,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 1651578814}
   maxNumberOfCustomers: 8
   customers:
-  - {fileID: 356693874447485427, guid: 1a1d50d6f063b5d4186d2a3e54456ddf, type: 3}
-  - {fileID: 4554272157058610203, guid: a300f9d78cf7beb4fad9dffced3e97af, type: 3}
-  - {fileID: 4077021132238875552, guid: f8c93ea0380f43f4186527d9412d769b, type: 3}
-  - {fileID: 4885396801395364591, guid: b80135ad2ef8fcd4ab6780e5d3f952e7, type: 3}
-  - {fileID: 2900899866304183688, guid: 3d926ea359fa6d444829caa7de80f936, type: 3}
-  - {fileID: 3258690431906013133, guid: 632d33e24b2571d4d87f4b29cb19113d, type: 3}
-  - {fileID: 7384600065612720416, guid: 78898b3f862c4054498eaef5ea53d699, type: 3}
-  - {fileID: 1212324492822872877, guid: 066a593cc1126f24d89c3bb5819a9ab9, type: 3}
+  - {fileID: 5538599290155503547, guid: 6c92b7ddcdf039447b59160622993467, type: 3}
 --- !u!1 &1509443344 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1115977813083738736, guid: a3c8d35c99614f64397d806bee7d0ee1, type: 3}
@@ -3795,6 +3806,14 @@ PrefabInstance:
     - target: {fileID: 7482370796797866223, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -156.948
+      objectReference: {fileID: 0}
+    - target: {fileID: 9028265280117159267, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
+      propertyPath: useText
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9028265280117159267, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
+      propertyPath: useSpeech
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9028265280117159267, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
       propertyPath: waypointRoot

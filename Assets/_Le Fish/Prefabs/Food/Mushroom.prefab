@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4736157035291148147}
   - component: {fileID: 4177057075418207318}
   - component: {fileID: 5206079014102791022}
+  - component: {fileID: 2302078552771631333}
   m_Layer: 0
   m_Name: Mushroom
   m_TagString: Untagged
@@ -262,3 +263,16 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!65 &2302078552771631333
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4736157035291148146}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.069072284, y: 0.045564987, z: 0.069072284}
+  m_Center: {x: 0, y: -0.00033605378, z: 0}
