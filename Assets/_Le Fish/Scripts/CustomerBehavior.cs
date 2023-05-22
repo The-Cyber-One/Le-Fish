@@ -81,23 +81,7 @@ public class CustomerBehavior : MonoBehaviour
             _ => throw new NotImplementedException()
         };
 
-        // Setup hologram
-        _customerSpawner.PropositionHolograms[0].Title.transform.parent.parent.gameObject.SetActive(false);
-        int[] indecies = Enumerable.Range(0, _proposition.Recipes.Length).OrderBy(i => UnityEngine.Random.value).ToArray();
-        for (int i = 0; i < _proposition.Recipes.Length; i++)
-        {
-            RecipeData recipe = _proposition.Recipes[indecies[i]];
-            _customerSpawner.PropositionHolograms[i].Title.text = recipe.Name;
-            _customerSpawner.PropositionHolograms[i].Description.text = recipe.Description;
-
-            Dialog instructions = recipe.Instructions;
-            StringBuilder stringBuilder = new();
-            for (int j = 0; j < instructions.Length; j++)
-            {
-                stringBuilder.AppendLine($"{j + 1} - {instructions[j].Content}");
-            }
-            _customerSpawner.PropositionHolograms[i].Instructions.text = stringBuilder.ToString();
-        }
+        ConchyAI.Instance.NewProposition(_proposition.Recipes);
 
         // Assign at the same time which special ingredient we will instantiate
         _specialIngredient = _proposition.SpecialIngredient;
@@ -133,8 +117,8 @@ public class CustomerBehavior : MonoBehaviour
 
         _spawnedSpecialIngredient = Instantiate(_specialIngredient.IngredientPrefab, _customerSpawner.ingredientSpawn, false);
 
-        TellStory();
-        _customerSpawner.PropositionHolograms[0].Title.transform.parent.parent.gameObject.SetActive(true);
+        yield return TellStory();
+        ConchyAI.Instance.ShowProposition();
         _customerWaiting = true;
         yield return new WaitForSeconds(orderingTime);
 
@@ -209,8 +193,9 @@ public class CustomerBehavior : MonoBehaviour
         return true;
     }
 
-    public void TellStory()
+    IEnumerator TellStory()
     {
+        yield return new WaitForSeconds(1);
         switch (_proposition.Name)
         {
             case "BeefOne":

@@ -11,19 +11,12 @@ public class CustomerSpawner : Singleton<CustomerSpawner>
     [HideInInspector] public List<bool> AvailableSeats = new();
     [HideInInspector] public GameObject WaitingDish;
     public Transform OrderPoint, AwayPoint;
-    public PropositionHologram[] PropositionHolograms;
 
     [SerializeField] Transform spawnPoint;
     [SerializeField] int maxNumberOfCustomers = 8;
     [SerializeField] GameObject[] customers;
 
     int _customerNumber;
-
-    [System.Serializable]
-    public class PropositionHologram
-    {
-        [SerializeField] public TextMeshProUGUI Title, Description, Instructions;
-    }
 
     void Start()
     {
