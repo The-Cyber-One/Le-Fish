@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: BeefOne
   m_EditorClassIdentifier: 
   Name: Beef one
+  Description: Really expresses the one section of the name.
+  Instructions: {fileID: 11400000, guid: 256b23e2eea94164e8489cfdc6a4813f, type: 2}
   DishPrefab: {fileID: 853865435197446609, guid: 2b359b1ee577a1040b19868dc7493c98, type: 3}
   Ingredients:
   - Ingredient: {fileID: 11400000, guid: e8a893323824d7d43ae39cdfaff73521, type: 2}
