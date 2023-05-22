@@ -49,4 +49,9 @@ public class SliderRotation : MonoBehaviour
         // Update the rotation of the object
         objectToRotate.transform.eulerAngles = new Vector3(rotation, 0f, 0f);
     }
+    public void QuitApplication()
+    {
+        // Quit the application
+        Application.Quit();
+    }
 }
