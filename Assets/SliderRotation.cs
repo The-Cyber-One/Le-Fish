@@ -3,17 +3,18 @@ using UnityEngine.UI;
 
 public class SliderRotation : MonoBehaviour
 {
-    public Slider slider;
+    public Slider rotationSlider;
     public GameObject objectToRotate;
     public float minRotation = -45f;
     public float maxRotation = 45f;
     public float sliderMinValue = 0f;
     public float sliderMaxValue = 10f;
+    public AudioSource audioSource;
 
     void Start()
     {
         // Set the initial rotation of the object based on the starting slider value
-        float initialRotation = Mathf.Lerp(minRotation, maxRotation, Mathf.InverseLerp(sliderMinValue, sliderMaxValue, slider.value));
+        float initialRotation = Mathf.Lerp(minRotation, maxRotation, Mathf.InverseLerp(sliderMinValue, sliderMaxValue, rotationSlider.value));
         objectToRotate.transform.eulerAngles = new Vector3(initialRotation, 0f, 0f);
     }
 
@@ -28,14 +29,18 @@ public class SliderRotation : MonoBehaviour
         // Map the normalized rotation to the slider value range
         float sliderValue = Mathf.Lerp(sliderMinValue, sliderMaxValue, Mathf.InverseLerp(minRotation, maxRotation, normalizedRotation));
 
-        // Update the slider value
-        slider.value = sliderValue;
+        // Update the rotation slider value
+        rotationSlider.value = sliderValue;
+
+        // Set the volume based on the rotation slider value
+        float volume = rotationSlider.value / 10f; // Normalize slider value to volume range (0 to 1)
+        audioSource.volume = volume;
     }
 
-    public void OnSliderValueChanged()
+    public void OnRotationSliderValueChanged()
     {
         // Get the current slider value
-        float sliderValue = slider.value;
+        float sliderValue = rotationSlider.value;
 
         // Map the slider value to the rotation range
         float normalizedValue = Mathf.InverseLerp(sliderMinValue, sliderMaxValue, sliderValue);
