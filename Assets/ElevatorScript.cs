@@ -8,12 +8,14 @@ public class ElevatorScript : MonoBehaviour
     private Vector3 Restaurant;
     private Vector3 Menu;
     private float speed = 1f;
+    public int restaurantY;
+    public int menuY;
    [SerializeField] private bool notMoving,moveUp, moveDown;
     // Start is called before the first frame update
     void Start()
     {
-        Restaurant = new Vector3(transform.position.x, 4, transform.position.z);
-        Menu = new Vector3(transform.position.x, 0, transform.position.z);
+        Restaurant = new Vector3(transform.position.x, restaurantY, transform.position.z);
+        Menu = new Vector3(transform.position.x, menuY, transform.position.z);
         notMoving = true;
         moveDown = false;
         moveUp = false;

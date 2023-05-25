@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 40910e24d0131574b8e2e113a94b2628
+guid: f95e9d9694f1f1e46903d0e7e2e3d685
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
   externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: 516cf6cdc27bd724db81d78ae3a114c6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -18,22 +13,27 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.002
-    second: {fileID: 2100000, guid: 31f3589426790344d8f4f2078e817595, type: 2}
+    second: {fileID: 2100000, guid: 36d804184488c544384fc34ea461980b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.003
-    second: {fileID: 2100000, guid: 9ac45a20e6fa78b448c92f97e29f0416, type: 2}
+    second: {fileID: 2100000, guid: 3dd8822956888c5489d189ec179db29f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: 8633d344bb6ce2f4c802a176f5547d4f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.005
-    second: {fileID: 2100000, guid: 7b39903f89dda0a45991a6af472cdc07, type: 2}
+    second: {fileID: 2100000, guid: d6ad5b2f6c744674b9c9fe1382abf6c8, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.006
-    second: {fileID: 2100000, guid: 63acf0d8ff1fce045b5df4eb93a6e3b5, type: 2}
+    second: {fileID: 2100000, guid: 36ca2582d4881764e8370f06a2c95159, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -61,7 +61,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|Armature.002
+      takeName: Armature|Armature.002
+      internalID: -2031007813491923735
+      firstFrame: 0
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
