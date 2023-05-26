@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f95e9d9694f1f1e46903d0e7e2e3d685
+guid: e0493335e075ef249b88f48b2f946429
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -22,18 +22,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.004
-    second: {fileID: 2100000, guid: 8633d344bb6ce2f4c802a176f5547d4f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: Material.005
-    second: {fileID: 2100000, guid: d6ad5b2f6c744674b9c9fe1382abf6c8, type: 2}
+    second: {fileID: 2100000, guid: 28b0966aa4bb95140b33f8586b4d4ac8, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.006
-    second: {fileID: 2100000, guid: 36ca2582d4881764e8370f06a2c95159, type: 2}
+    second: {fileID: 2100000, guid: 28b0966aa4bb95140b33f8586b4d4ac8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.007
+    second: {fileID: 2100000, guid: cc7318802f7e2fc4e98d857cfff7848a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -67,7 +67,7 @@ ModelImporter:
       takeName: Armature|Armature.002
       internalID: -2031007813491923735
       firstFrame: 0
-      lastFrame: 90
+      lastFrame: 178
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
