@@ -6,8 +6,9 @@ using UnityEngine;
 public class RecipeData : ScriptableObject
 {
     public string Name;
+    [TextArea(3, 5)] public string Description;
+    public Dialog Instructions;
     public GameObject DishPrefab;
-
     public List<DataStateSlice> Ingredients;
 
     [Serializable]

@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d04c1d17a338a47aee7b791610a1c9, type: 3}
   m_Name: BeefThree
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Beef three
+  Description: Really expresses the three section of the name.
+  Instructions: {fileID: 11400000, guid: 32d780c50c636284eab22269079ae63b, type: 2}
   DishPrefab: {fileID: 0}
-  Ingredients: []
+  Ingredients:
+  - Ingredient: {fileID: 11400000, guid: 027e8f29e4fac1f409e1cc206dc61415, type: 2}
+    CookingState: 0
+    SliceState: 0

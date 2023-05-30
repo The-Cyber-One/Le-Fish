@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
+using System.Text;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -46,7 +48,7 @@ public class CustomerBehavior : MonoBehaviour
         // serialize
         //_orderingTime = UnityEngine.Random.Range(40.0f, 80.0f);
 
-        if (gameObject.TryGetComponent<NavMeshAgent>(out NavMeshAgent navMeshAgent))
+        if (gameObject.TryGetComponent(out NavMeshAgent navMeshAgent))
         {
             _navMeshAgent = navMeshAgent;
         }
@@ -69,7 +71,7 @@ public class CustomerBehavior : MonoBehaviour
 
     public RecipeData AssociateRandomRecipe()
     {
-        PropositionData _proposition = UnityEngine.Random.Range(0, 4) switch
+        PropositionData _proposition = 0 /*UnityEngine.Random.Range(0, 4)*/ switch // Only beef is implemented
         {
             0 => Resources.Load<PropositionData>("Propositions/BeefPropositions"),
             1 => Resources.Load<PropositionData>("Propositions/CarrotDogPropositions"),
@@ -79,28 +81,16 @@ public class CustomerBehavior : MonoBehaviour
             _ => throw new NotImplementedException()
         };
 
+        ConchyAI.Instance.NewProposition(_proposition.Recipes);
+
         // Assign at the same time which special ingredient we will instantiate
         _specialIngredient = _proposition.SpecialIngredient;
 
-        RecipeData _dish = new();
-        int j = UnityEngine.Random.Range(0, 2);
-        switch (j)
+        RecipeData _dish = new()
         {
-            case 0:
-                _dish.Name = _proposition.Recipes[0].Name;
-                return _dish;
-
-            case 1:
-                _dish.Name = _proposition.Recipes[1].Name;
-                return _dish;
-
-            case 2:
-                _dish.Name = _proposition.Recipes[2].Name;
-                return _dish;
-
-            default:
-                return null;
-        }
+            Name = _proposition.Recipes[UnityEngine.Random.Range(0, 2)].Name
+        };
+        return _dish;
     }
 
     IEnumerator MoveToOrder()
@@ -127,7 +117,8 @@ public class CustomerBehavior : MonoBehaviour
 
         _spawnedSpecialIngredient = Instantiate(_specialIngredient.IngredientPrefab, _customerSpawner.ingredientSpawn, false);
 
-        TellStory();
+        yield return TellStory();
+        ConchyAI.Instance.ShowProposition();
         _customerWaiting = true;
         yield return new WaitForSeconds(orderingTime);
 
@@ -202,8 +193,9 @@ public class CustomerBehavior : MonoBehaviour
         return true;
     }
 
-    public void TellStory()
+    IEnumerator TellStory()
     {
+        yield return new WaitForSeconds(1);
         switch (_proposition.Name)
         {
             case "BeefOne":

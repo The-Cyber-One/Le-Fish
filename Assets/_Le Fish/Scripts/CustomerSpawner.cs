@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -14,13 +15,13 @@ public class CustomerSpawner : Singleton<CustomerSpawner>
     [SerializeField] Transform spawnPoint;
     [SerializeField] int maxNumberOfCustomers = 8;
     [SerializeField] GameObject[] customers;
+
     int _customerNumber;
 
     void Start()
     {
         //Spawns the first customer to start the sequence, if the number of customers is smaller than the max amount of customers
-        int i;
-        for (i = 0; i < EatPoints.Count; i++)
+        for (int i = 0; i < EatPoints.Count; i++)
             AvailableSeats.Add(true);
     }
 

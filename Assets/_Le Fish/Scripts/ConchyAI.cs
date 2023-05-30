@@ -1,14 +1,21 @@
 using System;
 using System.Collections;
 using System.Linq;
+using System.Text;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class ConchyAI : MonoBehaviour
+public class ConchyAI : Singleton<ConchyAI>
 {
     [SerializeField] float waypointDistance = 0.1f;
     [SerializeField] float movementSpeed = 0.5f, maxRotationDegree = 0.1f;
     [SerializeField] Animator animator;
     [SerializeField] Transform lookPointPlayer;
+
+    [Header("Proposition")]
+    [SerializeField] GameObject propositionHologramContent;
+    [SerializeField] PropositionHologram[] propositionHolograms;
 
     [Header("Text")]
     [SerializeField] bool useText = true;
@@ -31,6 +38,12 @@ public class ConchyAI : MonoBehaviour
     {
         [SerializeField] public int SpeechIndex, TextIndex;
         [SerializeField] public Transform[] SubWaypoints;
+    }
+
+    [Serializable]
+    public class PropositionHologram
+    {
+        [SerializeField] public TextMeshProUGUI Title, Description, Instructions;
     }
 
     [ContextMenu(nameof(UpdateWaypoints))]
@@ -93,8 +106,6 @@ public class ConchyAI : MonoBehaviour
 
     private IEnumerator C_Move(Transform waypoint, bool isLast = true)
     {
-        bool rotate = animator.GetFloat("Move") != 1;
-
         // Rotate towards destination
         Vector3 direction = (waypoint.position - transform.position).normalized;
         yield return Rotate(direction, animator.GetFloat("Move") != 1);
@@ -133,5 +144,32 @@ public class ConchyAI : MonoBehaviour
                 yield return null;
             }
         }
+    }
+
+    public void NewProposition(RecipeData[] recipes)
+    {
+        propositionHologramContent.SetActive(false);
+
+        int[] indecies = Enumerable.Range(0, recipes.Length).OrderBy(i => UnityEngine.Random.value).ToArray();
+        for (int i = 0; i < recipes.Length; i++)
+        {
+            RecipeData recipe = recipes[indecies[i]];
+            propositionHolograms[i].Title.text = recipe.Name;
+            propositionHolograms[i].Description.text = recipe.Description;
+
+            Dialog instructions = recipe.Instructions;
+            StringBuilder stringBuilder = new();
+            for (int j = 0; j < instructions.Length; j++)
+            {
+                stringBuilder.AppendLine($"{j + 1} - {instructions[j].Content}");
+            }
+            propositionHolograms[i].Instructions.text = stringBuilder.ToString();
+        }
+    }
+
+    public void ShowProposition()
+    {
+        // TODO: add some cool animations
+        propositionHologramContent.SetActive(true);
     }
 }
