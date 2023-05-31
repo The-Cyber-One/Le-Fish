@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Starry sky
+  m_Shader: {fileID: 4800000, guid: 08e3934ff2d452f45beee43aa71421ad, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Astronaut:
+        m_Texture: {fileID: 2800000, guid: 51b8accf6edf42544a0ccd60b56e482b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0.5, y: 0.5}
+    - _E:
+        m_Texture: {fileID: 2800000, guid: 1df5a2803d8d2c74489f21a978bfca7a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0.5, y: 0.5}
+    - _Gradient:
+        m_Texture: {fileID: 2800000, guid: 03263a1908b35f34d8a49e0206a7fda3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GradientTest:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LetterA:
+        m_Texture: {fileID: 2800000, guid: 1df5a2803d8d2c74489f21a978bfca7a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0.5, y: 0.5}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _W:
+        m_Texture: {fileID: 2800000, guid: 51b8accf6edf42544a0ccd60b56e482b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0.5, y: 0.5}
+    m_Ints: []
+    m_Floats:
+    - _Amount: 10
+    - _AstronautSpeed: 50
+    - _GradientPos1: -0.21
+    - _GradientPos2: 0.51
+    - _GradientPos3: 0.82
+    - _GradientPos4: 1.43
+    - _LetterAmount: 7
+    - _LetterDistance: 0.025
+    - _LineMin: 0.1
+    - _LineNoise: 550
+    - _MovementSpace: 15
+    - _NebulaMax: 0.9
+    - _NebulaMin: 0.532
+    - _NebulaNoise: 25
+    - _NebulaSpeed: 25
+    - _NoiseScale: 2
+    - _NoiseScale1: 571
+    - _NoiseScale2: 404.7
+    - _NoiseScale3: 1618.41
+    - _NoiseScale4: 3004.4
+    - _ObjectSize: 13.4
+    - _Radius: 3
+    - _Space: 0.02
+    - _Speed: 150
+    - _StarDensity: 0.822
+    - _StarNebulaDistance: 0
+    - _StarNoise: 2624.92
+    - _StarSpeed: 150
+    - _StarrNebulaDistance: 0.7
+    m_Colors:
+    - _Color: {r: 0.032730103, g: 1, b: 0, a: 1}
+    - _Gradient: {r: 1, g: 1, b: 1, a: 1}
+    - _Gradient1: {r: 0, g: 0.1772747, b: 1, a: 1}
+    - _Gradient2: {r: 0.6465584, g: 0.22659309, b: 0.7169812, a: 1}
+    - _Gradient3: {r: 1, g: 0, b: 0.48717928, a: 1}
+    - _Gradient4: {r: 0.64207375, g: 0.52812386, b: 0.8679245, a: 1}
+  m_BuildTextureStacks: []

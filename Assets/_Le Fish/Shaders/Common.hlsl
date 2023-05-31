@@ -57,7 +57,7 @@ struct _color
     float4 black;
     float4 red;
     float4 green;
-    float4 yello;
+    float4 yellow;
     float4 blue;
     float4 magenta;
     float4 cyan;
@@ -70,7 +70,7 @@ _color color()
     c.black = float4(0, 0, 0, 1);
     c.red = float4(1, 0, 0, 1);
     c.green = float4(0, 1, 0, 1);
-    c.yello = float4(1, 1, 0, 1);
+    c.yellow = float4(1, 1, 0, 1);
     c.blue = float4(0, 0, 1, 1);
     c.magenta = float4(1, 0, 1, 1);
     c.cyan = float4(0, 1, 1, 1);
@@ -104,57 +104,38 @@ float4 map(float4 start, float4 end, float t, float startRange = 0, float endRan
     return clamp(t, startRange, endRange);
 }
 
-struct mark
+float4 map(Texture2D<float4> gradient, float t)
 {
-    float t;
-    float4 color;
-};
-
-float4 map(mark marks[3], float t)
-{
-    int length = 3;
-    if (t < marks[0].t)
-        return marks[0].color;
-    else if (t > marks[length - 1].t)
-        return marks[length - 1].color;
+    uint width, _;
+    gradient.GetDimensions(width, _);
     
-    for (int i = 0; i < length; i++)
+    float4 a0 = gradient.Load(float3(0, 1, 0));
+    int mode = a0[1]; // 0 = blend, 1 = fixed
+    float t0 = a0[0];
+    float4 c0 = gradient.Load(float3(0, 0, 0));
+    float tEnd = gradient.Load(float3(width - 1, 1, 0))[0];
+    float4 cEnd = gradient.Load(float3(width - 1, 0, 0));
+    
+    if (t < t0)
+        return c0;
+    else if (t > tEnd)
+        return cEnd;
+    
+    if (width > 2)
     {
-        if (t >= marks[i].t && t < marks[i + 1].t)
-            break;
+        for (int i = 0; i < width; i++)
+        {
+            t0 = gradient.Load(float3(i, 1, 0))[0];
+            tEnd = gradient.Load(float3(i + 1, 1, 0))[0];
+            if (t >= t0 && t < tEnd)
+                break;
+        }
+        
+        c0 = gradient.Load(float3(i, 0, 0));
+        cEnd = gradient.Load(float3(i + 1, 0, 0));
     }
     
-    mark relativeMarks[2] =
-    {
-        marks[min(i, length - 1)],
-        marks[min(i + 1, length - 1)]
-    };
-    
-    t = iLerp(relativeMarks[0].t, relativeMarks[1].t, t);
-    return lerp(relativeMarks[0].color, relativeMarks[1].color, t);
-}
-
-float4 map(mark marks[4], float t)
-{
-    int length = 4;
-    if (t < marks[0].t)
-        return marks[0].color;
-    else if (t > marks[length - 1].t)
-        return marks[length - 1].color;
-    
-    for (int i = 0; i < length; i++)
-    {
-        if (t >= marks[i].t && t < marks[i + 1].t)
-            break;
-    }
-    
-    mark relativeMarks[2] =
-    {
-        marks[min(i, length - 1)],
-        marks[min(i + 1, length - 1)]
-    };
-    
-    t = iLerp(relativeMarks[0].t, relativeMarks[1].t, t);
-    return lerp(relativeMarks[0].color, relativeMarks[1].color, t);
+    t = iLerp(t0, tEnd, t);
+    return mode ? cEnd : lerp(c0, cEnd, t);
 }
 #endif
