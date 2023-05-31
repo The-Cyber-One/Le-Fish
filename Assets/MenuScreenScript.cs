@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ElevatorScript : MonoBehaviour
+public class MenuScreenScript : MonoBehaviour
 {
-    public GameObject player;
     private Vector3 Restaurant;
     private Vector3 Menu;
     private float speed = 1f;
     public int restaurantY;
     public int menuY;
-   [SerializeField] private bool notMoving,moveUp, moveDown;
+    [SerializeField] private bool notMoving, moveUp, moveDown;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,20 +19,18 @@ public class ElevatorScript : MonoBehaviour
         moveDown = false;
         moveUp = false;
     }
-    public void MoveUp()
+    public void MoveToRestaurant()
     {
         if (notMoving)
         {
-            player.transform.SetParent(transform, true);
             moveUp = true;
         }
     }
-    public void MoveDown()
+    public void MoveToMenu()
     {
         if (notMoving)
         {
-            player.transform.SetParent(transform, true);
-            moveDown = true;  
+            moveDown = true;
         }
     }
     public void Update()
@@ -43,24 +40,20 @@ public class ElevatorScript : MonoBehaviour
             notMoving = false;
             transform.position = Vector3.MoveTowards(transform.position, Restaurant, speed * Time.deltaTime);
         }
-        if(transform.position.y == Restaurant.y)
+        if (transform.position.y == Restaurant.y)
         {
             notMoving = true;
-            moveUp=false;
+            moveUp = false;
         }
         if (moveDown)
         {
-            notMoving=false;
+            notMoving = false;
             transform.position = Vector3.MoveTowards(transform.position, Menu, speed * Time.deltaTime);
         }
-        if(transform.position.y == Menu.y)
+        if (transform.position.y == Menu.y)
         {
-            notMoving=true;
-            moveDown=false; 
-        }
-        if(!moveUp && !moveDown)
-        {
-            player.transform.SetParent(null, true);
+            notMoving = true;
+            moveDown = false;
         }
     }
 }
