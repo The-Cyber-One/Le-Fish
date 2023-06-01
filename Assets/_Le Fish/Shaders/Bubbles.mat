@@ -9,10 +9,10 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Bubbles
   m_Shader: {fileID: 4800000, guid: 3faaee1cd17d80e49b12795879d17f6e, type: 3}
-  m_ValidKeywords:
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   - GRADIENT
   - _NOISETYPE_CLASSIC
-  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -29,12 +29,12 @@ Material:
     m_Ints: []
     m_Floats:
     - _BubbleSize: 0.5
-    - _BubbleThickness: 0.7
+    - _BubbleThickness: 0.793
     - _Gradient: 1
     - _Max: 1
     - _Min: 0.383
     - _NoisePeriod: 7
-    - _NoiseScale: 7
+    - _NoiseScale: 500
     - _NoiseType: 0
     - _OutlineThickness: 0.025
     - _RampEnd: 1
@@ -43,8 +43,8 @@ Material:
     - _Test: 0.5
     - _Thickness: 0.718
     m_Colors:
-    - _BubbleColor: {r: 0.13665895, g: 0.58548427, b: 0.7830189, a: 0.6862745}
-    - _Color: {r: 0, g: 0.38541698, b: 1, a: 1}
+    - _BubbleColor: {r: 0.15445885, g: 0.7463122, b: 0.8396226, a: 1}
+    - _Color: {r: 0, g: 0.36163378, b: 1, a: 1}
     - _OutlineColor: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 1}
-    - _Speed: {r: 1, g: -0.1, b: 0.1, a: 0}
+    - _Speed: {r: 1, g: -0.01, b: 0.01, a: 0}
   m_BuildTextureStacks: []

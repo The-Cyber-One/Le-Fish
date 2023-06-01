@@ -30,7 +30,6 @@ Shader "Unlit/Starry sky"
     SubShader
     {
         Tags { "RenderType"="Opaque" }
-        LOD 100
 
         Pass
         {
@@ -85,6 +84,8 @@ Shader "Unlit/Starry sky"
                     x = input.objectVertex.x - x * _MovementSpace;
                     y = input.objectVertex.z - y * _MovementSpace;
                     
+//return float4(x,y,0,1);
+
                     float4 image;
                     if (i == _LetterAmount - 1){
                         image = _Astronaut.Sample(my_linear_clamp_sampler, float2(x,y) * ((_Radius * _LetterAmount)/i) + _Astronaut_ST.zw );
@@ -109,6 +110,7 @@ Shader "Unlit/Starry sky"
 
             fixed4 frag (v2f i) : SV_Target
             {
+
                 fnl_state noise = fnlCreateState();
                 noise.noise_type = FNL_NOISE_PERLIN;
 
@@ -123,7 +125,8 @@ Shader "Unlit/Starry sky"
                 float4 nebulaMask = map(_NebulaMin, _NebulaMax, nebula) * map(_LineMin, 1, lines);
                 col += nebulaMask * map(_Gradient, lineValue);
                 col += map(_StarNebulaDistance, 1, 1 - nebulaMask) * map(_StarDensity, 1, stars * (stars > _StarDensity));
-                return col + astronautMover(i, noise);
+                col += astronautMover(i, noise);
+                return col;
             }
 
             ENDCG

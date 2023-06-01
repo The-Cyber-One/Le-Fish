@@ -2,11 +2,11 @@ Shader "Unlit/Bubbles"
 {
     Properties
     {
-        _Test ("Test", Range(0, 1)) = 0
         _Color ("Color", Color) = (1, 1, 1, 1)
 
         [Header(Bubble Properties)]
         _BubbleColor ("Color", Color) = (1, 1, 1, 1)
+        _NoiseScale ("Bubble Scale", Float) = 100
         _Size ("Size", Range(0, 1)) = 0.5
         _BubbleThickness ("Thickness", Range(0, 1)) = 0.5
         _Speed ("Speed", Vector) = (0, 0, 0)
@@ -15,11 +15,6 @@ Shader "Unlit/Bubbles"
         _OutlineColor ("Color", Color) = (1, 1, 1, 1)
         _OutlineThickness ("Thickness", Range(0, 1)) = 0.5
         
-        [Header(Noise Properties)]
-        _NoiseScale ("Noise Scale", Float) = 10
-        _NoisePeriod ("Noise Period", Float) = 1
-        [KeywordEnum(Classic, Simplex)] _NoiseType("Noise Type", Int) = 0
-        [Toggle(GRADIENT)] _Gradient("Gradient", Int) = 0
     }
 
     SubShader
@@ -75,37 +70,12 @@ Shader "Unlit/Bubbles"
         Pass // Bubbles
         {
             CGPROGRAM
-            // Upgrade NOTE: excluded shader from DX11; has structs without semantics (struct v2f members r)
-            // #pragma exclude_renderers d3d11
             #pragma vertex vert alpha
             #pragma fragment frag alpha
-            #pragma multi_compile _NOISETYPE_CLASSIC _NOISETYPE_SIMPLEX
-            #pragma multi_compile _ GRADIENT
 
             #include "UnityCG.cginc"
             #include "Common.hlsl"
-            #include "Packages/jp.keijiro.noiseshader/Shader/ClassicNoise2D.hlsl"
-            #include "Packages/jp.keijiro.noiseshader/Shader/ClassicNoise3D.hlsl"
-            #include "Packages/jp.keijiro.noiseshader/Shader/SimplexNoise2D.hlsl"
-            #include "Packages/jp.keijiro.noiseshader/Shader/SimplexNoise3D.hlsl"
-            
-            #if defined(_NOISETYPE_SIMPLEX)
-
-                #if defined(GRADIENT)
-                    #define NOISE_FUNC(coord, period) SimplexNoiseGrad(coord)
-                #else
-                    #define NOISE_FUNC(coord, period) SimplexNoise(coord)
-                #endif
-
-            #elif defined(_NOISETYPE_CLASSIC)
-
-                #if defined(GRADIENT)
-                    #define NOISE_FUNC(coord, period) ClassicNoise(coord)
-                #else
-                    #define NOISE_FUNC(coord, period) PeriodicNoise(coord, period)
-                #endif
-
-            #endif
+            #include "FastNoiseLite.hlsl"
 
             struct appdata
             {
@@ -122,7 +92,6 @@ Shader "Unlit/Bubbles"
                 float4 vertex : SV_POSITION;
             };
             
-            float _Test;
             float4 _Color;
 
             // Bubbles
@@ -130,7 +99,7 @@ Shader "Unlit/Bubbles"
             float4 _BubbleColor, _Speed;
 
             // Noise
-            float _NoiseScale, _NoisePeriod;
+            float _NoiseScale;
 
             v2f vert (appdata v)
             {
@@ -144,13 +113,17 @@ Shader "Unlit/Bubbles"
 
             fixed4 frag (v2f i) : SV_Target
             {
+                fnl_state noise = fnlCreateState();
+                noise.noise_type = FNL_NOISE_PERLIN;
+
                 float3 vertexWorld = mul(i.vertexObject, unity_ObjectToWorld);
                 float3 position = vertexWorld + _Speed * _Time;
-                float r = iLerp(-1, 1, NOISE_FUNC(float3(position * _NoiseScale), _NoisePeriod));
+                position *= _NoiseScale;
+                float noiseValue = iLerp(-1, 1, fnlGetNoise3D(noise, position.x, position.y, position.z));
 
-                float bubbles = iLerp(_Size, 1, max(_Size, r));
+                float bubbles = iLerp(_Size, 1, max(_Size, noiseValue));
                 
-                float bubblesMask = r >= _Size;
+                float bubblesMask = noiseValue >= _Size;
                 float4 bubbleOutline = map(_BubbleThickness, 1, 1 - bubbles);
                 bubbleOutline = lerp(_BubbleColor, color().white, bubbleOutline);
                 bubbleOutline = bubblesMask * bubbleOutline;
