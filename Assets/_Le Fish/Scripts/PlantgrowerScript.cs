@@ -19,6 +19,7 @@ public class PlantgrowerScript : MonoBehaviour
         {
             GameObject newVegetable = Instantiate(vegetablePrefabs[index], vegetablePlace.position, Quaternion.identity);
             newVegetable.transform.parent = vegetablePlace;
+            newVegetable.GetComponent<Rigidbody>().isKinematic = true;
             plantAnimator.SetTrigger("Pick Vegetable");
         }
     }

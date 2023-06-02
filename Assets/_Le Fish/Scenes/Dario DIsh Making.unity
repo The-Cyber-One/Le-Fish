@@ -2739,7 +2739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1041183804711497179, guid: 227ed06fe19bdb043aa23a86ce3ff330, type: 3}
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1041183804711497179, guid: 227ed06fe19bdb043aa23a86ce3ff330, type: 3}
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3039,7 +3039,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vegetablePlace: {fileID: 1304515394}
-  vegetablePrefab: {fileID: 1966506426559401296, guid: aaf1cec70a5988747828d1bfaaaacab2, type: 3}
+  vegetablePrefabs:
+  - {fileID: 1966506426559401296, guid: aaf1cec70a5988747828d1bfaaaacab2, type: 3}
 --- !u!1 &2038796680
 GameObject:
   m_ObjectHideFlags: 0

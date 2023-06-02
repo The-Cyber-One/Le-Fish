@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5522148820444570043}
   m_Layer: 0
   m_Name: Tomato
-  m_TagString: Untagged
+  m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshFilter: {fileID: 7647233725210275090}
+  ash: {fileID: 4542573763548188204, guid: 1a169af880e476c40a87ae605ad9eb9f, type: 3}
   IsCooking: 0
   Data: {fileID: 11400000, guid: fdfc8023346e7b347bfe85d2390fdcd4, type: 2}
 --- !u!54 &-2108971047091219093
