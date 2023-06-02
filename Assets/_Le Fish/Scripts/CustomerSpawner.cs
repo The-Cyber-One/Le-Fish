@@ -5,16 +5,15 @@ using UnityEngine.AI;
 
 public class CustomerSpawner : Singleton<CustomerSpawner>
 {
-    public List<Transform> EatPoints = new();
-    public Transform ingredientSpawn;
     [HideInInspector] public List<bool> AvailableSeats = new();
     [HideInInspector] public GameObject WaitingDish;
-    public Transform OrderPoint, AwayPoint;
 
     [SerializeField] Transform spawnPoint;
-    [SerializeField] int maxNumberOfCustomers = 8;
     [SerializeField] GameObject[] customers;
-    int _customerNumber;
+
+    public List<Transform> EatPoints = new();
+    public Transform ingredientSpawn;
+    public Transform OrderPoint, AwayPoint;
 
     void Start()
     {
@@ -26,13 +25,10 @@ public class CustomerSpawner : Singleton<CustomerSpawner>
 
     public void SpawnCustomers()
     {
-        if (_customerNumber++ < maxNumberOfCustomers)
-        {
-            int random = Random.Range(0, customers.Length);
-            CustomerBehavior instance = Instantiate(customers[random], spawnPoint.transform.position, Quaternion.identity).GetComponent<CustomerBehavior>();
-            instance.gameObject.AddComponent<NavMeshAgent>();
-            instance.GetSpawner(this);
-        }
+        int random = Random.Range(0, customers.Length);
+        CustomerBehavior instance = Instantiate(customers[random], spawnPoint.transform.position, Quaternion.identity).GetComponent<CustomerBehavior>();
+        instance.gameObject.AddComponent<NavMeshAgent>();
+        instance.GetSpawner(this);
     }
 
     public void UpdateDish(Collider collider)

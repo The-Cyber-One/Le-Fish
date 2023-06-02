@@ -1628,7 +1628,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1375967401
 GameObject:
@@ -1715,15 +1715,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb456f181fb241418ea681aca44a440, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EatPoints:
-  - {fileID: 501603213}
-  ingredientSpawn: {fileID: 2667295779612789260}
   AvailableSeats: 
   WaitingDish: {fileID: 0}
-  OrderPoint: {fileID: 2041151245}
-  AwayPoint: {fileID: 1651578814}
   spawnPoint: {fileID: 1651578814}
-  maxNumberOfCustomers: 8
   customers:
   - {fileID: 356693874447485427, guid: 1a1d50d6f063b5d4186d2a3e54456ddf, type: 3}
   - {fileID: 4554272157058610203, guid: a300f9d78cf7beb4fad9dffced3e97af, type: 3}
@@ -1733,25 +1727,11 @@ MonoBehaviour:
   - {fileID: 3258690431906013133, guid: 632d33e24b2571d4d87f4b29cb19113d, type: 3}
   - {fileID: 7384600065612720416, guid: 78898b3f862c4054498eaef5ea53d699, type: 3}
   - {fileID: 1212324492822872877, guid: 066a593cc1126f24d89c3bb5819a9ab9, type: 3}
---- !u!1 &1509443344 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -1115977813083738736, guid: a3c8d35c99614f64397d806bee7d0ee1, type: 3}
-  m_PrefabInstance: {fileID: 1809408717}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &1509443348
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1509443344}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -3112053243378674482, guid: a3c8d35c99614f64397d806bee7d0ee1, type: 3}
+  EatPoints:
+  - {fileID: 501603213}
+  ingredientSpawn: {fileID: 2667295779612789260}
+  OrderPoint: {fileID: 2041151245}
+  AwayPoint: {fileID: 1651578814}
 --- !u!1 &1649001208
 GameObject:
   m_ObjectHideFlags: 0
@@ -3549,7 +3529,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7035924233870512169, guid: cfe66816578c73845b7793672611a366, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7035924233870512169, guid: cfe66816578c73845b7793672611a366, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3650,7 +3630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4649316473724539855, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4649316473724539855, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
       propertyPath: m_LocalPosition.x
