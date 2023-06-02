@@ -718,6 +718,38 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!1 &5440503035543344278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9158675607330497970}
+  m_Layer: 0
+  m_Name: Speech Bubble rotation center
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9158675607330497970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5440503035543344278}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7505165760332568349}
+  m_Father: {fileID: 5751871184466883630}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5751871184466883625
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,6 +782,7 @@ Transform:
   - {fileID: 5751871185524986361}
   - {fileID: 5751871186028350228}
   - {fileID: 2831355270068815566}
+  - {fileID: 9158675607330497970}
   m_Father: {fileID: 5751871186206020016}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1598,7 +1631,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5751871184466883630}
-  - {fileID: 7505165760332568349}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1657,11 +1689,11 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5751871186206020013}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.059022248
-  m_Center: {x: 0, y: -0.44097775, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1902146655401531530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1923,18 +1955,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6167364923918675806}
-  m_LocalRotation: {x: 0.14666915, y: -0, z: -4.656613e-10, w: 0.98918563}
-  m_LocalPosition: {x: 0, y: 0, z: 0.502}
+  m_LocalRotation: {x: 0.016300153, y: 0.0000000037252903, z: 5.820766e-11, w: 0.9998672}
+  m_LocalPosition: {x: 0, y: 0, z: 0.423}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 5751871186206020016}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 16.868, y: 0, z: 0}
+  m_Father: {fileID: 9158675607330497970}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 1.868, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: -0.618}
-  m_SizeDelta: {x: 0.5, y: 0.25}
+  m_AnchoredPosition: {x: 0, y: -0.116}
+  m_SizeDelta: {x: 0.25, y: 0.125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6338177819088921626
 MeshRenderer:
@@ -2025,15 +2057,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1.1
-  m_fontSizeBase: 36
+  m_fontSize: 0.2
+  m_fontSizeBase: 0.2
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 0
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
