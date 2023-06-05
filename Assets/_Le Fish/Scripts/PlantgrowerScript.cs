@@ -6,18 +6,18 @@ public class PlantgrowerScript : MonoBehaviour
 {
     private Animator plantAnimator;
     public Transform vegetablePlace;
-    public GameObject vegetablePrefab;
+    public GameObject[] vegetablePrefabs;
 
     void Start()
     {
         plantAnimator = GetComponent<Animator>();
     }
 
-    public void PickVegetable()
+    public void PickVegetable(int index)
     {
         if (!plantAnimator.GetCurrentAnimatorStateInfo(0).IsName("Pick Vegetable"))
         {
-            GameObject newVegetable = Instantiate(vegetablePrefab, vegetablePlace.position, Quaternion.identity);
+            GameObject newVegetable = Instantiate(vegetablePrefabs[index], vegetablePlace.position, Quaternion.identity);
             newVegetable.transform.parent = vegetablePlace;
             plantAnimator.SetTrigger("Pick Vegetable");
         }
