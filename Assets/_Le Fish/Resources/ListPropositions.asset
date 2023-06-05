@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8420a365a4adc734a831757227fbbeb7, type: 3}
+  m_Name: ListPropositions
+  m_EditorClassIdentifier: 
+  listPropositions:
+  - key: beefPropositions
+    data: {fileID: 11400000, guid: 0d2e8df91d3e1a448a1766b35d504966, type: 2}
+  - key: carrotDogPropositions
+    data: {fileID: 11400000, guid: 76c6bc6396056fb4da375c650f7b3cba, type: 2}
+  - key: karipaPropositions
+    data: {fileID: 11400000, guid: ec1e662959f1fd840b0be6da6004736c, type: 2}
+  - key: katsuPropositions
+    data: {fileID: 11400000, guid: a96aa7b95d66569468b8234e801a029f, type: 2}
+  - key: pennePropositions
+    data: {fileID: 11400000, guid: 8da2059d44924724ba56c9081b6219c5, type: 2}
