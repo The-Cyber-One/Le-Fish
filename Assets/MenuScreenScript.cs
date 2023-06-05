@@ -7,8 +7,8 @@ public class MenuScreenScript : MonoBehaviour
     private Vector3 Restaurant;
     private Vector3 Menu;
     private float speed = 1f;
-    public int restaurantY;
-    public int menuY;
+    public float restaurantY;
+    public float menuY;
     [SerializeField] private bool notMoving, moveUp, moveDown;
     // Start is called before the first frame update
     void Start()
