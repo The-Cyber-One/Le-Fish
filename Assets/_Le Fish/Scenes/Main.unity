@@ -5223,67 +5223,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996503105}
   m_CullTransparentMesh: 1
---- !u!1001 &1009240235
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -2108971047091219093, guid: d53558d3d0f2b75478c7dc7f520a90a1, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1966506426559401296, guid: d53558d3d0f2b75478c7dc7f520a90a1, type: 3}
-      propertyPath: m_Name
-      value: Tomato
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928059853679843292, guid: d53558d3d0f2b75478c7dc7f520a90a1, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928059853679843292, guid: d53558d3d0f2b75478c7dc7f520a90a1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -10.965
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928059853679843292, guid: d53558d3d0f2b75478c7dc7f520a90a1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.799
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928059853679843292, guid: d53558d3d0f2b75478c7dc7f520a90a1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 20.317
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928059853679843292, guid: d53558d3d0f2b75478c7dc7f520a90a1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928059853679843292, guid: d53558d3d0f2b75478c7dc7f520a90a1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928059853679843292, guid: d53558d3d0f2b75478c7dc7f520a90a1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928059853679843292, guid: d53558d3d0f2b75478c7dc7f520a90a1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928059853679843292, guid: d53558d3d0f2b75478c7dc7f520a90a1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928059853679843292, guid: d53558d3d0f2b75478c7dc7f520a90a1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928059853679843292, guid: d53558d3d0f2b75478c7dc7f520a90a1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d53558d3d0f2b75478c7dc7f520a90a1, type: 3}
 --- !u!1 &1011302357
 GameObject:
   m_ObjectHideFlags: 0
@@ -6601,17 +6540,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb456f181fb241418ea681aca44a440, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AvailableSeats: 
+  WaitingDish: {fileID: 0}
+  spawnPoint: {fileID: 1651578814}
+  customers:
+  - {fileID: 5538599290155503547, guid: 6c92b7ddcdf039447b59160622993467, type: 3}
   EatPoints:
   - {fileID: 501603213}
   ingredientSpawn: {fileID: 2667295779612789260}
-  AvailableSeats: 
-  WaitingDish: {fileID: 0}
   OrderPoint: {fileID: 2041151245}
   AwayPoint: {fileID: 1651578814}
-  spawnPoint: {fileID: 1651578814}
-  maxNumberOfCustomers: 8
-  customers:
-  - {fileID: 5538599290155503547, guid: 6c92b7ddcdf039447b59160622993467, type: 3}
 --- !u!1 &1473230857
 GameObject:
   m_ObjectHideFlags: 0
@@ -7839,6 +7777,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4456849796978560637, guid: 58d96055f27b7704188d930069aebe81, type: 3}
+      propertyPath: vegetablePrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456849796978560637, guid: 58d96055f27b7704188d930069aebe81, type: 3}
+      propertyPath: vegetablePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 2732926580382893412, guid: 51c4852b84193a54fa1aa5b66be0a9a2, type: 3}
+    - target: {fileID: 4456849796978560637, guid: 58d96055f27b7704188d930069aebe81, type: 3}
+      propertyPath: vegetablePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 5572411953675180627, guid: 26031900e6e6e5349a9a8304333bb9b7, type: 3}
     - target: {fileID: 8529752992249668182, guid: 58d96055f27b7704188d930069aebe81, type: 3}
       propertyPath: m_text
       value: Dough
