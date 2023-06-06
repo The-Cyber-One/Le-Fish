@@ -36,7 +36,7 @@ Material:
     - _NoisePeriod: 7
     - _NoiseScale: 500
     - _NoiseType: 0
-    - _OutlineThickness: 0.025
+    - _OutlineThickness: 0.02
     - _RampEnd: 1
     - _RampStart: 0.675
     - _Size: 0.7

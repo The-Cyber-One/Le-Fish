@@ -3,7 +3,32 @@ guid: a0be23367ecd90648ba1203f6fb382fa
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Control Panel
+    second: {fileID: 2100000, guid: ee11cfeef8c63b1438fc5307abd41faf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Detail 1
+    second: {fileID: 2100000, guid: a1994b759dabb6a4a84afb9b2fed7fee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 2296a9ac5f4c34041a0bc630bb5bb22e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Screen
+    second: {fileID: 2100000, guid: d2728acf842893944b4a583117b764e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Side Screen
+    second: {fileID: 2100000, guid: 94a5d1d9f15717440b3f040986b2d294, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
