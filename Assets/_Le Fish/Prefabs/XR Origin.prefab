@@ -2169,6 +2169,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6011391999045430910, guid: 55770af7c3c315740a168c561bfce84b, type: 3}
+      propertyPath: interactor
+      value: 
+      objectReference: {fileID: 3151741013856468072}
     - target: {fileID: 6011391999045430911, guid: 55770af7c3c315740a168c561bfce84b, type: 3}
       propertyPath: m_Name
       value: Left Hand
@@ -2196,6 +2200,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Hand
       objectReference: {fileID: 0}
+    - target: {fileID: 5777361005329519985, guid: 2df324c78ab75a845bbe70f0ef08238e, type: 3}
+      propertyPath: interactor
+      value: 
+      objectReference: {fileID: 7068392334983660913}
     - target: {fileID: 5777361005329519986, guid: 2df324c78ab75a845bbe70f0ef08238e, type: 3}
       propertyPath: m_RootOrder
       value: 0

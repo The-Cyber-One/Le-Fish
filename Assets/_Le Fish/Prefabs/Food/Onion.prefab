@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5572411953675180625}
   - component: {fileID: 5572411953675180626}
   - component: {fileID: -5765460473476461460}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Onion
   m_TagString: Ingredient
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 8
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_CustomReticle: {fileID: 0}

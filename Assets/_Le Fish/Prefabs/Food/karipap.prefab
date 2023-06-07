@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 9013158536688722209}
   - component: {fileID: 9013158536688722208}
   - component: {fileID: 4044719683980233018}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: karipap
-  m_TagString: Untagged
+  m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 8
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_CustomReticle: {fileID: 0}

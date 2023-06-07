@@ -1,4 +1,4 @@
-Shader "Unlit/Starry sky"
+Shader "Unlit/Circle"
 {
     Properties
     {
