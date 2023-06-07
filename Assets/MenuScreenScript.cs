@@ -7,8 +7,9 @@ public class MenuScreenScript : MonoBehaviour
     private Vector3 Restaurant;
     private Vector3 Menu;
     private float speed = 1f;
-    public int restaurantY;
-    public int menuY;
+    public float restaurantY;
+    public float menuY;
+    public ParticleSystem menuSmoke;
     [SerializeField] private bool notMoving, moveUp, moveDown;
     // Start is called before the first frame update
     void Start()
@@ -37,21 +38,25 @@ public class MenuScreenScript : MonoBehaviour
     {
         if (moveUp)
         {
+            menuSmoke.Play();
             notMoving = false;
             transform.position = Vector3.MoveTowards(transform.position, Restaurant, speed * Time.deltaTime);
         }
         if (transform.position.y == Restaurant.y)
         {
+            menuSmoke.Stop();
             notMoving = true;
             moveUp = false;
         }
         if (moveDown)
         {
+            menuSmoke.Play();
             notMoving = false;
             transform.position = Vector3.MoveTowards(transform.position, Menu, speed * Time.deltaTime);
         }
         if (transform.position.y == Menu.y)
         {
+            menuSmoke.Stop();
             notMoving = true;
             moveDown = false;
         }

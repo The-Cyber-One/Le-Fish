@@ -7,6 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class HandPresence : MonoBehaviour
 {
     [SerializeField] InputDeviceCharacteristics controllerCharacteristics;
+    [SerializeField] XRDirectInteractor interactor;
     [SerializeField] Animator handAnimator;
     [SerializeField] ChainIKConstraint[] fingerChains;
     [SerializeField] Transform activationCenter;
@@ -99,7 +100,7 @@ public class HandPresence : MonoBehaviour
             return;
         }
 
-        bool inRange = !_isGrabbing && Physics.CheckSphere(activationCenter.position, activationDistance, InvertedLayer, QueryTriggerInteraction.Ignore);
+        bool inRange = !_isGrabbing && !interactor.hasSelection && Physics.CheckSphere(activationCenter.position, activationDistance, InvertedLayer, QueryTriggerInteraction.Ignore);
         if (inRange && !_isPosing)
         {
             _isPosing = true;

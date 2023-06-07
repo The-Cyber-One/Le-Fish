@@ -5,45 +5,39 @@ using static IngredientData;
 
 public class Bake : MonoBehaviour
 {
-    public bool DoorOpened { get; set; }                       
-    private List<Ingredient> _ingredients = new();  // new List<Ingredient>();
-    int i;
+    private List<Ingredient> _ingredients = new();
 
     public void StartTimer()
     {
-        if (!DoorOpened && _ingredients != null)
+        foreach (Ingredient ingredient in _ingredients)
         {
-            for (i = 0; i < _ingredients.Count; i++)
+            if (ingredient.CurrentState != IngredientState.Burnt &&
+                !ingredient.IsCooking &&
+                ingredient.Data.Slices[ingredient.CurrentSlice].Meshes[(int)ingredient.CurrentState + 1] != null)
             {
-                if (_ingredients[i].CurrentState == IngredientState.Raw && _ingredients[i].IsCooking == false)
+                ingredient.Timer.onTimerUpdate.AddListener(Percentage);
+                switch (ingredient.CurrentState)
                 {
-                    _ingredients[i].Timer.onTimerUpdate.AddListener(Percentage);
-                    _ingredients[i].Timer.onTimerFinished.AddListener(() => StateCook(i));
-                    _ingredients[i].Timer.StartTimer(_ingredients[i].Data.CookingTime);
-                    _ingredients[i].IsCooking = true;
+                    case IngredientState.Raw:
+                        ingredient.Timer.onTimerFinished.AddListener(() => StateCook(ingredient));
+                        ingredient.Timer.StartTimer(ingredient.Data.CookingTime);
+                        break;
+                    case IngredientState.Cooked:
+                        ingredient.Timer.onTimerFinished.AddListener(() => StateBurn(ingredient));
+                        ingredient.Timer.StartTimer(ingredient.Data.BurnTime);
+                        break;
                 }
-
-                if (_ingredients[i].CurrentState == IngredientState.Cooked && _ingredients[i].IsCooking == false)
-                {
-                    _ingredients[i].Timer.onTimerFinished.AddListener(() => StateBurn(i));
-                    _ingredients[i].Timer.onTimerUpdate.AddListener(Percentage);
-                    _ingredients[i].Timer.StartTimer(_ingredients[i].Data.BurnTime);
-                    _ingredients[i].IsCooking = true;
-                }
+                ingredient.IsCooking = true;
             }
         }
     }
 
     public void StopTimer()
     {
-        if (DoorOpened)
+        for (int i = 0; i < _ingredients.Count; i++)
         {
-            
-            for (i = 0; i < _ingredients.Count; i++)
-            {
-                _ingredients[i].Timer.StopAllCoroutines();
-                _ingredients[i].IsCooking = false;
-            }
+            _ingredients[i].Timer.StopAllCoroutines();
+            _ingredients[i].IsCooking = false;
         }
     }
 
@@ -57,22 +51,27 @@ public class Bake : MonoBehaviour
         _ingredients.Remove(collider.gameObject.GetComponent<Ingredient>());
     }
 
-    void StateCook(int i)
+    void StateCook(Ingredient ingredient)
     {
         Debug.Log("Ingredient is Cooked !");
-        _ingredients[i].Timer.onTimerFinished.RemoveAllListeners();
-        _ingredients[i].Timer.onTimerUpdate.RemoveAllListeners();
-        _ingredients[i].IsCooking = false;
-        _ingredients[i].SetState(IngredientState.Cooked);
+        ingredient.Timer.onTimerFinished.RemoveAllListeners();
+        ingredient.Timer.onTimerUpdate.RemoveAllListeners();
+
+        ingredient.Timer.onTimerUpdate.AddListener(Percentage);
+        ingredient.Timer.onTimerFinished.AddListener(() => StateBurn(ingredient));
+        ingredient.Timer.StartTimer(ingredient.Data.BurnTime);
+
+        ingredient.IsCooking = false;
+        ingredient.SetState(IngredientState.Cooked);
     }
 
-    void StateBurn(int i)
+    void StateBurn(Ingredient ingredient)
     {
         Debug.Log("Ingredient is Burned !!!");
-        _ingredients[i].Timer.onTimerFinished.RemoveAllListeners();
-        _ingredients[i].Timer.onTimerUpdate.RemoveAllListeners();
-        _ingredients[i].IsCooking = false;
-        _ingredients[i].SetState(IngredientState.Burnt);
+        ingredient.Timer.onTimerFinished.RemoveAllListeners();
+        ingredient.Timer.onTimerUpdate.RemoveAllListeners();
+        ingredient.IsCooking = false;
+        ingredient.SetState(IngredientState.Burnt);
     }
 
     void Percentage(float percentage)

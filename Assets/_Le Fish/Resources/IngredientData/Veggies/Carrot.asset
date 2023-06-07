@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Carrot
   CanChangeState: 1
+  IngredientPrefab: {fileID: 0}
   Slices:
   - States: 000000000100000002000000
     Meshes:
