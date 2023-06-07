@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3514927709739855411}
   - component: {fileID: 3514927709739855408}
   - component: {fileID: 3514927709739855409}
+  - component: {fileID: 1282750241397002119}
   m_Layer: 0
   m_Name: ElevatorPlattform (1)
   m_TagString: Untagged
@@ -174,6 +175,20 @@ MonoBehaviour:
   m_Teleporting:
     m_PersistentCalls:
       m_Calls: []
+--- !u!64 &1282750241397002119
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3514927709739855415}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8051054181347644623, guid: 3f21a3f6b3932944daa22cac92677ef2, type: 3}
 --- !u!1 &6929483967964017211
 GameObject:
   m_ObjectHideFlags: 0
