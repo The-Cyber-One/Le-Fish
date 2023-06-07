@@ -12,6 +12,8 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _USETEXTURE_ON
+  - _XAXIS_ON
+  - _ZAXIS_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -44,6 +46,9 @@ Material:
     - _Size: 0.1
     - _Transparancy: 0.2
     - _UseTexture: 1
+    - _XAxis: 1
+    - _YAxis: 0
+    - _ZAxis: 1
     - _ZTest: 0
     m_Colors:
     - _Color: {r: 0.48584908, g: 0.9692167, b: 1, a: 1}

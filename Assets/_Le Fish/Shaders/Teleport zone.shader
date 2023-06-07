@@ -8,6 +8,12 @@ Shader "Custom/Teleport zone"
         _Outline ("Outline", Float) = 1
         _EmissionIntensity ("Emission Intensity", Range(0, 1)) = 1
 
+        [Header(Plane axes for the hexagons. Only select 2)]
+        [Toggle] _XAxis ("X", Int) = 0
+        [Toggle] _YAxis ("Y", Int) = 0
+        [Toggle] _ZAxis ("Z", Int) = 0
+
+        [Header(Outline texture)]
         [Toggle] _UseTexture ("Use Texture", Int) = 0
         _OutlineTexture ("Outline texture", 2D) = "white" {}
     }
@@ -20,14 +26,17 @@ Shader "Custom/Teleport zone"
         Blend SrcAlpha OneMinusSrcAlpha
 
         CGPROGRAM
-        #pragma vertex vert
         #pragma surface surf Lambert alpha
+        #pragma vertex vert
         #pragma target 3.0
 
         fixed4 _Color;
         float _Transparancy, _Size;
         float _Outline;
         float _EmissionIntensity;
+
+        bool _XAxis, _YAxis, _ZAxis;
+
         bool _UseTexture;
         sampler2D _OutlineTexture;
 
@@ -86,6 +95,11 @@ Shader "Custom/Teleport zone"
             }
         }
 
+        float2 select_plane(float3 value)
+        {
+            return _XAxis ? (_YAxis ? value.xy : value.xz) : value.yz;
+        }
+
         void vert(inout appdata v, out Input o)
         {
             UNITY_INITIALIZE_OUTPUT(Input, o);
@@ -104,11 +118,11 @@ Shader "Custom/Teleport zone"
             }
             else
             {
-                float2 center = i.vertex.xz;
+                float2 center = select_plane(i.vertex);
                 outline = abs(center.x) > _Outline || abs(center.y) > _Outline;
             }
 
-            float2 uv = i.worldVertex.xz;// - 0.5;
+            float2 uv = select_plane(i.worldVertex);
             float r = _Size * sqrt(3) / 2;
             float2 local_center = calculate_local_center(uv, r);
             float2 local_coords = uv - local_center;
