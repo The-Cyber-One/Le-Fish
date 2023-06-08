@@ -7718,6 +7718,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 4.463
       objectReference: {fileID: 0}
+    - target: {fileID: 886537288290350966, guid: f369ee2d771fa184da52808ae8457e45, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.882
+      objectReference: {fileID: 0}
     - target: {fileID: 1032227976833089440, guid: f369ee2d771fa184da52808ae8457e45, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
