@@ -10,33 +10,44 @@ public class FallenObjectDetector : MonoBehaviour
     {
         if (other.CompareTag("Ingredient"))
         {
-            if (!enteredObjects.Contains(other))
+            if (other.transform.parent == null)
             {
-                // Get the position of the entering object
-                Vector3 enteringObjectPosition = other.transform.position;
-
-                // Calculate the position for the conchyHelper below the entering object
-                Vector3 conchyPosition = enteringObjectPosition - new Vector3(0, 0.2f, 0);
-
-                // Instantiate the conchyHelper at the calculated position
-                GameObject conchyInstance = Instantiate(conchyHelper, conchyPosition, Quaternion.identity);
-
-                // Set the entering object as the child of the conchy instance
-                other.transform.SetParent(conchyInstance.transform);
-
-                // Make the entering object's Rigidbody kinematic and zero out the y-velocity
-                Rigidbody enteringObjectRigidbody = other.GetComponent<Rigidbody>();
-                if (enteringObjectRigidbody != null)
+                if (!enteredObjects.Contains(other))
                 {
-                    enteringObjectRigidbody.useGravity = false;
-                    Vector3 velocity = enteringObjectRigidbody.velocity;
-                    velocity.y = 0f;
-                    enteringObjectRigidbody.velocity = velocity;
-                }
+                    // Get the position of the entering object
+                    Vector3 enteringObjectPosition = other.transform.position;
 
-                // Add the object to the set of entered objects
-                enteredObjects.Add(other);
+                    // Calculate the position for the conchyHelper below the entering object
+                    Vector3 conchyPosition = enteringObjectPosition - new Vector3(0, 0.2f, 0);
+
+                    // Instantiate the conchyHelper at the calculated position
+                    GameObject conchyInstance = Instantiate(conchyHelper, conchyPosition, Quaternion.identity);
+
+                    // Set the entering object as the child of the conchy instance
+                    other.transform.SetParent(conchyInstance.transform);
+
+                    // Make the entering object's Rigidbody kinematic and zero out the y-velocity
+                    Rigidbody enteringObjectRigidbody = other.GetComponent<Rigidbody>();
+                    if (enteringObjectRigidbody != null)
+                    {
+                        enteringObjectRigidbody.useGravity = false;
+                        Vector3 velocity = enteringObjectRigidbody.velocity;
+                        velocity.y = 0f;
+                        enteringObjectRigidbody.velocity = velocity;
+                    }
+
+                    // Add the object to the set of entered objects
+                    enteredObjects.Add(other);
+                }
             }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Ingredient"))
+        {
+            enteredObjects.Remove(other);
         }
     }
 }
