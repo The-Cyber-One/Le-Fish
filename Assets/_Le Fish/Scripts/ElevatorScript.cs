@@ -10,19 +10,20 @@ public class ElevatorScript : MonoBehaviour
     private float speed = 1f;
     public float restaurantY;
     public float menuY;
-   [SerializeField] private bool notMoving,moveUp, moveDown;
+    public bool NotMoving;
+    [SerializeField] private bool moveUp, moveDown;
     // Start is called before the first frame update
     void Start()
     {
         Restaurant = new Vector3(transform.position.x, restaurantY, transform.position.z);
         Menu = new Vector3(transform.position.x, menuY, transform.position.z);
-        notMoving = true;
+        NotMoving = true;
         moveDown = false;
         moveUp = false;
     }
     public void MoveUp()
     {
-        if (notMoving)
+        if (NotMoving)
         {
             player.transform.SetParent(transform, true);
             moveUp = true;
@@ -30,35 +31,35 @@ public class ElevatorScript : MonoBehaviour
     }
     public void MoveDown()
     {
-        if (notMoving)
+        if (NotMoving)
         {
             player.transform.SetParent(transform, true);
-            moveDown = true;  
+            moveDown = true;
         }
     }
     public void Update()
     {
         if (moveUp)
         {
-            notMoving = false;
+            NotMoving = false;
             transform.position = Vector3.MoveTowards(transform.position, Restaurant, speed * Time.deltaTime);
         }
-        if(transform.position.y == Restaurant.y)
+        if (transform.position.y == Restaurant.y)
         {
-            notMoving = true;
-            moveUp=false;
+            NotMoving = true;
+            moveUp = false;
         }
         if (moveDown)
         {
-            notMoving=false;
+            NotMoving = false;
             transform.position = Vector3.MoveTowards(transform.position, Menu, speed * Time.deltaTime);
         }
-        if(transform.position.y == Menu.y)
+        if (transform.position.y == Menu.y)
         {
-            notMoving=true;
-            moveDown=false; 
+            NotMoving = true;
+            moveDown = false;
         }
-        if(!moveUp && !moveDown)
+        if (!moveUp && !moveDown)
         {
             player.transform.SetParent(null, true);
         }
