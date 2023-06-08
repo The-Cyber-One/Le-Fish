@@ -6,7 +6,7 @@ public class ConchyHelper : MonoBehaviour
     public ParticleSystem particleSystemPrefab;
     public float speed = 5f;
     public float upSpeed = 2f;
-    public Vector3 targetPosition;
+    private Vector3 targetPosition;
 
     private bool isMovingUp = true;
     private bool isMovingY = true;
@@ -16,7 +16,8 @@ public class ConchyHelper : MonoBehaviour
     {
         // Find the deposit point game object by tag
         depositPoint = GameObject.FindGameObjectWithTag("DepositPoint");
-
+        targetPosition.y = depositPoint.gameObject.transform.position.y;
+     
         // Check if a deposit point was found
         if (depositPoint == null)
         {
