@@ -15,14 +15,14 @@ MonoBehaviour:
   Name: Beef two
   Description: Really expresses the two section of the name.
   Instructions: {fileID: 11400000, guid: 8d19a766c6a80ac4fbfb2e82c8125e5f, type: 2}
-  DishPrefab: {fileID: 0}
+  DishPrefab: {fileID: 902117034965825441, guid: 71a935129b9fafd4ea5c677108b1be0d, type: 3}
   Ingredients:
-  - Ingredient: {fileID: 11400000, guid: 027e8f29e4fac1f409e1cc206dc61415, type: 2}
-    CookingState: 1
-    SliceState: 0
-  - Ingredient: {fileID: 11400000, guid: c6c68fee4c140c64296fdc357fb3e45d, type: 2}
-    CookingState: 1
-    SliceState: 4
   - Ingredient: {fileID: 11400000, guid: e7fae4561acd6d2478372c2a1503fd1e, type: 2}
     CookingState: 1
     SliceState: 5
+  - Ingredient: {fileID: 11400000, guid: c6c68fee4c140c64296fdc357fb3e45d, type: 2}
+    CookingState: 1
+    SliceState: 4
+  - Ingredient: {fileID: 11400000, guid: 027e8f29e4fac1f409e1cc206dc61415, type: 2}
+    CookingState: 1
+    SliceState: 0
