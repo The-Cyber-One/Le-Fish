@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: PenneOne
   m_EditorClassIdentifier: 
   Name: 
+  Description: 
+  Instructions: {fileID: 0}
   DishPrefab: {fileID: 0}
   Ingredients:
+  - Ingredient: {fileID: 11400000, guid: 61254943c9b666c47b43b6d701a5bcde, type: 2}
+    CookingState: 1
+    SliceState: 0
   - Ingredient: {fileID: 11400000, guid: e7fae4561acd6d2478372c2a1503fd1e, type: 2}
     CookingState: 0
     SliceState: 5

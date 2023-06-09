@@ -18,8 +18,8 @@ MonoBehaviour:
   Slices:
   - States: 000000000100000002000000
     Meshes:
-    - {fileID: 4300000, guid: e050c2b16fe384bd994474655a4b4968, type: 2}
-    - {fileID: 4300000, guid: e050c2b16fe384bd994474655a4b4968, type: 2}
-    - {fileID: 4300000, guid: e050c2b16fe384bd994474655a4b4968, type: 2}
+    - {fileID: -7214893867347281116, guid: 684538d83abe16b4f954dc011418b748, type: 3}
+    - {fileID: -7214893867347281116, guid: 684538d83abe16b4f954dc011418b748, type: 3}
+    - {fileID: -7214893867347281116, guid: 684538d83abe16b4f954dc011418b748, type: 3}
   CookingTime: 40
   BurnTime: 20
