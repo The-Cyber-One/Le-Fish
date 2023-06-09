@@ -26,6 +26,6 @@ MonoBehaviour:
   - Ingredient: {fileID: 11400000, guid: fdfc8023346e7b347bfe85d2390fdcd4, type: 2}
     CookingState: 1
     SliceState: 6
-  - Ingredient: {fileID: 11400000, guid: b922848238ae9c0429c9b3232759e211, type: 2}
-    CookingState: 0
-    SliceState: 0
+  - Ingredient: {fileID: 11400000, guid: f2131bd2d5c6a1b4095a3d356fc738b8, type: 2}
+    CookingState: 1
+    SliceState: 1

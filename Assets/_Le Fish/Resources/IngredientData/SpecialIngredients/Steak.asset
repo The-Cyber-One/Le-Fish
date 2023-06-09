@@ -14,27 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Steak
   CanChangeState: 1
-  IngredientPrefab: {fileID: 1966506426559401296, guid: d53558d3d0f2b75478c7dc7f520a90a1, type: 3}
+  IngredientPrefab: {fileID: 6175146640551763023, guid: 51912f3ac0212c44d8aa0588c536321d, type: 3}
   Slices:
   - States: 000000000100000002000000
     Meshes:
-    - {fileID: -6230704575974544291, guid: 58c120ad46480ae4ca4533d97ed6943d, type: 3}
-    - {fileID: 0}
-    - {fileID: 0}
-  - States: 000000000100000002000000
-    Meshes:
-    - {fileID: 3789028392566594890, guid: 58c120ad46480ae4ca4533d97ed6943d, type: 3}
-    - {fileID: 0}
-    - {fileID: 0}
-  - States: 000000000100000002000000
-    Meshes:
-    - {fileID: 6745998547427558828, guid: f8525c1cbec44ff43ba97660c050f9d5, type: 3}
-    - {fileID: 0}
-    - {fileID: 0}
-  - States: 000000000100000002000000
-    Meshes:
-    - {fileID: 394052145787311927, guid: f8525c1cbec44ff43ba97660c050f9d5, type: 3}
-    - {fileID: 394052145787311927, guid: f8525c1cbec44ff43ba97660c050f9d5, type: 3}
-    - {fileID: 394052145787311927, guid: f8525c1cbec44ff43ba97660c050f9d5, type: 3}
+    - Mesh: {fileID: -6230704575974544291, guid: f8525c1cbec44ff43ba97660c050f9d5, type: 3}
+      Materials:
+      - {fileID: 1258105249021122163, guid: f8525c1cbec44ff43ba97660c050f9d5, type: 3}
+    - Mesh: {fileID: 6745998547427558828, guid: f8525c1cbec44ff43ba97660c050f9d5, type: 3}
+      Materials:
+      - {fileID: 5841111599460306832, guid: f8525c1cbec44ff43ba97660c050f9d5, type: 3}
+    - Mesh: {fileID: 394052145787311927, guid: f8525c1cbec44ff43ba97660c050f9d5, type: 3}
+      Materials:
+      - {fileID: 6588475910000259874, guid: f8525c1cbec44ff43ba97660c050f9d5, type: 3}
   CookingTime: 60
   BurnTime: 25
