@@ -27,6 +27,7 @@ public class ConchyAI : Singleton<ConchyAI>
     [SerializeField] AudioClip[] tutorialSpeechClips;
 
     [Header("Tutorial")]
+    [SerializeField] ElevatorScript elevator;
     [SerializeField] Transform waypointRoot;
     [SerializeField] Waypoint[] tutorialWaypoints;
     [SerializeField] Transform tutorialEndpoint;
@@ -60,13 +61,17 @@ public class ConchyAI : Singleton<ConchyAI>
         }
     }
 
-    private void Start()
+    [ContextMenu(nameof(Tutorial))]
+    public void Tutorial()
     {
+        StopCoroutine(C_Tutorial());
         StartCoroutine(C_Tutorial());
     }
 
     private IEnumerator C_Tutorial()
     {
+        yield return null;
+        yield return new WaitUntil(() => elevator.NotMoving);
         if (useText)
         {
             SpeechBubble.Instance.ShowDialog(tutorialDialog);
