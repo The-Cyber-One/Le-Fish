@@ -9,7 +9,8 @@ public class Ingredient : MonoBehaviour
     public IngredientState CurrentState { get; private set; }
     public int CurrentSlice { get; private set; }
     [SerializeField] MeshFilter meshFilter;
-    [SerializeField] private Mesh ash;
+    [SerializeField] MeshRenderer meshRenderer;
+    [SerializeField] GameObject ashPrefab;
     public bool IsCooking = false;
     public IngredientData Data;
 
@@ -27,17 +28,20 @@ public class Ingredient : MonoBehaviour
     {
         CurrentState = state;
         if (CurrentState == IngredientState.Burnt)
-            meshFilter.mesh = ash;
+        {
+            Instantiate(ashPrefab);
+            Destroy(gameObject);
+        }
         else
-            meshFilter.mesh = Data.Slices[CurrentSlice].Meshes[(int)state];
+            UpdateMesh();
     }
 
     public void Bake()
     {
-        if ((int)CurrentState < Data.Slices[CurrentSlice].States.Length - 1 && Data.Slices[CurrentSlice].Meshes[(int)CurrentState + 1] != null)
+        if ((int)CurrentState < Data.Slices[CurrentSlice].States.Length - 1)
         {
-            CurrentState++;
-            meshFilter.mesh = Data.Slices[CurrentSlice].Meshes[(int)CurrentState];
+            bool hasNextState = Data.Slices[CurrentSlice].Meshes[(int)CurrentState + 1] != null;
+            SetState(hasNextState ? ++CurrentState : IngredientState.Burnt);
         }
     }
 
@@ -46,7 +50,14 @@ public class Ingredient : MonoBehaviour
         if (CurrentSlice < Data.Slices.Length - 1 && Data.Slices[CurrentSlice + 1].Meshes[(int)CurrentState] != null)
         {
             CurrentSlice++;
-            meshFilter.mesh = Data.Slices[CurrentSlice].Meshes[(int)CurrentState];
+            UpdateMesh();
         }
+    }
+
+    private void UpdateMesh()
+    {
+        var data = Data.Slices[CurrentSlice].Meshes[(int)CurrentState];
+        meshFilter.mesh = data.Mesh;
+        meshRenderer.materials = data.Materials;
     }
 }

@@ -14,47 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Onion
   CanChangeState: 1
-  IngredientPrefab: {fileID: 5572411953675180627, guid: 26031900e6e6e5349a9a8304333bb9b7, type: 3}
+  IngredientPrefab: {fileID: 0}
   Slices:
   - States: 000000000100000002000000
     Meshes:
-    - {fileID: -5495902117074765545, guid: f946af24ffa75a94d9448caab986d235, type: 3}
-    - {fileID: 0}
-    - {fileID: 0}
-  - States: 000000000100000002000000
-    Meshes:
-    - {fileID: 4493585093827132993, guid: f817776cc61b2aa4db618fab8df73948, type: 3}
-    - {fileID: 0}
-    - {fileID: 0}
-  - States: 000000000100000002000000
-    Meshes:
-    - {fileID: -1550514412580984892, guid: f946af24ffa75a94d9448caab986d235, type: 3}
-    - {fileID: 0}
-    - {fileID: 0}
-  - States: 000000000100000002000000
-    Meshes:
-    - {fileID: -8678823145569952518, guid: f817776cc61b2aa4db618fab8df73948, type: 3}
-    - {fileID: 0}
-    - {fileID: 0}
-  - States: 000000000100000002000000
-    Meshes:
-    - {fileID: -5053925668127403250, guid: f817776cc61b2aa4db618fab8df73948, type: 3}
-    - {fileID: 0}
-    - {fileID: 0}
-  - States: 000000000100000002000000
-    Meshes:
-    - {fileID: 2212009239438826721, guid: f817776cc61b2aa4db618fab8df73948, type: 3}
-    - {fileID: 0}
-    - {fileID: 0}
-  - States: 000000000100000002000000
-    Meshes:
-    - {fileID: -2228417370725966487, guid: f817776cc61b2aa4db618fab8df73948, type: 3}
-    - {fileID: 0}
-    - {fileID: 0}
-  - States: 000000000100000002000000
-    Meshes:
-    - {fileID: -3329902420748629119, guid: f817776cc61b2aa4db618fab8df73948, type: 3}
-    - {fileID: -3329902420748629119, guid: f817776cc61b2aa4db618fab8df73948, type: 3}
-    - {fileID: -3329902420748629119, guid: f817776cc61b2aa4db618fab8df73948, type: 3}
+    - {fileID: 4300000, guid: e050c2b16fe384bd994474655a4b4968, type: 2}
+    - {fileID: -5495902117074765545, guid: d98317fc130be2e4385adcd8cd53f792, type: 3}
+    - {fileID: 4300000, guid: e050c2b16fe384bd994474655a4b4968, type: 2}
   CookingTime: 40
   BurnTime: 20
