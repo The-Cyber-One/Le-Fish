@@ -31,6 +31,7 @@ public class ConchyAI : Singleton<ConchyAI>
     [SerializeField] Transform waypointRoot;
     [SerializeField] Waypoint[] tutorialWaypoints;
     [SerializeField] Transform tutorialEndpoint;
+    bool _tutorialAvailible = true;
 
     Transform _waypointRoot;
 
@@ -64,8 +65,11 @@ public class ConchyAI : Singleton<ConchyAI>
     [ContextMenu(nameof(Tutorial))]
     public void Tutorial()
     {
-        StopCoroutine(C_Tutorial());
-        StartCoroutine(C_Tutorial());
+        if (_tutorialAvailible)
+        {
+            _tutorialAvailible = false;
+            StartCoroutine(C_Tutorial());
+        }
     }
 
     private IEnumerator C_Tutorial()

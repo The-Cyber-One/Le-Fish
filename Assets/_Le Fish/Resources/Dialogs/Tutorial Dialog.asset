@@ -96,7 +96,7 @@ MonoBehaviour:
     EmptyTime: 0.5
   - _inspectorTitle: 13 - Second thing
     Title: Second thing
-    WaitForTrigger: 1
+    WaitForTrigger: 0
     DisplayTime: 2
     Content: Second thing is that we just installed the brand new food accelerators.
     EmptyTime: 0.5

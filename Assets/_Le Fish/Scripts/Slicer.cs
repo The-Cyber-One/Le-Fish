@@ -1,12 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Slicer : MonoBehaviour
 {
+     [SerializeField] XRGrabInteractable interactable;
+
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.TryGetComponent(out Ingredient ingredient))
+        if (interactable.isSelected && collision.collider.TryGetComponent(out Ingredient ingredient))
         {
             ingredient.Slice();
         }
