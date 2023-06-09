@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static IngredientData;
 
 public class Bake : MonoBehaviour
 {
+    [SerializeField] private Slider slider;
     private List<Ingredient> _ingredients = new();
 
     public void StartTimer()
@@ -13,7 +15,8 @@ public class Bake : MonoBehaviour
         {
             if (ingredient.CurrentState != IngredientState.Burnt &&
                 !ingredient.IsCooking &&
-                ingredient.Data.Slices[ingredient.CurrentSlice].Meshes[(int)ingredient.CurrentState + 1] != null)
+                ingredient.Data.Slices[ingredient.CurrentSlice].Meshes[(int)ingredient.CurrentState + 1] != null &&
+                ingredient.CurrentSlice == ingredient.Data.Slices.Length - 1)
             {
                 ingredient.Timer.onTimerUpdate.AddListener(Percentage);
                 switch (ingredient.CurrentState)
@@ -76,6 +79,7 @@ public class Bake : MonoBehaviour
 
     void Percentage(float percentage)
     {
+        slider.value = percentage;
         Debug.Log(percentage);
     }
 }

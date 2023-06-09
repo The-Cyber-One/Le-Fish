@@ -23,9 +23,8 @@ MonoBehaviour:
       - {fileID: 1258105249021122163, guid: f8525c1cbec44ff43ba97660c050f9d5, type: 3}
     - Mesh: {fileID: 6745998547427558828, guid: f8525c1cbec44ff43ba97660c050f9d5, type: 3}
       Materials:
-      - {fileID: 5841111599460306832, guid: f8525c1cbec44ff43ba97660c050f9d5, type: 3}
-    - Mesh: {fileID: 394052145787311927, guid: f8525c1cbec44ff43ba97660c050f9d5, type: 3}
-      Materials:
-      - {fileID: 6588475910000259874, guid: f8525c1cbec44ff43ba97660c050f9d5, type: 3}
+      - {fileID: 2100000, guid: df74887c2db85bb42826103a47e6548b, type: 2}
+    - Mesh: {fileID: 0}
+      Materials: []
   CookingTime: 60
   BurnTime: 25
