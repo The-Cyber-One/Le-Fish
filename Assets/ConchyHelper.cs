@@ -52,6 +52,7 @@ public class ConchyHelper : MonoBehaviour
                 {
                     // Detach child objects with the tag "Ingredient"
                     DetachChildObjectsWithTag("Ingredient");
+                    DetachChildObjectsWithTag("Utensil");
 
                     // Instantiate the particle system
                     if (particleSystemPrefab != null)

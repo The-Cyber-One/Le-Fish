@@ -8,7 +8,7 @@ public class FallenObjectDetector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Ingredient"))
+        if (other.CompareTag("Ingredient")||other.CompareTag("Utensil"))
         {
             if (other.transform.parent == null)
             {
@@ -45,7 +45,7 @@ public class FallenObjectDetector : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Ingredient"))
+        if (other.CompareTag("Ingredient") || other.CompareTag("Utensil"))
         {
             enteredObjects.Remove(other);
         }

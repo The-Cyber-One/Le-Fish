@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class LeavingParticleDeleter : MonoBehaviour
 {
-    private ParticleSystem particleSystem;
+    private ParticleSystem leavingParticleSystem;
 
     void Start()
     {
-        particleSystem = GetComponent<ParticleSystem>();
+        leavingParticleSystem = GetComponent<ParticleSystem>();
     }
 
     void Update()
     {
-        if (!particleSystem.isPlaying)
+        if (!leavingParticleSystem.isPlaying)
         {
             Destroy(gameObject);
         }
