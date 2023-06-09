@@ -12,8 +12,7 @@ public class FallenObjectDetector : MonoBehaviour
         {
             if (other.transform.parent == null)
             {
-                if (!enteredObjects.Contains(other))
-                {
+                
                     // Get the position of the entering object
                     Vector3 enteringObjectPosition = other.transform.position;
 
@@ -32,9 +31,6 @@ public class FallenObjectDetector : MonoBehaviour
                     {
                         enteringObjectRigidbody.useGravity = false;
                         enteringObjectRigidbody.isKinematic = true;
-                        Vector3 velocity = enteringObjectRigidbody.velocity;
-                        velocity.y = 0f;
-                        enteringObjectRigidbody.velocity = velocity;
                     }
                     // Disable the entering object's collider
                     Collider enteringCollider = other.GetComponent<Collider>();
@@ -44,16 +40,8 @@ public class FallenObjectDetector : MonoBehaviour
                     }
                     // Add the object to the set of entered objects
                     enteredObjects.Add(other);
-                }
+                
             }
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Ingredient") || other.CompareTag("Utensil"))
-        {
-            enteredObjects.Remove(other);
         }
     }
 }
