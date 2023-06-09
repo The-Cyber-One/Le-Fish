@@ -80,8 +80,13 @@ public class ConchyHelper : MonoBehaviour
                 if (childRigidbody != null)
                 {
                     childRigidbody.useGravity = true;
+                    childRigidbody.isKinematic = false;
                 }
-
+                Collider childCollider = child.GetComponent<Collider>();
+                if (childCollider != null)
+                {
+                    childCollider.enabled = true;
+                }
                 // Detach from parent
                 child.parent = null;
             }

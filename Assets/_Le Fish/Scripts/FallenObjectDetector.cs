@@ -31,11 +31,17 @@ public class FallenObjectDetector : MonoBehaviour
                     if (enteringObjectRigidbody != null)
                     {
                         enteringObjectRigidbody.useGravity = false;
+                        enteringObjectRigidbody.isKinematic = true;
                         Vector3 velocity = enteringObjectRigidbody.velocity;
                         velocity.y = 0f;
                         enteringObjectRigidbody.velocity = velocity;
                     }
-
+                    // Disable the entering object's collider
+                    Collider enteringCollider = other.GetComponent<Collider>();
+                    if (enteringCollider != null)
+                    {
+                        enteringCollider.enabled = false;
+                    }
                     // Add the object to the set of entered objects
                     enteredObjects.Add(other);
                 }
