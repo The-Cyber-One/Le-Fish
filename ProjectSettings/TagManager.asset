@@ -9,6 +9,7 @@ TagManager:
   - DishFloor
   - Grabbable
   - DepositPoint
+  - Utensil
   layers:
   - Default
   - TransparentFX

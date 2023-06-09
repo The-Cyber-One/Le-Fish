@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfda67577d8f2a4696a528beac546ac, type: 3}
+  m_Name: Dough
+  m_EditorClassIdentifier: 
+  Name: Dough
+  CanChangeState: 1
+  IngredientPrefab: {fileID: 1766332236871552185, guid: 51c4852b84193a54fa1aa5b66be0a9a2, type: 3}
+  Slices:
+  - States: 000000000100000002000000
+    Meshes:
+    - Mesh: {fileID: -4428754836550342530, guid: 65402aaebc3724245a1e2e6b845bef26, type: 3}
+      Materials:
+      - {fileID: -8848810374240701247, guid: 37ec13422c20dc8488d46f3f77614025, type: 3}
+    - Mesh: {fileID: 0}
+      Materials: []
+    - Mesh: {fileID: 0}
+      Materials: []
+  - States: 000000000100000002000000
+    Meshes:
+    - Mesh: {fileID: 1161779891108236532, guid: 65402aaebc3724245a1e2e6b845bef26, type: 3}
+      Materials:
+      - {fileID: -8848810374240701247, guid: 37ec13422c20dc8488d46f3f77614025, type: 3}
+    - Mesh: {fileID: 1161779891108236532, guid: 65402aaebc3724245a1e2e6b845bef26, type: 3}
+      Materials:
+      - {fileID: 2100000, guid: 9df4c40813d08794ba056de5beed5c04, type: 2}
+    - Mesh: {fileID: 0}
+      Materials: []
+  CookingTime: 30
+  BurnTime: 40

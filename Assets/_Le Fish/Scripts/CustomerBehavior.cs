@@ -44,13 +44,11 @@ public class CustomerBehavior : MonoBehaviour
 
     public RecipeData AssociateRandomRecipe()
     {
-        PropositionData _proposition = 0 /*UnityEngine.Random.Range(0, 4)*/ switch // Only beef is implemented
+        PropositionData _proposition = UnityEngine.Random.Range(0, 3) switch // Only beef is implemented
         {
             0 => Resources.Load<PropositionData>("Propositions/BeefPropositions"),
-            1 => Resources.Load<PropositionData>("Propositions/CarrotDogPropositions"),
-            2 => Resources.Load<PropositionData>("Propositions/KaripapPropositions"),
-            3 => Resources.Load<PropositionData>("Propositions/KatsuPropositions"),
-            4 => Resources.Load<PropositionData>("Propositions/PennePropositions"),
+            1 => Resources.Load<PropositionData>("Propositions/KaripapPropositions"),
+            2 => Resources.Load<PropositionData>("Propositions/PennePropositions"),
             _ => throw new NotImplementedException()
         };
 
