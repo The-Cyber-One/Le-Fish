@@ -19,7 +19,7 @@ MonoBehaviour:
   - States: 000000000100000002000000
     Meshes:
     - {fileID: 6607805608282074239, guid: 229f87750b256bd4f91324cf3b935408, type: 3}
-    - {fileID: -5495902117074765545, guid: e10be307beaacd24b9e2bc03bd8de44d, type: 3}
+    - {fileID: 0}
     - {fileID: 0}
   - States: 000000000100000002000000
     Meshes:

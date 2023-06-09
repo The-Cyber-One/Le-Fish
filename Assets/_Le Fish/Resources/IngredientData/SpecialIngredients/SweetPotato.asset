@@ -18,8 +18,23 @@ MonoBehaviour:
   Slices:
   - States: 000000000100000002000000
     Meshes:
+    - {fileID: 3979742036922679026, guid: 62c9e2fe8bd47e24e83f031a76a21f8c, type: 3}
     - {fileID: 4300000, guid: e050c2b16fe384bd994474655a4b4968, type: 2}
     - {fileID: 4300000, guid: e050c2b16fe384bd994474655a4b4968, type: 2}
+  - States: 000000000100000002000000
+    Meshes:
+    - {fileID: -6178322797687828942, guid: 62c9e2fe8bd47e24e83f031a76a21f8c, type: 3}
     - {fileID: 4300000, guid: e050c2b16fe384bd994474655a4b4968, type: 2}
+    - {fileID: 4300000, guid: e050c2b16fe384bd994474655a4b4968, type: 2}
+  - States: 000000000100000002000000
+    Meshes:
+    - {fileID: 5379927878296786748, guid: 62c9e2fe8bd47e24e83f031a76a21f8c, type: 3}
+    - {fileID: 4300000, guid: e050c2b16fe384bd994474655a4b4968, type: 2}
+    - {fileID: 4300000, guid: e050c2b16fe384bd994474655a4b4968, type: 2}
+  - States: 000000000100000002000000
+    Meshes:
+    - {fileID: -2781444341657579599, guid: 62c9e2fe8bd47e24e83f031a76a21f8c, type: 3}
+    - {fileID: -2781444341657579599, guid: 62c9e2fe8bd47e24e83f031a76a21f8c, type: 3}
+    - {fileID: -2781444341657579599, guid: 62c9e2fe8bd47e24e83f031a76a21f8c, type: 3}
   CookingTime: 30
   BurnTime: 20
