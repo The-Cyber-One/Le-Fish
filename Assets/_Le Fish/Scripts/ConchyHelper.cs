@@ -48,7 +48,7 @@ public class ConchyHelper : MonoBehaviour
                 depositPosition.y = transform.position.y; // Lock the deposit position on the y-axis
                 transform.position = Vector3.MoveTowards(transform.position, depositPosition, speed * Time.deltaTime);
 
-                // Check if reached deposit point
+                // Check if it reached the deposit point
                 if (transform.position == depositPosition)
                 {
                     // Detach child objects with the tag "Ingredient"
@@ -61,13 +61,11 @@ public class ConchyHelper : MonoBehaviour
                         particleSystemInstance = Instantiate(particleSystemPrefab, transform.position, Quaternion.identity);
                     }
 
-                    // Stop moving
                     Destroy(gameObject);
                 }
             }
         }
 
-        // Rotate towards the deposit point
         RotateTowardsDepositPoint();
     }
 
@@ -103,7 +101,7 @@ public class ConchyHelper : MonoBehaviour
         Vector3 direction = depositPoint.transform.position - transform.position;
         direction.y = 0f; // Ignore vertical movement
 
-        // Check if there is any movement
+        // Check if it is moving
         if (direction != Vector3.zero)
         {
             // Calculate the target rotation based on the movement direction
