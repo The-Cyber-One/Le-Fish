@@ -37,7 +37,14 @@ public class CustomerBehavior : MonoBehaviour
     public void Update()
     {
         if (_customerWaiting)
+        {
             DetectDish();
+            if (_spawnedSpecialIngredient == null)
+            {
+                StopCoroutine(WaitForOrder());
+                StartCoroutine(LeaveRestaurant());
+            }
+        }
 
         animator.SetFloat("Velocity", navMeshAgent.velocity.sqrMagnitude / navMeshAgent.speed);
     }
@@ -86,10 +93,11 @@ public class CustomerBehavior : MonoBehaviour
         }
 
         _spawnedSpecialIngredient = Instantiate(_specialIngredient.IngredientPrefab, _customerSpawner.ingredientSpawn, false);
+        _spawnedSpecialIngredient.GetComponent<Rigidbody>().isKinematic = false;
+        _customerWaiting = true;
 
         yield return TellStory();
         ConchyAI.Instance.ShowProposition();
-        _customerWaiting = true;
         yield return new WaitForSeconds(orderingTime);
 
         _isSatisfied = false;
