@@ -210,7 +210,7 @@ MonoBehaviour:
   particleSystemPrefab: {fileID: 7071256732070598036, guid: 97c778e35eaa92d4e91a112d952768bc, type: 3}
   speed: 1
   upSpeed: 1
-  targetPosition: {x: 0, y: -0.228, z: 0}
+  rotationSpeed: 2
 --- !u!1001 &3970904346498849350
 PrefabInstance:
   m_ObjectHideFlags: 0
