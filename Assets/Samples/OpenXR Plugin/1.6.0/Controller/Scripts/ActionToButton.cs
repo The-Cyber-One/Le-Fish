@@ -1,5 +1,9 @@
+using System;
+using System.Collections;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.XR.Management;
+using UnityEngine.XR.OpenXR.Input;
 
 namespace UnityEngine.XR.OpenXR.Samples.ControllerSample
 {
@@ -34,7 +38,7 @@ namespace UnityEngine.XR.OpenXR.Samples.ControllerSample
 
         protected override void OnActionBound()
         {
-            if (_image != null)
+            if(_image != null)
                 _image.enabled = true;
         }
     }
