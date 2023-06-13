@@ -7172,11 +7172,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5751871186206020013, guid: e5f134cd8efc6bd41bbf2af55ea9ef7d, type: 3}
   m_PrefabInstance: {fileID: 2129911112}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &1227395906 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 2766551496233671768, guid: e5f134cd8efc6bd41bbf2af55ea9ef7d, type: 3}
-  m_PrefabInstance: {fileID: 2129911112}
-  m_PrefabAsset: {fileID: 0}
 --- !u!82 &1227395907 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 3550576210464730867, guid: e5f134cd8efc6bd41bbf2af55ea9ef7d, type: 3}
@@ -10372,7 +10367,7 @@ PrefabInstance:
     - target: {fileID: 6550047809003589412, guid: f369ee2d771fa184da52808ae8457e45, type: 3}
       propertyPath: audioSource
       value: 
-      objectReference: {fileID: 1227395906}
+      objectReference: {fileID: 0}
     - target: {fileID: 6579714197122763977, guid: f369ee2d771fa184da52808ae8457e45, type: 3}
       propertyPath: m_Name
       value: AMBText (TMP)
