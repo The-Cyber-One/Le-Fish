@@ -13,7 +13,7 @@ public class ListRecipeData : ScriptableObject
     private void OnValidate()
     {
         for (int i = 0; i < ListRecipes.Count; i++)
-            ListRecipes[i].Ingredients.OrderBy(i => i.Ingredient.Name).ToList();
+            ListRecipes[i].Ingredients = ListRecipes[i].Ingredients.OrderBy(i => i.Ingredient.Name).ToList();
     }
 
     public bool TryFindDish(List<Ingredient> ingredients, out RecipeData dish)

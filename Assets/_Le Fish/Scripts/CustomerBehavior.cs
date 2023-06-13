@@ -2,22 +2,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
-using System.Collections.Generic;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class CustomerBehavior : MonoBehaviour
 {
     [SerializeField] float orderingTime = 5.0f;
     [SerializeField] float spawnCooldown = 1.0f;
+    [SerializeField] private NavMeshAgent navMeshAgent;
+    [SerializeField] private Animator animator;
 
     private CustomerSpawner _customerSpawner;
     private RecipeData _proposition;
     private IngredientData _specialIngredient;
     private GameObject _spawnedSpecialIngredient;
-    private NavMeshAgent _navMeshAgent;
 
     private bool _customerWaiting = false;
     private bool _isSatisfied;
@@ -32,34 +31,31 @@ public class CustomerBehavior : MonoBehaviour
     {
         _proposition = AssociateRandomRecipe();
 
-        if (gameObject.TryGetComponent(out NavMeshAgent navMeshAgent))
-        {
-            _navMeshAgent = navMeshAgent;
-        }
-        else
-        {
-            Debug.Log("No NavMeshAgent Component !");
-            return;
-        }
-
         StartCoroutine(MoveToOrder());
     }
 
     public void Update()
     {
         if (_customerWaiting)
+        {
             DetectDish();
+            if (_spawnedSpecialIngredient == null)
+            {
+                StopCoroutine(WaitForOrder());
+                StartCoroutine(LeaveRestaurant());
+            }
+        }
+
+        animator.SetFloat("Velocity", navMeshAgent.velocity.sqrMagnitude / navMeshAgent.speed);
     }
 
     public RecipeData AssociateRandomRecipe()
     {
-        PropositionData _proposition = 0 /*UnityEngine.Random.Range(0, 4)*/ switch // Only beef is implemented
+        PropositionData _proposition = UnityEngine.Random.Range(0, 3) switch // Only beef is implemented
         {
             0 => Resources.Load<PropositionData>("Propositions/BeefPropositions"),
-            1 => Resources.Load<PropositionData>("Propositions/CarrotDogPropositions"),
-            2 => Resources.Load<PropositionData>("Propositions/KaripapPropositions"),
-            3 => Resources.Load<PropositionData>("Propositions/KatsuPropositions"),
-            4 => Resources.Load<PropositionData>("Propositions/PennePropositions"),
+            1 => Resources.Load<PropositionData>("Propositions/KaripapPropositions"),
+            2 => Resources.Load<PropositionData>("Propositions/PennePropositions"),
             _ => throw new NotImplementedException()
         };
 
@@ -77,7 +73,7 @@ public class CustomerBehavior : MonoBehaviour
 
     IEnumerator MoveToOrder()
     {
-        _navMeshAgent.SetDestination(_customerSpawner.OrderPoint.position);
+        navMeshAgent.SetDestination(_customerSpawner.OrderPoint.position);
         yield return IsDoneMoving();
         StartCoroutine(WaitForOrder());
     }
@@ -85,7 +81,7 @@ public class CustomerBehavior : MonoBehaviour
     IEnumerator IsDoneMoving()
     {
         yield return null;
-        yield return new WaitUntil(() => _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance);
+        yield return new WaitUntil(() => navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance);
     }
 
     IEnumerator WaitForOrder()
@@ -97,10 +93,11 @@ public class CustomerBehavior : MonoBehaviour
         }
 
         _spawnedSpecialIngredient = Instantiate(_specialIngredient.IngredientPrefab, _customerSpawner.ingredientSpawn, false);
+        _spawnedSpecialIngredient.GetComponent<Rigidbody>().isKinematic = false;
+        _customerWaiting = true;
 
         yield return TellStory();
         ConchyAI.Instance.ShowProposition();
-        _customerWaiting = true;
         yield return new WaitForSeconds(orderingTime);
 
         _isSatisfied = false;
@@ -111,7 +108,7 @@ public class CustomerBehavior : MonoBehaviour
             Destroy(_spawnedSpecialIngredient);
         }
 
-        _navMeshAgent.SetDestination(_customerSpawner.AwayPoint.position);
+        navMeshAgent.SetDestination(_customerSpawner.AwayPoint.position);
         yield return LeaveRestaurant();
 
         _customerSpawner.SpawnCustomers();
@@ -137,7 +134,7 @@ public class CustomerBehavior : MonoBehaviour
         {
             List<int> OnlyAvailableSeats = new();
 
-            for(int i = 0; i < _customerSpawner.AvailableSeats.Count(); i++)
+            for (int i = 0; i < _customerSpawner.AvailableSeats.Count(); i++)
             {
                 if (_customerSpawner.AvailableSeats[i])
                     OnlyAvailableSeats.Add(i);
@@ -146,7 +143,7 @@ public class CustomerBehavior : MonoBehaviour
             int randIndex = UnityEngine.Random.Range(0, OnlyAvailableSeats.Count);
             int randomNumber = OnlyAvailableSeats[randIndex];
 
-            _navMeshAgent.SetDestination(_customerSpawner.EatPoints[randomNumber].position);
+            navMeshAgent.SetDestination(_customerSpawner.EatPoints[randomNumber].position);
             _customerSpawner.AvailableSeats[randomNumber] = false;
 
             Destroy(_customerSpawner.WaitingDish);

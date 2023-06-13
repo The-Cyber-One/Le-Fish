@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56afb23081f9fbb4bb82ef6096c81cab, type: 3}
+  m_Name: Music
+  m_EditorClassIdentifier: 
+  ListPlaylist:
+  - playlistName: Ambient
+    audioClips:
+    - {fileID: 8300000, guid: e84f5c399d1020043875bd0ad6a3e85b, type: 3}
+    - {fileID: 8300000, guid: 57daa09fe94e971478c57fe303bb7867, type: 3}
+    - {fileID: 8300000, guid: 8af5fececb904204f824d46ecd5bd326, type: 3}
+    - {fileID: 8300000, guid: f72f6f25fbf613f488cf5870ac0546cd, type: 3}
+  - playlistName: Cinematic
+    audioClips:
+    - {fileID: 8300000, guid: 4256ced3b01314c4489dbbf024404c3a, type: 3}
+    - {fileID: 8300000, guid: 505ae50667e52264bbdfd6817f3bd5fc, type: 3}
+  - playlistName: Cyberpunk
+    audioClips:
+    - {fileID: 8300000, guid: 23293a3a1217637428d93fcb7edf392b, type: 3}
+    - {fileID: 8300000, guid: 415f4664dc5bea2448e50dce88bb8810, type: 3}
+    - {fileID: 8300000, guid: 2d08d18d470d996499f0459b0c0484a1, type: 3}
+    - {fileID: 8300000, guid: 0b4b92d753948cf44922341a7b0c254e, type: 3}
+    - {fileID: 8300000, guid: 6892d64d96efd9947a69bb99f0012d2f, type: 3}
+    - {fileID: 8300000, guid: d07317754a33a12499051f0b16c9d5c4, type: 3}
+    - {fileID: 8300000, guid: 384e5f88d9eb6f541bb2031852e69fc9, type: 3}
+    - {fileID: 8300000, guid: f0cd90e0ff182c847b187ccc863eae2d, type: 3}
+    - {fileID: 8300000, guid: 73517903304f8d342bd847aa91a57df5, type: 3}
+    - {fileID: 8300000, guid: 0f876b92d6d347043b56d0235fca0072, type: 3}
+  - playlistName: DanceEDM
+    audioClips:
+    - {fileID: 8300000, guid: 8e0cf68b59d9b9949b9c5c962b37a2b3, type: 3}
+    - {fileID: 8300000, guid: 45e1ef04dfe5f0247ba51b6cd65fde66, type: 3}
+    - {fileID: 8300000, guid: 9aee96fe1992d8843966496d3d6c77bb, type: 3}
+    - {fileID: 8300000, guid: da430998fb6609044a02db6cc76e9182, type: 3}
+    - {fileID: 8300000, guid: cfccd7eb2bed3c24bb482595864de76c, type: 3}
+  - playlistName: HipHop
+    audioClips:
+    - {fileID: 8300000, guid: 3aa335bd33965834994d65d8a9e4430c, type: 3}
+    - {fileID: 8300000, guid: d6b6f3d9037656a4abb04be7040fd147, type: 3}
+    - {fileID: 8300000, guid: 361737cf1bfc3624495e28e146cf4257, type: 3}
+    - {fileID: 8300000, guid: 53b97f0d449f8c045b5e82259a7ddca6, type: 3}
+    - {fileID: 8300000, guid: 3eb29036cc2c2bc46a0897f901fb4f0b, type: 3}
+    - {fileID: 8300000, guid: af1211b62c645c3408eb5dff719a6366, type: 3}
+  - playlistName: JazzBlues
+    audioClips:
+    - {fileID: 8300000, guid: f99fd47f26888994ea04011e46618306, type: 3}
+    - {fileID: 8300000, guid: 3dcfea8fa74111142b9e5b024c723095, type: 3}
+    - {fileID: 8300000, guid: cd79901aeea1c0244b8f702da721892e, type: 3}
+  - playlistName: Pop
+    audioClips:
+    - {fileID: 8300000, guid: 2b999dbbb1a25c84698cbc9e4d0c7e16, type: 3}
+    - {fileID: 8300000, guid: 10beb7edb06d6f54c952cc0c796c47c6, type: 3}
+    - {fileID: 8300000, guid: e931619d0affee64aadb611bbe32cd67, type: 3}
+    - {fileID: 8300000, guid: be87e7812327d634782a1794b218eb2c, type: 3}
+    - {fileID: 8300000, guid: edf090a3c4741a349a440068f86999e5, type: 3}

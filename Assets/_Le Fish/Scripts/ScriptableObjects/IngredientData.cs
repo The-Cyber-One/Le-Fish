@@ -1,6 +1,9 @@
 using System;
-using UnityEditor;
+using System.Linq;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using static IngredientData;
 
 [CreateAssetMenu(fileName = "Ingredient Data", menuName = "ScriptableObjects/Ingredient Data")]
@@ -13,12 +16,20 @@ public class IngredientData : ScriptableObject
     [HideInInspector] public IngredientSlice[] Slices;
     [HideInInspector] public int CookingTime;
     [HideInInspector] public int BurnTime;
-    
+
     [Serializable]
     public class IngredientSlice
     {
+        [SerializeField] public bool IsSpice = false;
         [SerializeField] public IngredientState[] States;
-        [SerializeField] public Mesh[] Meshes;
+        [SerializeField] public MeshData[] Meshes;
+
+        [Serializable]
+        public class MeshData
+        {
+            [SerializeField] public Mesh Mesh;
+            [SerializeField] public Material[] Materials;
+        }
     }
 
     public enum IngredientState
@@ -63,13 +74,22 @@ public class IngredientDataEditor : Editor
 public class IngredientSliceDrawer : PropertyDrawer
 {
     const float PROPERTY_HEIGHT = 18;
+    const float PROPERTY_INDENT = 15;
     const float PROPERTY_SPACING = 2;
     const float TOTAL_PROPERTY_HEIGHT = PROPERTY_HEIGHT + PROPERTY_SPACING;
 
     readonly IngredientState[] _ingredientStates = (IngredientState[])Enum.GetValues(typeof(IngredientState));
 
-    public override float GetPropertyHeight(SerializedProperty property, GUIContent label) =>
-        TOTAL_PROPERTY_HEIGHT * _ingredientStates.Length + TOTAL_PROPERTY_HEIGHT;
+    public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+    {
+        var meshes = property.FindPropertyRelative(nameof(IngredientSlice.Meshes));
+        int materialCount = 0;
+        for (int i = 0; i < meshes.arraySize; i++)
+        {
+            materialCount += meshes.GetArrayElementAtIndex(i).FindPropertyRelative(nameof(IngredientSlice.MeshData.Materials)).arraySize;
+        }
+        return TOTAL_PROPERTY_HEIGHT * (_ingredientStates.Length + materialCount) + TOTAL_PROPERTY_HEIGHT;
+    }
 
     private void Setup(SerializedProperty property)
     {
@@ -85,7 +105,8 @@ public class IngredientSliceDrawer : PropertyDrawer
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
-        if (property.FindPropertyRelative(nameof(IngredientSlice.Meshes)).arraySize < _ingredientStates.Length)
+        SerializedProperty meshesField = property.FindPropertyRelative(nameof(IngredientSlice.Meshes));
+        if (meshesField.arraySize < _ingredientStates.Length)
             Setup(property);
 
         EditorGUI.BeginProperty(position, label, property);
@@ -95,17 +116,45 @@ public class IngredientSliceDrawer : PropertyDrawer
         labelStyle.normal.textColor = Color.white;
         EditorGUI.LabelField(labelPosition, label.text.Replace("Element", "Slice"), labelStyle);
 
-        SerializedProperty meshesField = property.FindPropertyRelative(nameof(IngredientSlice.Meshes));
+        Vector2 ingredientPosition = position.position;
+        var spiceProperty = property.FindPropertyRelative(nameof(IngredientSlice.IsSpice));
+        spiceProperty.boolValue = EditorGUI.ToggleLeft(new Rect(ingredientPosition, new Vector2(position.width, PROPERTY_HEIGHT)), "Spicy", spiceProperty.boolValue);
 
         for (int i = 0; i < _ingredientStates.Length; i++)
         {
-            var ingredientPosition = new Rect(position.x, position.y + (1 + i) * TOTAL_PROPERTY_HEIGHT, position.width, PROPERTY_HEIGHT);
-            meshesField.GetArrayElementAtIndex(i).objectReferenceValue = EditorGUI.ObjectField(
-                position: ingredientPosition,
+            var element = meshesField.GetArrayElementAtIndex(i);
+            var meshProperty = element.FindPropertyRelative(nameof(IngredientSlice.MeshData.Mesh));
+            var materialsPropterty = element.FindPropertyRelative(nameof(IngredientSlice.MeshData.Materials));
+
+            ingredientPosition.y += TOTAL_PROPERTY_HEIGHT;
+
+            meshProperty.objectReferenceValue = EditorGUI.ObjectField(
+                position: new Rect(ingredientPosition, new Vector2(position.width, PROPERTY_HEIGHT)),
                 label: new GUIContent(_ingredientStates[i].ToString()),
-                obj: meshesField.GetArrayElementAtIndex(i).objectReferenceValue,
+                obj: meshProperty.objectReferenceValue,
                 objType: typeof(Mesh),
                 allowSceneObjects: false);
+
+            if (meshProperty.objectReferenceValue == null)
+            {
+                materialsPropterty.arraySize = 0;
+            }
+            else
+            {
+                materialsPropterty.arraySize = ((Mesh)meshProperty.objectReferenceValue).subMeshCount;
+
+                for (int j = 0; j < materialsPropterty.arraySize; j++)
+                {
+                    var material = materialsPropterty.GetArrayElementAtIndex(j);
+                    ingredientPosition.y += TOTAL_PROPERTY_HEIGHT;
+                    material.objectReferenceValue = EditorGUI.ObjectField(
+                        position: new Rect(new Vector2(ingredientPosition.x + PROPERTY_INDENT, ingredientPosition.y), new Vector2(position.width - PROPERTY_INDENT, PROPERTY_HEIGHT)),
+                        label: new GUIContent(j.ToString()),
+                        obj: material.objectReferenceValue,
+                        objType: typeof(Material),
+                        allowSceneObjects: false);
+                }
+            }
         }
 
         EditorGUI.EndProperty();

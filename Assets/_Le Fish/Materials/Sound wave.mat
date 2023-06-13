@@ -22,8 +22,8 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _Radius: -0.54
-    - _Speed: 29.75
+    - _Radius: 0.54
+    - _Speed: 10
     m_Colors:
     - _Color: {r: 0.34042364, g: 0.5119657, b: 0.9622642, a: 1}
   m_BuildTextureStacks: []
