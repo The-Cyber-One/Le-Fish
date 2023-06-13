@@ -1099,7 +1099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89c4be20a18c4c448c3a28daa3e337e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orderingTime: 50
+  orderingTime: 1000
   spawnCooldown: 3
   navMeshAgent: {fileID: -7866092732099699290}
   animator: {fileID: 4831110937451004218}
