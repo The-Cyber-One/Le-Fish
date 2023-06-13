@@ -7,6 +7,8 @@ using static IngredientData;
 public class Bake : MonoBehaviour
 {
     [SerializeField] private Slider slider;
+    [SerializeField] private Color cookingColor, burningColor;
+
     private List<Ingredient> _ingredients = new();
 
     public void StartTimer()
@@ -22,10 +24,12 @@ public class Bake : MonoBehaviour
                 switch (ingredient.CurrentState)
                 {
                     case IngredientState.Raw:
+                        slider.fillRect.GetComponent<Image>().color = cookingColor;
                         ingredient.Timer.onTimerFinished.AddListener(() => StateCook(ingredient));
                         ingredient.Timer.StartTimer(ingredient.Data.CookingTime);
                         break;
                     case IngredientState.Cooked:
+                        slider.fillRect.GetComponent<Image>().color = burningColor;
                         ingredient.Timer.onTimerFinished.AddListener(() => StateBurn(ingredient));
                         ingredient.Timer.StartTimer(ingredient.Data.BurnTime);
                         break;
@@ -61,6 +65,7 @@ public class Bake : MonoBehaviour
         ingredient.Timer.onTimerUpdate.RemoveAllListeners();
 
         ingredient.Timer.onTimerUpdate.AddListener(Percentage);
+        slider.fillRect.GetComponent<Image>().color = burningColor;
         ingredient.Timer.onTimerFinished.AddListener(() => StateBurn(ingredient));
         ingredient.Timer.StartTimer(ingredient.Data.BurnTime);
 
@@ -80,6 +85,6 @@ public class Bake : MonoBehaviour
     void Percentage(float percentage)
     {
         slider.value = percentage;
-        Debug.Log(percentage);
+        //Debug.Log(percentage);
     }
 }

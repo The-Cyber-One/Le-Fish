@@ -1,6 +1,7 @@
+using System;
 using System.Linq;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 namespace UnityEngine.XR.OpenXR.Samples.ControllerSample
 {
@@ -21,7 +22,7 @@ namespace UnityEngine.XR.OpenXR.Samples.ControllerSample
                 return;
 
             var device = _actionReference.action.controls[0].device;
-            _text.text = $"{device.name}\n{device.deviceId}\n{string.Join(",", device.usages.Select(u => u.ToString()))}";
+            _text.text = $"{device.name}\n{device.deviceId}\n{string.Join(",", device.usages.Select(u=>u.ToString()))}";
         }
     }
 }

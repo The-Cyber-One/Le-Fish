@@ -29,13 +29,14 @@ public class Ingredient : MonoBehaviour
         CurrentState = state;
         if (CurrentState == IngredientState.Burnt)
         {
-            Instantiate(ashPrefab);
+            Instantiate(ashPrefab, transform.position, ashPrefab.transform.rotation);
             Destroy(gameObject);
         }
         else
             UpdateMesh();
     }
 
+    [ContextMenu(nameof(Bake))]
     public void Bake()
     {
         if ((int)CurrentState < Data.Slices[CurrentSlice].States.Length - 1)
@@ -45,6 +46,7 @@ public class Ingredient : MonoBehaviour
         }
     }
 
+    [ContextMenu(nameof(Slice))]
     public void Slice()
     {
         if (CurrentSlice < Data.Slices.Length - 1 && Data.Slices[CurrentSlice + 1].Meshes[(int)CurrentState] != null)
