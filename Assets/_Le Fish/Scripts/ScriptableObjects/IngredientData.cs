@@ -20,6 +20,7 @@ public class IngredientData : ScriptableObject
     [Serializable]
     public class IngredientSlice
     {
+        [SerializeField] public bool IsSpice = false;
         [SerializeField] public IngredientState[] States;
         [SerializeField] public MeshData[] Meshes;
 
@@ -104,7 +105,8 @@ public class IngredientSliceDrawer : PropertyDrawer
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
-        if (property.FindPropertyRelative(nameof(IngredientSlice.Meshes)).arraySize < _ingredientStates.Length)
+        SerializedProperty meshesField = property.FindPropertyRelative(nameof(IngredientSlice.Meshes));
+        if (meshesField.arraySize < _ingredientStates.Length)
             Setup(property);
 
         EditorGUI.BeginProperty(position, label, property);
@@ -114,9 +116,10 @@ public class IngredientSliceDrawer : PropertyDrawer
         labelStyle.normal.textColor = Color.white;
         EditorGUI.LabelField(labelPosition, label.text.Replace("Element", "Slice"), labelStyle);
 
-        SerializedProperty meshesField = property.FindPropertyRelative(nameof(IngredientSlice.Meshes));
-
         Vector2 ingredientPosition = position.position;
+        var spiceProperty = property.FindPropertyRelative(nameof(IngredientSlice.IsSpice));
+        spiceProperty.boolValue = EditorGUI.ToggleLeft(new Rect(ingredientPosition, new Vector2(position.width, PROPERTY_HEIGHT)), "Spicy", spiceProperty.boolValue);
+
         for (int i = 0; i < _ingredientStates.Length; i++)
         {
             var element = meshesField.GetArrayElementAtIndex(i);

@@ -46,15 +46,22 @@ public class Ingredient : MonoBehaviour
         }
     }
 
-    [ContextMenu(nameof(Slice))]
-    public void Slice()
+    private void SliceOrSpice(bool isSpice)
     {
-        if (CurrentSlice < Data.Slices.Length - 1 && Data.Slices[CurrentSlice + 1].Meshes[(int)CurrentState] != null)
+        if (CurrentSlice < Data.Slices.Length - 1 && 
+            Data.Slices[CurrentSlice + 1].IsSpice == isSpice &&
+            Data.Slices[CurrentSlice + 1].Meshes[(int)CurrentState] != null)
         {
             CurrentSlice++;
             UpdateMesh();
         }
     }
+
+    [ContextMenu(nameof(Slice))]
+    public void Slice() => SliceOrSpice(false);
+
+    [ContextMenu(nameof(Spice))]
+    public void Spice() => SliceOrSpice(true);
 
     private void UpdateMesh()
     {
