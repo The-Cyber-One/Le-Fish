@@ -10,12 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43f499c4a6a861f468f70708816890a8, type: 3}
-  m_Name: Beef 2
+  m_Name: Lisa Ruined
   m_EditorClassIdentifier: 
   texts:
-  - _inspectorTitle: '0 - '
-    Title: 
+  - _inspectorTitle: 0 - Oh no
+    Title: Oh no
     WaitForTrigger: 0
-    DisplayTime: 0
-    Content: Other special stuff here
-    EmptyTime: 0
+    DisplayTime: 2
+    Content: Oh no. That doesn't look like anything I can eat anymore.
+    EmptyTime: 0.5
+  - _inspectorTitle: 1 - disapointed
+    Title: disapointed
+    WaitForTrigger: 0
+    DisplayTime: 2
+    Content: Grandma will be so disapointed.
+    EmptyTime: 0.5

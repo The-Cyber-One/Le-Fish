@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f499c4a6a861f468f70708816890a8, type: 3}
+  m_Name: Lisa Intro
+  m_EditorClassIdentifier: 
+  texts:
+  - _inspectorTitle: 0 - Hi there
+    Title: Hi there
+    WaitForTrigger: 0
+    DisplayTime: 2
+    Content: Hi there, me and my grandma just started to grow sweet potatoes and
+      we heard that you guys know what to cook with them.
+    EmptyTime: 0.5
+  - _inspectorTitle: 1 - LisaInfo1
+    Title: LisaInfo1
+    WaitForTrigger: 0
+    DisplayTime: 2
+    Content: "Yes, it\u2019s a lot of work, but also great fun."
+    EmptyTime: 0.5
+  - _inspectorTitle: 2 - LisaInfo2
+    Title: LisaInfo2
+    WaitForTrigger: 0
+    DisplayTime: 2
+    Content: They opened a small community greenhouse in the highrise building grandma
+      lives in.
+    EmptyTime: 0.5
+  - _inspectorTitle: 3 - LisaInfo3
+    Title: LisaInfo3
+    WaitForTrigger: 0
+    DisplayTime: 2
+    Content: So all the tennants are allowed to grow things in a small area in there.
+    EmptyTime: 0.5
+  - _inspectorTitle: 4 - LisaInfo4
+    Title: LisaInfo4
+    WaitForTrigger: 0
+    DisplayTime: 2
+    Content: The soil is special cleansed soil out of some laboratory.
+    EmptyTime: 0.5
+  - _inspectorTitle: 5 - LisaInfo5
+    Title: LisaInfo5
+    WaitForTrigger: 0
+    DisplayTime: 2
+    Content: And in this greenhouse setting we are able to control everything like
+      temprature, light and water.
+    EmptyTime: 0.5
+  - _inspectorTitle: 6 - LisaInfo6
+    Title: LisaInfo6
+    WaitForTrigger: 0
+    DisplayTime: 2
+    Content: "I\u2019m getting a headache just thinking about all the things that
+      we need to think about."
+    EmptyTime: 0.5
+  - _inspectorTitle: 7 - LisaInfo7
+    Title: LisaInfo7
+    WaitForTrigger: 0
+    DisplayTime: 2
+    Content: (Sigh) I still have so much to learn, but I really wanna know what we
+      can make out of this. You can do that, right?
+    EmptyTime: 0.5
+  - _inspectorTitle: 8 - Yeah, so we were hoping
+    Title: Yeah, so we were hoping
+    WaitForTrigger: 0
+    DisplayTime: 2
+    Content: Yeah, so we were hoping you could cook us something healthy, simple
+      and fun.
+    EmptyTime: 0.5

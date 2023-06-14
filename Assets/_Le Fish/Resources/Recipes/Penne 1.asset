@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1d04c1d17a338a47aee7b791610a1c9, type: 3}
-  m_Name: BeefTwo
+  m_Name: Penne 1
   m_EditorClassIdentifier: 
-  Name: Beef two
-  Description: Really expresses the two section of the name.
-  Instructions: {fileID: 11400000, guid: 8d19a766c6a80ac4fbfb2e82c8125e5f, type: 2}
-  DishPrefab: {fileID: 902117034965825441, guid: 71a935129b9fafd4ea5c677108b1be0d, type: 3}
+  Name: penne one
+  Description: Verry much template
+  Instructions: {fileID: 11400000, guid: 256b23e2eea94164e8489cfdc6a4813f, type: 2}
+  DishPrefab: {fileID: 2906389913339892459, guid: eaf387167dc7fef45a3fc800d5896973, type: 3}
   Ingredients:
   - Ingredient: {fileID: 11400000, guid: e7fae4561acd6d2478372c2a1503fd1e, type: 2}
-    CookingState: 1
+    CookingState: 0
     SliceState: 5
-  - Ingredient: {fileID: 11400000, guid: c6c68fee4c140c64296fdc357fb3e45d, type: 2}
-    CookingState: 1
-    SliceState: 4
-  - Ingredient: {fileID: 11400000, guid: 027e8f29e4fac1f409e1cc206dc61415, type: 2}
+  - Ingredient: {fileID: 11400000, guid: 61254943c9b666c47b43b6d701a5bcde, type: 2}
     CookingState: 1
     SliceState: 0
+  - Ingredient: {fileID: 11400000, guid: fdfc8023346e7b347bfe85d2390fdcd4, type: 2}
+    CookingState: 0
+    SliceState: 6
