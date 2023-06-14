@@ -50,7 +50,7 @@ public class SpeechBubble : Singleton<SpeechBubble>
         _coroutine = StartCoroutine(C_ShowDialog(dialog));
     }
 
-    private IEnumerator C_ShowDialog(Dialog dialog)
+    public IEnumerator C_ShowDialog(Dialog dialog)
     {
         _textMeshPro.text = string.Empty;
 
