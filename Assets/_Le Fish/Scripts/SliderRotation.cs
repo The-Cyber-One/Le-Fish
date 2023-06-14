@@ -17,11 +17,8 @@ public class SliderRotation : MonoBehaviour
 
     void LeverChanged(Vector2 valueIn)
     {
-        Debug.Log(valueIn);
         float value = Mathf.InverseLerp(-1, 1, valueIn.y);
-        Debug.Log(value);
         audioGroup.audioMixer.SetFloat(VolumeParameterName, Mathf.Lerp(minVolume, maxVolume, value));
-        Debug.Log(Mathf.Lerp(minVolume, maxVolume, value));
         slider.value = value;
     }
 
