@@ -43,10 +43,10 @@ GameObject:
   - component: {fileID: 405261725869428767}
   - component: {fileID: 6065711429896801237}
   - component: {fileID: 8123059906264781199}
-  - component: {fileID: 8123059906264781196}
   - component: {fileID: 8123059906264781197}
   - component: {fileID: 8123059906264781202}
   - component: {fileID: -5783575400606973965}
+  - component: {fileID: 6178430966032065397}
   m_Layer: 0
   m_Name: Potato
   m_TagString: Ingredient
@@ -136,20 +136,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &8123059906264781196
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8975996599639162747}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.012091836
-  m_Height: 0.039893445
-  m_Direction: 1
-  m_Center: {x: -0.000011456665, y: -0.0035978898, z: 0.00027840908}
 --- !u!114 &8123059906264781197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,3 +296,16 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!65 &6178430966032065397
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8975996599639162747}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02418367, y: 0.03989344, z: 0.021805938}
+  m_Center: {x: -0.000011456664, y: -0.0035978893, z: 0.00027840905}

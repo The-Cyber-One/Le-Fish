@@ -16,31 +16,31 @@ MonoBehaviour:
   - _inspectorTitle: 0 - Welcome
     Title: Welcome
     WaitForTrigger: 0
-    DisplayTime: 2
+    DisplayTime: 1.5
     Content: Hey there, welcome to your new restaurant.
     EmptyTime: 0.5
   - _inspectorTitle: 1 - Like look?
     Title: Like look?
     WaitForTrigger: 0
-    DisplayTime: 2
+    DisplayTime: 1.5
     Content: Do you like the look?
     EmptyTime: 1
   - _inspectorTitle: '2 - Bit empty '
     Title: 'Bit empty '
     WaitForTrigger: 1
-    DisplayTime: 2
+    DisplayTime: 1.5
     Content: Still feels a bit empty though.
     EmptyTime: 0.5
   - _inspectorTitle: 3 - Your here
     Title: Your here
     WaitForTrigger: 0
-    DisplayTime: 2
+    DisplayTime: 1.5
     Content: But hey,  that is why you are here.
     EmptyTime: 0.5
   - _inspectorTitle: 4 - Show around
     Title: Show around
     WaitForTrigger: 0
-    DisplayTime: 2
+    DisplayTime: 1.5
     Content: So let me show you around a bit.
     EmptyTime: 0.5
   - _inspectorTitle: 5 - Barley Approved Reception
@@ -103,7 +103,7 @@ MonoBehaviour:
   - _inspectorTitle: 14 - To the right
     Title: To the right
     WaitForTrigger: 0
-    DisplayTime: 2
+    DisplayTime: 1.5
     Content: Those can be found to the right.
     EmptyTime: 0.5
   - _inspectorTitle: 15 - Device grows stuff
@@ -122,7 +122,7 @@ MonoBehaviour:
   - _inspectorTitle: 17 - Cutting board
     Title: Cutting board
     WaitForTrigger: 1
-    DisplayTime: 2
+    DisplayTime: 1.5
     Content: Please look at the cutting board below me.
     EmptyTime: 0.5
   - _inspectorTitle: 18 - Cutting area
@@ -172,6 +172,6 @@ MonoBehaviour:
   - _inspectorTitle: 25 - First customer
     Title: First customer
     WaitForTrigger: 0
-    DisplayTime: 2
+    DisplayTime: 1.5
     Content: Here comes the first costumer!
     EmptyTime: 0.5

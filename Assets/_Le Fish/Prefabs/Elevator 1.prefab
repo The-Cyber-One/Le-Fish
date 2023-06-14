@@ -585,7 +585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  restaurantY: 0.381
+  restaurantY: 0.322
   menuY: -4.15
   NotMoving: 0
   moveUp: 0
