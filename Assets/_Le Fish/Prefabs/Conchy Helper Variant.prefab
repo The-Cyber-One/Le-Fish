@@ -176,13 +176,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5024952338449716282, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f864ec4ea501e2c43abba5db52bd7ad1, type: 3}
     - target: {fileID: 5462409087428413813, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
       propertyPath: m_Name
       value: Conchy Helper Variant
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9028265280117159267, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
-    - {fileID: 5024952338449716282, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
 --- !u!4 &6019783706967833090 stripped
 Transform:
@@ -210,7 +213,6 @@ MonoBehaviour:
   particleSystemPrefab: {fileID: 7071256732070598036, guid: 97c778e35eaa92d4e91a112d952768bc, type: 3}
   speed: 1
   upSpeed: 1
-  targetPosition: {x: 0, y: -0.228, z: 0}
 --- !u!1001 &3970904346498849350
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ using static IngredientData;
 public class Bake : MonoBehaviour
 {
     [SerializeField] private Slider slider;
+    [SerializeField] private AudioSource audioSource;
     private List<Ingredient> _ingredients = new();
 
     public void StartTimer()
@@ -31,6 +32,7 @@ public class Bake : MonoBehaviour
                         break;
                 }
                 ingredient.IsCooking = true;
+                audioSource.Play();
             }
         }
     }
