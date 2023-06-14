@@ -1105,7 +1105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5fdf55817d7ca7247977dac5f2857cab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.31
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5fdf55817d7ca7247977dac5f2857cab, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4969,7 +4969,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ca9b3a5e83c95c84e9a764124cbcadb8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ca9b3a5e83c95c84e9a764124cbcadb8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5634,11 +5634,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 763f4b30595bc33428a46c4e61bd5afb, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 763f4b30595bc33428a46c4e61bd5afb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.99
+      value: -6.847
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 763f4b30595bc33428a46c4e61bd5afb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8813,11 +8813,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 763f4b30595bc33428a46c4e61bd5afb, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 763f4b30595bc33428a46c4e61bd5afb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.68
+      value: -18.405
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 763f4b30595bc33428a46c4e61bd5afb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11330,7 +11330,7 @@ PrefabInstance:
     - target: {fileID: 6550047809003589412, guid: f369ee2d771fa184da52808ae8457e45, type: 3}
       propertyPath: audioSource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1227395907}
     - target: {fileID: 6579714197122763977, guid: f369ee2d771fa184da52808ae8457e45, type: 3}
       propertyPath: m_Name
       value: AMBText (TMP)
@@ -23275,7 +23275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1582813068134791481}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: -0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
