@@ -46,7 +46,7 @@ public class CustomerBehavior : MonoBehaviour
             }
         }
 
-        animator.SetFloat("Velocity", navMeshAgent.velocity.sqrMagnitude / navMeshAgent.speed);
+        animator.SetFloat("Velocity", navMeshAgent.velocity.sqrMagnitude / (navMeshAgent.speed * navMeshAgent.speed));
     }
 
     public RecipeData AssociateRandomRecipe()

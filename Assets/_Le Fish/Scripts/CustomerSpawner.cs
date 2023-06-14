@@ -23,6 +23,7 @@ public class CustomerSpawner : Singleton<CustomerSpawner>
             AvailableSeats.Add(true);
     }
 
+    [ContextMenu(nameof(SpawnCustomers))]
     public void SpawnCustomers()
     {
         int random = Random.Range(0, customers.Length);
