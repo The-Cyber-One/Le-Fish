@@ -7,6 +7,7 @@ using static IngredientData;
 public class Bake : MonoBehaviour
 {
     [SerializeField] private Slider slider;
+    [SerializeField] private AudioSource audioSource;
     [SerializeField] private Color cookingColor, burningColor;
 
     private List<Ingredient> _ingredients = new();
@@ -21,6 +22,8 @@ public class Bake : MonoBehaviour
                 ingredient.CurrentSlice == ingredient.Data.Slices.Length - 1)
             {
                 ingredient.Timer.onTimerUpdate.AddListener(Percentage);
+                audioSource.Play();
+                ingredient.Timer.onTimerFinished.AddListener(() => audioSource.Stop());
                 switch (ingredient.CurrentState)
                 {
                     case IngredientState.Raw:
