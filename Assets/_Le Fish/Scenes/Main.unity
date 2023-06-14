@@ -9401,7 +9401,7 @@ MonoBehaviour:
   WaitingDish: {fileID: 0}
   spawnPoint: {fileID: 1651578814}
   customers:
-  - {fileID: 5958003560940519602, guid: 7778a770e6aaa65488a6f67d52402cb7, type: 3}
+  - {fileID: 191293875294823645, guid: 9c208bfec8327fb498dd04a1f79434e3, type: 3}
   EatPoints:
   - {fileID: 501603213}
   ingredientSpawn: {fileID: 665502869}
