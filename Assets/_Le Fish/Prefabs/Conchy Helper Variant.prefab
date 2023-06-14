@@ -180,6 +180,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: f864ec4ea501e2c43abba5db52bd7ad1, type: 3}
+    - target: {fileID: 5024952338449716282, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -3963049451145234608, guid: 571edfc230d1f5e46a25a30c408b80d2, type: 2}
     - target: {fileID: 5462409087428413813, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
       propertyPath: m_Name
       value: Conchy Helper Variant
