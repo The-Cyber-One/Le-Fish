@@ -10,48 +10,60 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43f499c4a6a861f468f70708816890a8, type: 3}
-  m_Name: Beef 1
+  m_Name: Steak 2
   m_EditorClassIdentifier: 
   texts:
   - _inspectorTitle: '0 - '
     Title: 
     WaitForTrigger: 0
     DisplayTime: 0
-    Content: Grab ingredient
+    Content: Grab a potato
     EmptyTime: 0
   - _inspectorTitle: '1 - '
     Title: 
     WaitForTrigger: 0
     DisplayTime: 0
-    Content: Cut ingredient
+    Content: Cut the potato 4 times
     EmptyTime: 0
   - _inspectorTitle: '2 - '
     Title: 
     WaitForTrigger: 0
     DisplayTime: 0
-    Content: Heat ingredient
+    Content: Cook the potato
     EmptyTime: 0
   - _inspectorTitle: '3 - '
     Title: 
     WaitForTrigger: 0
     DisplayTime: 0
-    Content: Put ingredient on plate
+    Content: Grab the steak
     EmptyTime: 0
   - _inspectorTitle: '4 - '
     Title: 
     WaitForTrigger: 0
     DisplayTime: 0
-    Content: Eat ingredient
+    Content: Cook the steak
     EmptyTime: 0
   - _inspectorTitle: '5 - '
     Title: 
     WaitForTrigger: 0
     DisplayTime: 0
-    Content: Shoot... that was meant for the customer
+    Content: Grab a mushroom
     EmptyTime: 0
   - _inspectorTitle: '6 - '
     Title: 
     WaitForTrigger: 0
     DisplayTime: 0
-    Content: Lets start again
+    Content: Cut the mushroom 5 times
+    EmptyTime: 0
+  - _inspectorTitle: '7 - '
+    Title: 
+    WaitForTrigger: 0
+    DisplayTime: 0
+    Content: Cook the mushroom
+    EmptyTime: 0
+  - _inspectorTitle: '8 - '
+    Title: 
+    WaitForTrigger: 0
+    DisplayTime: 0
+    Content: Gather all prepered ingredients on the plate
     EmptyTime: 0
