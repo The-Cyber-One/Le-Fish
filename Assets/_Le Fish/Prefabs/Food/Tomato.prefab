@@ -116,7 +116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshFilter: {fileID: 7647233725210275090}
-  ash: {fileID: 0}
+  meshRenderer: {fileID: 8593051944739071738}
+  ashPrefab: {fileID: 4430372850999168191, guid: 375e48b40b3dfc04fbe9bdedaad878af, type: 3}
   IsCooking: 0
   Data: {fileID: 11400000, guid: fdfc8023346e7b347bfe85d2390fdcd4, type: 2}
 --- !u!54 &-2108971047091219093

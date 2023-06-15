@@ -12,6 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d04c1d17a338a47aee7b791610a1c9, type: 3}
   m_Name: KaripapThree
   m_EditorClassIdentifier: 
-  Name: 
-  DishPrefab: {fileID: 0}
-  Ingredients: []
+  Name: karipap three
+  Description: Verry much template
+  Instructions: {fileID: 11400000, guid: 256b23e2eea94164e8489cfdc6a4813f, type: 2}
+  DishPrefab: {fileID: 8202253657946807415, guid: c9b3b15cf52e5a049b8470d860ab7f6a, type: 3}
+  Ingredients:
+  - Ingredient: {fileID: 11400000, guid: f2131bd2d5c6a1b4095a3d356fc738b8, type: 2}
+    CookingState: 1
+    SliceState: 1
+  - Ingredient: {fileID: 11400000, guid: e8a893323824d7d43ae39cdfaff73521, type: 2}
+    CookingState: 1
+    SliceState: 7
+  - Ingredient: {fileID: 11400000, guid: f182bf6e97b6c3c4e96fe1a38451012f, type: 2}
+    CookingState: 1
+    SliceState: 3
+  - Ingredient: {fileID: 11400000, guid: fdfc8023346e7b347bfe85d2390fdcd4, type: 2}
+    CookingState: 1
+    SliceState: 6

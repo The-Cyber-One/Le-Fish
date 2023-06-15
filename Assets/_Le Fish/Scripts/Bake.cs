@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static IngredientData;
 
 public class Bake : MonoBehaviour
 {
+    [SerializeField] private Slider slider;
+    [SerializeField] private Color cookingColor, burningColor;
+
     private List<Ingredient> _ingredients = new();
 
     public void StartTimer()
@@ -13,16 +17,19 @@ public class Bake : MonoBehaviour
         {
             if (ingredient.CurrentState != IngredientState.Burnt &&
                 !ingredient.IsCooking &&
-                ingredient.Data.Slices[ingredient.CurrentSlice].Meshes[(int)ingredient.CurrentState + 1] != null)
+                ingredient.Data.Slices[ingredient.CurrentSlice].Meshes[(int)ingredient.CurrentState + 1] != null &&
+                ingredient.CurrentSlice == ingredient.Data.Slices.Length - 1)
             {
                 ingredient.Timer.onTimerUpdate.AddListener(Percentage);
                 switch (ingredient.CurrentState)
                 {
                     case IngredientState.Raw:
+                        slider.fillRect.GetComponent<Image>().color = cookingColor;
                         ingredient.Timer.onTimerFinished.AddListener(() => StateCook(ingredient));
                         ingredient.Timer.StartTimer(ingredient.Data.CookingTime);
                         break;
                     case IngredientState.Cooked:
+                        slider.fillRect.GetComponent<Image>().color = burningColor;
                         ingredient.Timer.onTimerFinished.AddListener(() => StateBurn(ingredient));
                         ingredient.Timer.StartTimer(ingredient.Data.BurnTime);
                         break;
@@ -58,6 +65,7 @@ public class Bake : MonoBehaviour
         ingredient.Timer.onTimerUpdate.RemoveAllListeners();
 
         ingredient.Timer.onTimerUpdate.AddListener(Percentage);
+        slider.fillRect.GetComponent<Image>().color = burningColor;
         ingredient.Timer.onTimerFinished.AddListener(() => StateBurn(ingredient));
         ingredient.Timer.StartTimer(ingredient.Data.BurnTime);
 
@@ -76,6 +84,7 @@ public class Bake : MonoBehaviour
 
     void Percentage(float percentage)
     {
-        Debug.Log(percentage);
+        slider.value = percentage;
+        //Debug.Log(percentage);
     }
 }

@@ -1,11 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
-using UnityEngine.UI;
 
 public class CollisionFKConstraint : MonoBehaviour
 {
@@ -27,6 +24,7 @@ public class CollisionFKConstraint : MonoBehaviour
         [SerializeField] public float CapsuleRadius, CapsuleHeight;
     }
 
+#if UNITY_EDITOR
     private void OnValidate()
     {
         if (Application.isPlaying || root == null || tip == null) 
@@ -84,6 +82,7 @@ public class CollisionFKConstraint : MonoBehaviour
                 .ToArray();
         }
     }
+#endif
 
     private void Start()
     {

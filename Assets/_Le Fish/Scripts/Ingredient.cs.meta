@@ -5,7 +5,8 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - meshFilter: {instanceID: 0}
-  - ash: {fileID: 4542573763548188204, guid: 1a169af880e476c40a87ae605ad9eb9f, type: 3}
+  - meshRenderer: {instanceID: 0}
+  - ashPrefab: {fileID: 4430372850999168191, guid: 375e48b40b3dfc04fbe9bdedaad878af, type: 3}
   - Data: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
