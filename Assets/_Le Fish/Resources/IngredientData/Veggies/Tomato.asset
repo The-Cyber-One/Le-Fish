@@ -88,5 +88,5 @@ MonoBehaviour:
       - {fileID: -1325896165753905870, guid: d85cba24fb813c948a155e80aff14aea, type: 3}
     - Mesh: {fileID: 0}
       Materials: []
-  CookingTime: 35
+  CookingTime: 30
   BurnTime: 15
