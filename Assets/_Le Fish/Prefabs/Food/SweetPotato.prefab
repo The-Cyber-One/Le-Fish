@@ -45,8 +45,8 @@ GameObject:
   - component: {fileID: 8281911958263894829}
   - component: {fileID: 8281911958263894828}
   - component: {fileID: 8281911958263894827}
-  - component: {fileID: 8281911958263894826}
   - component: {fileID: -7024740630364460279}
+  - component: {fileID: 4165591411511394701}
   m_Layer: 3
   m_Name: SweetPotato
   m_TagString: Ingredient
@@ -62,7 +62,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7526687090289086578}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.0001, y: 0.0715, z: 0.57}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.7165208, y: 2.7165203, z: 2.7165203}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -171,20 +171,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &8281911958263894826
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7526687090289086578}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.014251869
-  m_Height: 0.09414876
-  m_Direction: 1
-  m_Center: {x: 0.0041412846, y: 0.00203976, z: -0.00024786306}
 --- !u!114 &-7024740630364460279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,3 +296,16 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!65 &4165591411511394701
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7526687090289086578}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.028503738, y: 0.09414876, z: 0.026806211}
+  m_Center: {x: 0.0041412846, y: 0.00203976, z: -0.00024786306}

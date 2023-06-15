@@ -12,6 +12,7 @@ public class ConchyHelper : MonoBehaviour
     private bool isMovingUp = true;
     private bool isMovingY = true;
     private ParticleSystem particleSystemInstance;
+    [SerializeField] AudioSource audioSource;
 
     private void Start()
     {
@@ -24,6 +25,8 @@ public class ConchyHelper : MonoBehaviour
         {
             Debug.LogError("No deposit point found in the scene!");
         }
+
+        audioSource.Play();
     }
 
     private void Update()

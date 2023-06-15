@@ -8,6 +8,7 @@ public class PlantgrowerScript : MonoBehaviour
     public Transform vegetablePlace;
     public GameObject[] vegetablePrefabs;
     public ParticleSystem foodGeneration;
+    [SerializeField] AudioSource audioSource;
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class PlantgrowerScript : MonoBehaviour
         if (!plantAnimator.GetCurrentAnimatorStateInfo(0).IsName("Pick Vegetable"))
         {
             foodGeneration.Play();
+            audioSource.Play();
             GameObject newVegetable = Instantiate(vegetablePrefabs[index], vegetablePlace.position, Quaternion.identity);
             newVegetable.transform.parent = vegetablePlace;
             newVegetable.GetComponent<Rigidbody>().isKinematic = true;

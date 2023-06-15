@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 7928059853679843292}
   - component: {fileID: 7647233725210275090}
   - component: {fileID: 8593051944739071738}
-  - component: {fileID: -4501554209497750823}
   - component: {fileID: 4117794791439896394}
   - component: {fileID: -2108971047091219093}
   - component: {fileID: 5522148820444570043}
   - component: {fileID: -3967336148607054031}
+  - component: {fileID: 1289909155437046748}
   m_Layer: 3
   m_Name: Tomato
   m_TagString: Ingredient
@@ -90,19 +90,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &-4501554209497750823
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1966506426559401296}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.06683195
-  m_Center: {x: -0.00022359192, y: 0.011520073, z: 0.00025821477}
 --- !u!114 &4117794791439896394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +266,19 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!65 &1289909155437046748
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966506426559401296}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1416204, y: 0.10920094, z: 0.14189363}
+  m_Center: {x: -0.00022359192, y: 0.009006992, z: 0.00025821477}
 --- !u!1 &6937060718294981394
 GameObject:
   m_ObjectHideFlags: 0

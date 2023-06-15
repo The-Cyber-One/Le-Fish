@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8723733742055639704}
   - component: {fileID: 7441128508115377922}
   - component: {fileID: 8770300585812104156}
-  - component: {fileID: 2931385330707284661}
   - component: {fileID: 1372222677105301775}
   - component: {fileID: -6095608077656474336}
+  - component: {fileID: 8058196750389765549}
   m_Layer: 0
   m_Name: Onion
   m_TagString: Ingredient
@@ -124,19 +124,6 @@ MonoBehaviour:
   ashPrefab: {fileID: 4430372850999168191, guid: 375e48b40b3dfc04fbe9bdedaad878af, type: 3}
   IsCooking: 0
   Data: {fileID: 11400000, guid: e8a893323824d7d43ae39cdfaff73521, type: 2}
---- !u!135 &2931385330707284661
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 283451464411954180}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.008851368
-  m_Center: {x: 0.00014226651, y: -0.00014188395, z: 0.0003605476}
 --- !u!54 &1372222677105301775
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -278,6 +265,19 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!65 &8058196750389765549
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283451464411954180}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.017067347, y: 0.017073888, z: 0.019553546}
+  m_Center: {x: -0.00013861037, y: -0.00014188395, z: 0.0010050652}
 --- !u!1 &3057953879374259226
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,11 +301,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3057953879374259226}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 0, z: -0.00916}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5403492049956742819}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}

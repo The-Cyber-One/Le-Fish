@@ -1,8 +1,5 @@
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class CustomerSpawner : Singleton<CustomerSpawner>
 {
@@ -23,11 +20,11 @@ public class CustomerSpawner : Singleton<CustomerSpawner>
             AvailableSeats.Add(true);
     }
 
+    [ContextMenu(nameof(SpawnCustomers))]
     public void SpawnCustomers()
     {
         int random = Random.Range(0, customers.Length);
         CustomerBehavior instance = Instantiate(customers[random], spawnPoint.transform.position, Quaternion.identity).GetComponent<CustomerBehavior>();
-        instance.gameObject.AddComponent<NavMeshAgent>();
         instance.GetSpawner(this);
     }
 

@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -22,8 +19,8 @@ public class Jukebox : MonoBehaviour
     private void Start()
     {       
         // We start the jukebox by playing random sound of a random playlist
-        indexCurrentPlaylist = UnityEngine.Random.Range(0, musicData.ListPlaylist.Count);
-        indexCurrentMusic = UnityEngine.Random.Range(0, musicData.ListPlaylist[indexCurrentPlaylist].audioClips.Length);
+        indexCurrentPlaylist = 0;
+        indexCurrentMusic = Random.Range(0, musicData.ListPlaylist[indexCurrentPlaylist].audioClips.Length);
 
         currentPlaylist = new AudioClip[musicData.ListPlaylist[indexCurrentPlaylist].audioClips.Length];
         musicData.ListPlaylist[indexCurrentPlaylist].audioClips.CopyTo(currentPlaylist, 0);        
@@ -39,6 +36,7 @@ public class Jukebox : MonoBehaviour
 
         TextUpdate();
     }
+
     private void Update()
     {
         if (!audioSource.isPlaying && !isPaused)
