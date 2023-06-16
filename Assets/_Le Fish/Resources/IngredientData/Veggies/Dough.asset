@@ -16,7 +16,8 @@ MonoBehaviour:
   CanChangeState: 1
   IngredientPrefab: {fileID: 1766332236871552185, guid: 51c4852b84193a54fa1aa5b66be0a9a2, type: 3}
   Slices:
-  - States: 000000000100000002000000
+  - IsSpice: 0
+    States: 000000000100000002000000
     Meshes:
     - Mesh: {fileID: -4428754836550342530, guid: 65402aaebc3724245a1e2e6b845bef26, type: 3}
       Materials:
@@ -25,7 +26,8 @@ MonoBehaviour:
       Materials: []
     - Mesh: {fileID: 0}
       Materials: []
-  - States: 000000000100000002000000
+  - IsSpice: 0
+    States: 000000000100000002000000
     Meshes:
     - Mesh: {fileID: 1161779891108236532, guid: 65402aaebc3724245a1e2e6b845bef26, type: 3}
       Materials:
@@ -36,4 +38,4 @@ MonoBehaviour:
     - Mesh: {fileID: 0}
       Materials: []
   CookingTime: 30
-  BurnTime: 40
+  BurnTime: 15
