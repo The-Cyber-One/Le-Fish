@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f499c4a6a861f468f70708816890a8, type: 3}
+  m_Name: Lannet Intro
+  m_EditorClassIdentifier: 
+  texts:
+  - _inspectorTitle: 0 - Hello dear
+    Title: Hello dear
+    WaitForTrigger: 0
+    DisplayTime: 2
+    Content: Hello dear, I have here this really nice meat from one of our dear cows.
+      I was wondering if you could cook a nice out of it for me?
+    EmptyTime: 0.5
+  - _inspectorTitle: 1 - LannetInfo1
+    Title: LannetInfo1
+    WaitForTrigger: 0
+    DisplayTime: 2
+    Content: You see, outside of town there are a few farmers like us that try to
+      keep up the tradition of farming.
+    EmptyTime: 0.5
+  - _inspectorTitle: 2 - LannetInfo2
+    Title: LannetInfo2
+    WaitForTrigger: 0
+    DisplayTime: 2
+    Content: But we have to be very carefull with our resources, such as water and
+      soil. lives in.
+    EmptyTime: 0.5
+  - _inspectorTitle: 3 - LannetInfo3
+    Title: LannetInfo3
+    WaitForTrigger: 0
+    DisplayTime: 2
+    Content: Could you make something healthy, natural and mild to go with the meat?
+      The focus should be on the meat
+    EmptyTime: 0.5

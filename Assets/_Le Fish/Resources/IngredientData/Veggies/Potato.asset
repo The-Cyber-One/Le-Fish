@@ -16,7 +16,8 @@ MonoBehaviour:
   CanChangeState: 1
   IngredientPrefab: {fileID: 8975996599639162747, guid: a4a6fcbbcce3e2f4d845fff97b096591, type: 3}
   Slices:
-  - States: 000000000100000002000000
+  - IsSpice: 0
+    States: 000000000100000002000000
     Meshes:
     - Mesh: {fileID: 7442536396222620294, guid: 2c5ddbae2dc4b6d49958c0709e594b28, type: 3}
       Materials:
@@ -25,7 +26,8 @@ MonoBehaviour:
       Materials: []
     - Mesh: {fileID: 0}
       Materials: []
-  - States: 000000000100000002000000
+  - IsSpice: 0
+    States: 000000000100000002000000
     Meshes:
     - Mesh: {fileID: -8837794479718576496, guid: 2c5ddbae2dc4b6d49958c0709e594b28, type: 3}
       Materials:
@@ -34,7 +36,8 @@ MonoBehaviour:
       Materials: []
     - Mesh: {fileID: 0}
       Materials: []
-  - States: 000000000100000002000000
+  - IsSpice: 0
+    States: 000000000100000002000000
     Meshes:
     - Mesh: {fileID: 3141811564372541264, guid: 2c5ddbae2dc4b6d49958c0709e594b28, type: 3}
       Materials:
@@ -43,7 +46,8 @@ MonoBehaviour:
       Materials: []
     - Mesh: {fileID: 0}
       Materials: []
-  - States: 000000000100000002000000
+  - IsSpice: 0
+    States: 000000000100000002000000
     Meshes:
     - Mesh: {fileID: -2762727155182976637, guid: 2c5ddbae2dc4b6d49958c0709e594b28, type: 3}
       Materials:
@@ -52,7 +56,8 @@ MonoBehaviour:
       Materials: []
     - Mesh: {fileID: 0}
       Materials: []
-  - States: 000000000100000002000000
+  - IsSpice: 0
+    States: 000000000100000002000000
     Meshes:
     - Mesh: {fileID: -5744471837933246789, guid: 2c5ddbae2dc4b6d49958c0709e594b28, type: 3}
       Materials:
@@ -63,5 +68,5 @@ MonoBehaviour:
     - Mesh: {fileID: -5744471837933246789, guid: 2c5ddbae2dc4b6d49958c0709e594b28, type: 3}
       Materials:
       - {fileID: -6629797300637803691, guid: 2c5ddbae2dc4b6d49958c0709e594b28, type: 3}
-  CookingTime: 40
-  BurnTime: 10
+  CookingTime: 30
+  BurnTime: 15

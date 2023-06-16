@@ -60,7 +60,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
-  m_LightProbeUsage: 1
+  m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
@@ -276,8 +276,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.036598682, y: 0.03312009, z: 0.022824084}
-  m_Center: {x: -0.003376425, y: -0.0005016123, z: -0.0036825459}
+  m_Size: {x: 0.01894532, y: 0.03312009, z: 0.012346148}
+  m_Center: {x: -0.0045490335, y: -0.00050161284, z: -0.0042716856}
 --- !u!1 &7255165041934771835
 GameObject:
   m_ObjectHideFlags: 0

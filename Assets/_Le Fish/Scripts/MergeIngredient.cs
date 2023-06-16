@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class MergeIngredient : MonoBehaviour
 {
@@ -38,7 +38,8 @@ public class MergeIngredient : MonoBehaviour
     {
         if (_listRecipe.TryFindDish(_ingredients, out var dish))
         {
-            Instantiate(dish.DishPrefab, _ingredients[^1].transform.position, Quaternion.identity);
+            DishData dishData = Instantiate(dish.DishPrefab, _ingredients[^1].transform.position, Quaternion.identity).AddComponent<DishData>();
+            dishData.Data = dish;
             _ingredients.ForEach(ingredient => Destroy(ingredient.gameObject));
             _ingredients.Clear();
         }

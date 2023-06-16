@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_Le Fish/Prefabs/Lever Settings New.prefab.meta
+guid: 87f39e9486dd02243a8aff56f9cc3262
+PrefabImporter:
+========
 guid: baefd8ba4675cc245a0683314e15dc42
 folderAsset: yes
 DefaultImporter:
+>>>>>>>> Nikki-2:Assets/_Le Fish/Materials/Customers/Lisa/Lisa last time textures.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

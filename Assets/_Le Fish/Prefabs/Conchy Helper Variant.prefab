@@ -176,17 +176,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5024952338449716282, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f864ec4ea501e2c43abba5db52bd7ad1, type: 3}
+    - target: {fileID: 5024952338449716282, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -3963049451145234608, guid: 571edfc230d1f5e46a25a30c408b80d2, type: 2}
     - target: {fileID: 5462409087428413813, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
       propertyPath: m_Name
       value: Conchy Helper Variant
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9028265280117159267, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
-    - {fileID: 5024952338449716282, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
 --- !u!4 &6019783706967833090 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4649316473724539855, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
+  m_PrefabInstance: {fileID: 1373353588712630733}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &6247361672297135607 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5024952338449716282, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
   m_PrefabInstance: {fileID: 1373353588712630733}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &6395465306314121400 stripped
@@ -211,6 +223,7 @@ MonoBehaviour:
   speed: 1
   upSpeed: 1
   rotationSpeed: 2
+  audioSource: {fileID: 6247361672297135607}
 --- !u!1001 &3970904346498849350
 PrefabInstance:
   m_ObjectHideFlags: 0

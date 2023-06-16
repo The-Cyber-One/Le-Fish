@@ -162,17 +162,17 @@ public class ConchyAI : Singleton<ConchyAI>
         int[] indecies = Enumerable.Range(0, recipes.Length).OrderBy(i => UnityEngine.Random.value).ToArray();
         for (int i = 0; i < recipes.Length; i++)
         {
-            RecipeData recipe = recipes[indecies[i]];
-            propositionHolograms[i].Title.text = recipe.Name;
-            propositionHolograms[i].Description.text = recipe.Description;
+            //RecipeData recipe = recipes[indecies[i]];
+            //propositionHolograms[i].Title.text = recipe.Name;
+            //propositionHolograms[i].Description.text = recipe.Description;
 
-            Dialog instructions = recipe.Instructions;
-            StringBuilder stringBuilder = new();
-            for (int j = 0; j < instructions.Length; j++)
-            {
-                stringBuilder.AppendLine($"{j + 1} - {instructions[j].Content}");
-            }
-            propositionHolograms[i].Instructions.text = stringBuilder.ToString();
+            //Dialog instructions = recipe.Instructions;
+            //StringBuilder stringBuilder = new();
+            //for (int j = 0; j < instructions.Length; j++)
+            //{
+            //    stringBuilder.AppendLine($"{j + 1} - {instructions[j].Content}");
+            //}
+            //propositionHolograms[i].Instructions.text = stringBuilder.ToString();
         }
     }
 
