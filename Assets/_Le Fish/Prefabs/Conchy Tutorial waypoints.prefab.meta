@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_Le Fish/Prefabs/Conchy Tutorial waypoints.prefab.meta
 guid: 02562afd5ca611e478ce4eba83bc6f82
 PrefabImporter:
+========
+guid: e18d2b55f93839b4096a7e958bd9f72f
+folderAsset: yes
+DefaultImporter:
+>>>>>>>> Nikki-2:Assets/_Le Fish/Textures/characters/textures marko.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_Le Fish/Prefabs/Conchy Tutorial waypoints 1.prefab.meta
 guid: 30d5e054613f3ba488bcee706194fc03
 PrefabImporter:
+========
+guid: 07fa50bf85017f34995d760df3a8cc46
+folderAsset: yes
+DefaultImporter:
+>>>>>>>> Nikki-2:Assets/_Le Fish/Textures/characters/new textures lisa.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
