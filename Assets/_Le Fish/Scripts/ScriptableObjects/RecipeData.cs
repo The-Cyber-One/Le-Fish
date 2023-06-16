@@ -7,10 +7,10 @@ using UnityEngine.UI;
 public class RecipeData : ScriptableObject
 {
     public string Name;
+    public List<DataStateSlice> Ingredients;
+    public GameObject DishPrefab;
     [TextArea(3, 5)] public string Description;
     [SerializeField] Image Image;
-    [SerializeField] GameObject DishPrefab;
-    [SerializeField] List<DataStateSlice> Ingredients;
 
     [Serializable]
     public class DataStateSlice
