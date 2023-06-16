@@ -94,6 +94,8 @@ public class CustomerBehavior : MonoBehaviour
             yield break;
         }
 
+        animator.SetTrigger("Give Ingredient");
+        yield return new WaitForSeconds(0.5f);
         _specialIngredientSpawned = true;
         _spawnedSpecialIngredient = Instantiate(proposition.SpecialIngredient.IngredientPrefab, _customerSpawner.ingredientSpawn, false);
         _spawnedSpecialIngredient.GetComponent<Rigidbody>().isKinematic = false;
@@ -121,14 +123,14 @@ public class CustomerBehavior : MonoBehaviour
 
     IEnumerator Ruined()
     {
+        animator.SetTrigger("Unsatisfied");
         yield return SpeechBubble.Instance.C_ShowDialog(ruinedDialog);
         yield return LeaveRestaurant();
     }
 
     IEnumerator LeaveRestaurant()
     {
-        Debug.Log(transform.position);
-        Debug.Log(_customerSpawner.AwayPoint.position);
+        animator.SetTrigger("Leave");
         navMeshAgent.SetDestination(_customerSpawner.AwayPoint.position);
         yield return IsDoneMoving();
         Destroy(gameObject);
@@ -143,29 +145,6 @@ public class CustomerBehavior : MonoBehaviour
         StopCoroutine(WaitForOrder());
         _customerWaiting = false;
         StartCoroutine(EatDish(MatchDish(dishData.Data)));
-
-        //if (MatchDish(dishData.Data))
-        //{
-        //    List<int> OnlyAvailableSeats = new();
-
-        //    for (int i = 0; i < _customerSpawner.AvailableSeats.Count(); i++)
-        //    {
-        //        if (_customerSpawner.AvailableSeats[i])
-        //            OnlyAvailableSeats.Add(i);
-        //    }
-
-        //    int randIndex = UnityEngine.Random.Range(0, OnlyAvailableSeats.Count);
-        //    int randomNumber = OnlyAvailableSeats[randIndex];
-
-        //    navMeshAgent.SetDestination(_customerSpawner.EatPoints[randomNumber].position);
-        //    _customerSpawner.AvailableSeats[randomNumber] = false;
-
-        //    StartCoroutine(EatDish(true));
-        //}
-        //else
-        //{
-        //    StartCoroutine(EatDish(false));
-        //}
     }
 
     private bool MatchDish(RecipeData receivedDish)
@@ -190,7 +169,16 @@ public class CustomerBehavior : MonoBehaviour
 
     IEnumerator EatDish(bool satisfied)
     {
-        yield return satisfied ? SpeechBubble.Instance.C_ShowDialog(satisfiedDialog) : SpeechBubble.Instance.C_ShowDialog(unsatisfiedDialog);
+        if (satisfied)
+        {
+            animator.SetTrigger("Satisfied");
+            yield return SpeechBubble.Instance.C_ShowDialog(satisfiedDialog);
+        }
+        else
+        {
+            animator.SetTrigger("Unsatisfied");
+            yield return SpeechBubble.Instance.C_ShowDialog(unsatisfiedDialog);
+        }
         Destroy(_customerSpawner.WaitingDish);
         yield return LeaveRestaurant();
 
