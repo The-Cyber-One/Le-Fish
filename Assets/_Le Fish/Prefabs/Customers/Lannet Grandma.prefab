@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -212235500146243931}
   - component: {fileID: -4060841991334955995}
   m_Layer: 0
-  m_Name: Grandma
+  m_Name: Lannet Grandma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,6 +96,11 @@ MonoBehaviour:
   spawnCooldown: 3
   navMeshAgent: {fileID: -212235500146243931}
   animator: {fileID: 6301172767546906568}
+  proposition: {fileID: 0}
+  introductionDialog: {fileID: 11400000, guid: 753ed3467f2623f4dac19d32767b82b1, type: 2}
+  satisfiedDialog: {fileID: 11400000, guid: a6e732be22d93264d9443b940fb7d01b, type: 2}
+  unsatisfiedDialog: {fileID: 11400000, guid: 5386fe5034f97864a8b57e29ed384509, type: 2}
+  ruinedDialog: {fileID: 11400000, guid: 94c0ce89d58b4b848bd61e95fc74e0ad, type: 2}
 --- !u!1 &370629694820302680
 GameObject:
   m_ObjectHideFlags: 0

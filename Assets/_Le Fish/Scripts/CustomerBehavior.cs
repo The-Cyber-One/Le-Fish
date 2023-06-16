@@ -1,16 +1,11 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class CustomerBehavior : MonoBehaviour
 {
-    [SerializeField] float orderingTime = 5.0f;
-    [SerializeField] float spawnCooldown = 1.0f;
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private Animator animator;
     [SerializeField] private PropositionData proposition;
@@ -52,28 +47,6 @@ public class CustomerBehavior : MonoBehaviour
         animator.SetFloat("Velocity", navMeshAgent.velocity.sqrMagnitude / (navMeshAgent.speed * navMeshAgent.speed));
     }
 
-    //public RecipeData AssociateRandomRecipe()
-    //{
-    //    PropositionData _proposition = UnityEngine.Random.Range(0, 3) switch
-    //    {
-    //        0 => Resources.Load<PropositionData>("Propositions/BeefPropositions"),
-    //        1 => Resources.Load<PropositionData>("Propositions/KaripapPropositions"),
-    //        2 => Resources.Load<PropositionData>("Propositions/PennePropositions"),
-    //        _ => throw new NotImplementedException()
-    //    };
-
-    //    ConchyAI.Instance.NewProposition(_proposition.Recipes);
-
-    //    // Assign at the same time which special ingredient we will instantiate
-    //    _specialIngredient = _proposition.SpecialIngredient;
-
-    //    RecipeData _dish = new()
-    //    {
-    //        Name = _proposition.Recipes[UnityEngine.Random.Range(0, 2)].Name
-    //    };
-    //    return _dish;
-    //}
-
     IEnumerator MoveToOrder()
     {
         navMeshAgent.SetDestination(_customerSpawner.OrderPoint.position);
@@ -104,21 +77,6 @@ public class CustomerBehavior : MonoBehaviour
         yield return SpeechBubble.Instance.C_ShowDialog(introductionDialog);
         ConchyAI.Instance.NewProposition(proposition.Recipes);
         ConchyAI.Instance.ShowProposition();
-
-        // Don't know if the limited time fits the game
-        //yield return new WaitForSeconds(orderingTime);
-
-        //_isSatisfied = false;
-        //Debug.Log("Too Late !!!");
-
-        //if (_spawnedSpecialIngredient)
-        //{
-        //    Destroy(_spawnedSpecialIngredient);
-        //}
-
-        //yield return LeaveRestaurant();
-
-        //_customerSpawner.SpawnCustomers();
     }
 
     IEnumerator Ruined()
