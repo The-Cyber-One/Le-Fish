@@ -116,7 +116,7 @@ MonoBehaviour:
     Title: Done over here
     WaitForTrigger: 0
     DisplayTime: 2
-    Content: That can be done over here, with the food heater.
+    Content: Cooking ingredients can be done over here, with the food heater.
     EmptyTime: 0.5
   - _inspectorTitle: 17 - Lastly
     Title: Lastly
