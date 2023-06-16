@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 3743416236438367873}
   - component: {fileID: 3743416236438367876}
   - component: {fileID: 3743416236438367872}
+  - component: {fileID: 364467039625450546}
   m_Layer: 0
   m_Name: Cutting board
   m_TagString: Untagged
@@ -174,7 +175,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 364467039625450546}
+        m_TargetAssemblyTypeName: CuttingFix, Assembly-CSharp
+        m_MethodName: SetKinematicFalse
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -198,3 +211,16 @@ MonoBehaviour:
   m_SocketActive: 1
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
+--- !u!114 &364467039625450546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4553738364263131977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d9a2ed406713164f91d4e5d33988709, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kinematic: 0

@@ -29,7 +29,7 @@ MonoBehaviour:
     Title: Barley Approved Reception
     WaitForTrigger: 0
     DisplayTime: 2
-    Content: This place your are now standing on is the 'Barley Approved Reception'
+    Content: This place you are now standing on is the 'Barley Approved Reception'
     EmptyTime: 0.5
   - _inspectorTitle: 3 - B.A.R.
     Title: B.A.R.
@@ -60,7 +60,7 @@ MonoBehaviour:
     Title: Special ingredient
     WaitForTrigger: 0
     DisplayTime: 2
-    Content: we asked customers to bring a special ingredient themselfs.
+    Content: we asked customers to bring a special ingredient themself.
     EmptyTime: 0.5
   - _inspectorTitle: 8 - Why special
     Title: Why special
@@ -92,7 +92,7 @@ MonoBehaviour:
     Title: Device grows stuff
     WaitForTrigger: 0
     DisplayTime: 2
-    Content: This devices will make sure we have access to some vegtables and more.
+    Content: These devices will make sure we have access to some vegtables and more.
     EmptyTime: 0.5
   - _inspectorTitle: 13 - Parts of the kitchen
     Title: Parts of the kitchen
@@ -102,7 +102,7 @@ MonoBehaviour:
     EmptyTime: 0.5
   - _inspectorTitle: 14 - Cutting board
     Title: Cutting board
-    WaitForTrigger: 1
+    WaitForTrigger: 0
     DisplayTime: 1.5
     Content: Please look at the cutting board below me.
     EmptyTime: 0.5
@@ -116,11 +116,11 @@ MonoBehaviour:
     Title: Done over here
     WaitForTrigger: 0
     DisplayTime: 2
-    Content: That can be done over here, with the food heater.
+    Content: Cooking ingredients can be done over here, with the food heater.
     EmptyTime: 0.5
   - _inspectorTitle: 17 - Lastly
     Title: Lastly
-    WaitForTrigger: 1
+    WaitForTrigger: 0
     DisplayTime: 2
     Content: Lastly you will need to put all the prepared ingredients on the plate
       here, so that the customers can eat it.
@@ -143,8 +143,8 @@ MonoBehaviour:
     DisplayTime: 1.5
     Content: And here comes already the first costumer!
     EmptyTime: 0.5
-  - _inspectorTitle: 21 - First customer
-    Title: First customer
+  - _inspectorTitle: 21 - Let's go
+    Title: Let's go
     WaitForTrigger: 0
     DisplayTime: 1.5
     Content: Let's go!
