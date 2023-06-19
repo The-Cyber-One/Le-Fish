@@ -1,16 +1,11 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class CustomerBehavior : MonoBehaviour
 {
-    [SerializeField] float orderingTime = 5.0f;
-    [SerializeField] float spawnCooldown = 1.0f;
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private Animator animator;
     [SerializeField] private PropositionData proposition;
@@ -52,28 +47,6 @@ public class CustomerBehavior : MonoBehaviour
         animator.SetFloat("Velocity", navMeshAgent.velocity.sqrMagnitude / (navMeshAgent.speed * navMeshAgent.speed));
     }
 
-    //public RecipeData AssociateRandomRecipe()
-    //{
-    //    PropositionData _proposition = UnityEngine.Random.Range(0, 3) switch
-    //    {
-    //        0 => Resources.Load<PropositionData>("Propositions/BeefPropositions"),
-    //        1 => Resources.Load<PropositionData>("Propositions/KaripapPropositions"),
-    //        2 => Resources.Load<PropositionData>("Propositions/PennePropositions"),
-    //        _ => throw new NotImplementedException()
-    //    };
-
-    //    ConchyAI.Instance.NewProposition(_proposition.Recipes);
-
-    //    // Assign at the same time which special ingredient we will instantiate
-    //    _specialIngredient = _proposition.SpecialIngredient;
-
-    //    RecipeData _dish = new()
-    //    {
-    //        Name = _proposition.Recipes[UnityEngine.Random.Range(0, 2)].Name
-    //    };
-    //    return _dish;
-    //}
-
     IEnumerator MoveToOrder()
     {
         navMeshAgent.SetDestination(_customerSpawner.OrderPoint.position);
@@ -94,6 +67,8 @@ public class CustomerBehavior : MonoBehaviour
             yield break;
         }
 
+        animator.SetTrigger("Give Ingredient");
+        yield return new WaitForSeconds(0.5f);
         _specialIngredientSpawned = true;
         _spawnedSpecialIngredient = Instantiate(proposition.SpecialIngredient.IngredientPrefab, _customerSpawner.ingredientSpawn, false);
         _spawnedSpecialIngredient.GetComponent<Rigidbody>().isKinematic = false;
@@ -101,36 +76,23 @@ public class CustomerBehavior : MonoBehaviour
 
         yield return SpeechBubble.Instance.C_ShowDialog(introductionDialog);
         ConchyAI.Instance.NewProposition(proposition.Recipes);
-        ConchyAI.Instance.ShowProposition();
-
-        // Don't know if the limited time fits the game
-        //yield return new WaitForSeconds(orderingTime);
-
-        //_isSatisfied = false;
-        //Debug.Log("Too Late !!!");
-
-        //if (_spawnedSpecialIngredient)
-        //{
-        //    Destroy(_spawnedSpecialIngredient);
-        //}
-
-        //yield return LeaveRestaurant();
-
-        //_customerSpawner.SpawnCustomers();
+        ConchyAI.Instance.ToggleProposition(true);
     }
 
     IEnumerator Ruined()
     {
+        ConchyAI.Instance.ToggleProposition(false);
+        animator.SetTrigger("Unsatisfied");
         yield return SpeechBubble.Instance.C_ShowDialog(ruinedDialog);
         yield return LeaveRestaurant();
     }
 
     IEnumerator LeaveRestaurant()
     {
-        Debug.Log(transform.position);
-        Debug.Log(_customerSpawner.AwayPoint.position);
+        animator.SetTrigger("Leave");
         navMeshAgent.SetDestination(_customerSpawner.AwayPoint.position);
         yield return IsDoneMoving();
+        ConchyAI.Instance.ToggleProposition(false);
         Destroy(gameObject);
         _customerSpawner.SpawnCustomers();
     }
@@ -143,29 +105,6 @@ public class CustomerBehavior : MonoBehaviour
         StopCoroutine(WaitForOrder());
         _customerWaiting = false;
         StartCoroutine(EatDish(MatchDish(dishData.Data)));
-
-        //if (MatchDish(dishData.Data))
-        //{
-        //    List<int> OnlyAvailableSeats = new();
-
-        //    for (int i = 0; i < _customerSpawner.AvailableSeats.Count(); i++)
-        //    {
-        //        if (_customerSpawner.AvailableSeats[i])
-        //            OnlyAvailableSeats.Add(i);
-        //    }
-
-        //    int randIndex = UnityEngine.Random.Range(0, OnlyAvailableSeats.Count);
-        //    int randomNumber = OnlyAvailableSeats[randIndex];
-
-        //    navMeshAgent.SetDestination(_customerSpawner.EatPoints[randomNumber].position);
-        //    _customerSpawner.AvailableSeats[randomNumber] = false;
-
-        //    StartCoroutine(EatDish(true));
-        //}
-        //else
-        //{
-        //    StartCoroutine(EatDish(false));
-        //}
     }
 
     private bool MatchDish(RecipeData receivedDish)
@@ -190,7 +129,18 @@ public class CustomerBehavior : MonoBehaviour
 
     IEnumerator EatDish(bool satisfied)
     {
-        yield return satisfied ? SpeechBubble.Instance.C_ShowDialog(satisfiedDialog) : SpeechBubble.Instance.C_ShowDialog(unsatisfiedDialog);
+        ConchyAI.Instance.ToggleProposition(false);
+
+        if (satisfied)
+        {
+            animator.SetTrigger("Satisfied");
+            yield return SpeechBubble.Instance.C_ShowDialog(satisfiedDialog);
+        }
+        else
+        {
+            animator.SetTrigger("Unsatisfied");
+            yield return SpeechBubble.Instance.C_ShowDialog(unsatisfiedDialog);
+        }
         Destroy(_customerSpawner.WaitingDish);
         yield return LeaveRestaurant();
 

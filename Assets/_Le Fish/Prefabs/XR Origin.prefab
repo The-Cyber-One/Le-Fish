@@ -2088,7 +2088,7 @@ GameObject:
   - component: {fileID: 6338177819088921626}
   - component: {fileID: 7196720188622808440}
   - component: {fileID: 5541692645333651306}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Speech Bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}

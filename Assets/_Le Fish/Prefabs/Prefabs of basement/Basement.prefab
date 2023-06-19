@@ -1647,7 +1647,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7684269203988317791}
   - component: {fileID: 7362357275502995969}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Button QUIT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3937,6 +3937,35 @@ PrefabInstance:
     - {fileID: 6983973974577923965, guid: 482a52a959538624f9a68a56805e3d87, type: 3}
     - {fileID: 6198618931726307297, guid: 482a52a959538624f9a68a56805e3d87, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 482a52a959538624f9a68a56805e3d87, type: 3}
+--- !u!4 &2080355223169733614 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2343956070739597906, guid: 482a52a959538624f9a68a56805e3d87, type: 3}
+  m_PrefabInstance: {fileID: 4348664888498112956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2080355224306847518 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2343956071742490274, guid: 482a52a959538624f9a68a56805e3d87, type: 3}
+  m_PrefabInstance: {fileID: 4348664888498112956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5636705947643006412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080355224306847518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a83b2713a47da1e4193114a832e8b97d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 0}
+  referenceObject: {fileID: 2080355223169733614}
+  positionScale: 1
+  maxRotation: 45
+  minRotation: -45
+  maxOffset: 1
+  minOffset: -1
 --- !u!4 &2080355224306847519 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2343956071742490275, guid: 482a52a959538624f9a68a56805e3d87, type: 3}
