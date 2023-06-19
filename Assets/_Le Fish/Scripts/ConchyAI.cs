@@ -176,9 +176,8 @@ public class ConchyAI : Singleton<ConchyAI>
         }
     }
 
-    public void ShowProposition()
+    public void ToggleProposition(bool active)
     {
-        // TODO: add some cool animations
-        propositionHologramContent.SetActive(true);
+        propositionHologramContent.SetActive(active);
     }
 }
