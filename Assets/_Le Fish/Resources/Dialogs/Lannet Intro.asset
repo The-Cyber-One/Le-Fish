@@ -17,8 +17,8 @@ MonoBehaviour:
     Title: Hello dear
     WaitForTrigger: 0
     DisplayTime: 2
-    Content: Hello dear, I have here this really nice meat from one of our dear cows.
-      I was wondering if you could cook a nice out of it for me?
+    Content: Hello dear, I have this really nice meat here from one of our dear cows.
+      I was wondering if you could cook a nice dish out of it for me?
     EmptyTime: 0.5
   - _inspectorTitle: 1 - LannetInfo1
     Title: LannetInfo1
@@ -32,12 +32,12 @@ MonoBehaviour:
     WaitForTrigger: 0
     DisplayTime: 2
     Content: But we have to be very carefull with our resources, such as water and
-      soil. lives in.
+      soil.
     EmptyTime: 0.5
   - _inspectorTitle: 3 - LannetInfo3
     Title: LannetInfo3
     WaitForTrigger: 0
     DisplayTime: 2
     Content: Could you make something healthy, natural and mild to go with the meat?
-      The focus should be on the meat
+      The focus should be on the meat.
     EmptyTime: 0.5

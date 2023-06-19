@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4cf851ceb3dc43142bdbbcf6b151d676, type: 3}
-  m_Name: BeefPropositions
+  m_Name: SteakPropositions
   m_EditorClassIdentifier: 
   Name: Steak
   SpecialIngredient: {fileID: 11400000, guid: 027e8f29e4fac1f409e1cc206dc61415, type: 2}

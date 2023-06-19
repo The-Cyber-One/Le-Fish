@@ -76,11 +76,12 @@ public class CustomerBehavior : MonoBehaviour
 
         yield return SpeechBubble.Instance.C_ShowDialog(introductionDialog);
         ConchyAI.Instance.NewProposition(proposition.Recipes);
-        ConchyAI.Instance.ShowProposition();
+        ConchyAI.Instance.ToggleProposition(true);
     }
 
     IEnumerator Ruined()
     {
+        ConchyAI.Instance.ToggleProposition(false);
         animator.SetTrigger("Unsatisfied");
         yield return SpeechBubble.Instance.C_ShowDialog(ruinedDialog);
         yield return LeaveRestaurant();
@@ -91,6 +92,7 @@ public class CustomerBehavior : MonoBehaviour
         animator.SetTrigger("Leave");
         navMeshAgent.SetDestination(_customerSpawner.AwayPoint.position);
         yield return IsDoneMoving();
+        ConchyAI.Instance.ToggleProposition(false);
         Destroy(gameObject);
         _customerSpawner.SpawnCustomers();
     }
@@ -127,6 +129,8 @@ public class CustomerBehavior : MonoBehaviour
 
     IEnumerator EatDish(bool satisfied)
     {
+        ConchyAI.Instance.ToggleProposition(false);
+
         if (satisfied)
         {
             animator.SetTrigger("Satisfied");
