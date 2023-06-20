@@ -12,11 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d04c1d17a338a47aee7b791610a1c9, type: 3}
   m_Name: Karipap 1
   m_EditorClassIdentifier: 
-  Name: Karipap Classic
-  Description: Contains the dough, sweetpotato and some onion for a simple but classic
-    flavour
-  Instructions: {fileID: 11400000, guid: 0adf9461cab24db41a43e9d05d579138, type: 2}
-  DishPrefab: {fileID: 8202253657946807415, guid: c9b3b15cf52e5a049b8470d860ab7f6a, type: 3}
+  Name: KaripapOne
   Ingredients:
   - Ingredient: {fileID: 11400000, guid: f2131bd2d5c6a1b4095a3d356fc738b8, type: 2}
     CookingState: 1
@@ -27,3 +23,7 @@ MonoBehaviour:
   - Ingredient: {fileID: 11400000, guid: f182bf6e97b6c3c4e96fe1a38451012f, type: 2}
     CookingState: 1
     SliceState: 3
+  DishPrefab: {fileID: 8202253657946807415, guid: c9b3b15cf52e5a049b8470d860ab7f6a, type: 3}
+  Description: Contains the dough, sweetpotato and some onion for a simple but classic
+    flavour
+  Image: {fileID: 0}
