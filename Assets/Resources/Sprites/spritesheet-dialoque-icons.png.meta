@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c62fdc273c6829645b9ff549f2ae4f11
+guid: 8ce5cdba7c6d15d4598ba55dbb6f9110
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -120,19 +120,40 @@ TextureImporter:
       name: Conchy
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1
-        width: 540
-        height: 539
+        x: 68
+        y: 570
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f64e30edc654394bb3e52f9942434b6
-      internalID: 1546101050
+      spriteID: 42e6842afc97d7a48a7ad2280d639f4f
+      internalID: 154119259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lisa
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 570
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02afbce4be0e2f14085c40da69d11ca3
+      internalID: -1807246699
       vertices: []
       indices: 
       edges: []
@@ -140,7 +161,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0500f8370ff2f544d895dff5b841bdf0
+    spriteID: 0021643df70283c49b3c945ff9f26a2a
     internalID: 0
     vertices: []
     indices: 
@@ -148,8 +169,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Conchy: 1546101050
-      Conchy icon_1: -1263191895
+      Conchy: 154119259
+      Lisa: -1807246699
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

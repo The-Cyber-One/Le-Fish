@@ -33,7 +33,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: c62fdc273c6829645b9ff549f2ae4f11, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8ce5cdba7c6d15d4598ba55dbb6f9110, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OutlineTex:
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84a92b25f83d49b9bc132d206b370281, type: 3}
-  m_Name: Conchy icon
+  m_Name: Dialog icon
   m_EditorClassIdentifier: 
   hashCode: 628018107
   material: {fileID: -8620201982054002607}
@@ -145,30 +145,52 @@ MonoBehaviour:
     m_StrikethroughOffset: 0
     m_StrikethroughThickness: 0
     m_TabWidth: 0
-  spriteSheet: {fileID: 2800000, guid: c62fdc273c6829645b9ff549f2ae4f11, type: 3}
+  spriteSheet: {fileID: 2800000, guid: 8ce5cdba7c6d15d4598ba55dbb6f9110, type: 3}
   m_SpriteCharacterTable:
   - m_ElementType: 2
     m_Unicode: 65534
-    m_GlyphIndex: 0
+    m_GlyphIndex: 1
     m_Scale: 1
     m_Name: Conchy
     m_HashCode: -1625886960
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 2
+    m_Scale: 1
+    m_Name: Lisa
+    m_HashCode: 2688151
   m_SpriteGlyphTable:
-  - m_Index: 0
+  - m_Index: 1
     m_Metrics:
-      m_Width: 540
-      m_Height: 540
+      m_Width: 640.00006
+      m_Height: 640.00006
       m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 540
-      m_HorizontalAdvance: 540
+      m_HorizontalBearingY: 640.0001
+      m_HorizontalAdvance: 640.00006
     m_GlyphRect:
-      m_X: 0
-      m_Y: 0
-      m_Width: 540
-      m_Height: 540
+      m_X: 36
+      m_Y: 304
+      m_Width: 640
+      m_Height: 640
     m_Scale: 1
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
-    sprite: {fileID: 1546101050, guid: c62fdc273c6829645b9ff549f2ae4f11, type: 3}
+    sprite: {fileID: 154119259, guid: 8ce5cdba7c6d15d4598ba55dbb6f9110, type: 3}
+  - m_Index: 2
+    m_Metrics:
+      m_Width: 640.00006
+      m_Height: 640.00006
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 640.0001
+      m_HorizontalAdvance: 640.00006
+    m_GlyphRect:
+      m_X: 708
+      m_Y: 304
+      m_Width: 640
+      m_Height: 640
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: -1807246699, guid: 8ce5cdba7c6d15d4598ba55dbb6f9110, type: 3}
   spriteInfoList: []
   fallbackSpriteAssets: []

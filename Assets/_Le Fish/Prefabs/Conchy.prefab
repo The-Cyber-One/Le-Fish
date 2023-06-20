@@ -593,6 +593,7 @@ MonoBehaviour:
   maxRotationDegree: 2
   animator: {fileID: 7921593550586613074}
   lookPointPlayer: {fileID: 0}
+  headAim: {fileID: 0}
   propositionHologramContent: {fileID: 0}
   propositionHolograms: []
   useText: 1
@@ -607,6 +608,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4127780202d208f4092e6e2a2a7ae8ee, type: 3}
   - {fileID: 8300000, guid: 16fdff5dc77d37b4bafe9627c3d6f6dc, type: 3}
   - {fileID: 8300000, guid: d81570bd4ba1a6544bd06e9020281b23, type: 3}
+  elevator: {fileID: 0}
   waypointRoot: {fileID: 0}
   tutorialWaypoints: []
   tutorialEndpoint: {fileID: 0}
