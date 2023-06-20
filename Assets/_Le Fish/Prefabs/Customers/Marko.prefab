@@ -259,10 +259,10 @@ MonoBehaviour:
   navMeshAgent: {fileID: -1924235058973049721}
   animator: {fileID: 4690608789504704820}
   proposition: {fileID: 11400000, guid: 8da2059d44924724ba56c9081b6219c5, type: 2}
-  introductionDialog: {fileID: 11400000, guid: 02ed499aab291b949b65c2a9fc309d83, type: 2}
-  satisfiedDialog: {fileID: 11400000, guid: 85d2f76109d587a46b8334fbf1c68268, type: 2}
-  unsatisfiedDialog: {fileID: 11400000, guid: 5386fe5034f97864a8b57e29ed384509, type: 2}
-  ruinedDialog: {fileID: 11400000, guid: 94c0ce89d58b4b848bd61e95fc74e0ad, type: 2}
+  introductionDialog: {fileID: 11400000, guid: 11058c61d91640d419818a4ca8d86bcc, type: 2}
+  satisfiedDialog: {fileID: 11400000, guid: 50b01bbde325c2f40bc2e4d381bfdfca, type: 2}
+  unsatisfiedDialog: {fileID: 11400000, guid: a26b6412f63eb15479e8f9bc80bc5d23, type: 2}
+  ruinedDialog: {fileID: 11400000, guid: e3c211ef65e74c7468524d64e27db19d, type: 2}
 --- !u!1 &697818659583153932
 GameObject:
   m_ObjectHideFlags: 0
