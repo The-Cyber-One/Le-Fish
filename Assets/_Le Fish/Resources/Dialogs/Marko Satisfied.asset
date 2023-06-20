@@ -17,7 +17,7 @@ MonoBehaviour:
     Title: looks amazing
     WaitForTrigger: 0
     DisplayTime: 2
-    Content: Yo! This looks deliciou!
+    Content: Yo! This looks delicious!
     EmptyTime: 0.5
   - _inspectorTitle: 1 - Ah yes
     Title: Ah yes
