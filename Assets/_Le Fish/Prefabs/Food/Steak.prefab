@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6175146640551763023}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -13.512, y: 1.6005, z: 16.939}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 12.167674, y: 12.167671, z: 3.5809429}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -148,11 +148,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa4ad84bee05224782b08444bd542e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsCooking: 0
+  Data: {fileID: 11400000, guid: 027e8f29e4fac1f409e1cc206dc61415, type: 2}
   meshFilter: {fileID: 8069347911562541079}
   meshRenderer: {fileID: 7771303484739511925}
   ashPrefab: {fileID: 4430372850999168191, guid: 375e48b40b3dfc04fbe9bdedaad878af, type: 3}
-  IsCooking: 0
-  Data: {fileID: 11400000, guid: 027e8f29e4fac1f409e1cc206dc61415, type: 2}
+  starParticlePrefab: {fileID: 570737255486232284, guid: 4ba8853bb80a518429f3cea8228988a4, type: 3}
 --- !u!114 &1229520002965379900
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,11 +8,12 @@ public class Ingredient : MonoBehaviour
 {
     public IngredientState CurrentState { get; private set; }
     public int CurrentSlice { get; private set; }
+    public bool IsCooking = false;
+    public IngredientData Data;
     [SerializeField] MeshFilter meshFilter;
     [SerializeField] MeshRenderer meshRenderer;
     [SerializeField] GameObject ashPrefab;
-    public bool IsCooking = false;
-    public IngredientData Data;
+    [SerializeField] ParticleSystem starParticlePrefab;
 
     Timer _timer;
     public Timer Timer => _timer = _timer != null ? _timer : GetComponent<Timer>();
@@ -48,7 +49,7 @@ public class Ingredient : MonoBehaviour
 
     private void SliceOrSpice(bool isSpice)
     {
-        if (CurrentSlice < Data.Slices.Length - 1 && 
+        if (CurrentSlice < Data.Slices.Length - 1 &&
             Data.Slices[CurrentSlice + 1].IsSpice == isSpice &&
             Data.Slices[CurrentSlice + 1].Meshes[(int)CurrentState] != null)
         {
@@ -58,7 +59,13 @@ public class Ingredient : MonoBehaviour
     }
 
     [ContextMenu(nameof(Slice))]
-    public void Slice() => SliceOrSpice(false);
+    public void Slice()
+    {
+        SliceOrSpice(false);
+
+        if (CurrentSlice == Data.Slices.Length - 1)
+            Instantiate(starParticlePrefab, transform);
+    }
 
     [ContextMenu(nameof(Spice))]
     public void Spice() => SliceOrSpice(true);
