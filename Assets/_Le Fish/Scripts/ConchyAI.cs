@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.Animations.Rigging;
 
 public class ConchyAI : Singleton<ConchyAI>
@@ -11,7 +12,7 @@ public class ConchyAI : Singleton<ConchyAI>
     [SerializeField] float movementSpeed = 0.5f, maxRotationDegree = 0.1f;
     [SerializeField] Animator animator;
     [SerializeField] Transform lookPointPlayer;
-    [SerializeField] MultiAimConstraint headAim;
+    [SerializeField] ParentConstraint LookConstraint;
 
     [Header("Proposition")]
     [SerializeField] GameObject propositionHologramContent;
@@ -115,7 +116,7 @@ public class ConchyAI : Singleton<ConchyAI>
 
     private IEnumerator C_Move(Transform waypoint, bool isLast = true)
     {
-        headAim.weight = 0;
+        LookConstraint.weight = 0;
 
         // Rotate towards destination
         Vector3 direction = (waypoint.position - transform.position).normalized;
@@ -150,7 +151,7 @@ public class ConchyAI : Singleton<ConchyAI>
                 if (animate)
                 {
                     float t = Mathf.InverseLerp(startAngle, 0, Quaternion.Angle(transform.rotation, rotation));
-                    headAim.weight = t;
+                    LookConstraint.weight = t;
                     animator.SetFloat("Move", isLast ? 1 - t : t);
                 }
                 yield return null;

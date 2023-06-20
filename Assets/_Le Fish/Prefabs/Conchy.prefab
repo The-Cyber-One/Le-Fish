@@ -412,6 +412,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 592655939384584792}
+  - component: {fileID: 6823824804288332418}
   m_Layer: 0
   m_Name: Head Target
   m_TagString: Untagged
@@ -435,6 +436,32 @@ Transform:
   m_Father: {fileID: 3540202216697583835}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1773428102 &6823824804288332418
+ParentConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4085737151668793580}
+  m_Enabled: 1
+  m_Weight: 1
+  m_TranslationAtRest: {x: 0, y: 0.04220796, z: 0.245}
+  m_RotationAtRest: {x: 0, y: 0, z: 0}
+  m_TranslationOffsets:
+  - {x: 0, y: -0.23999977, z: 0}
+  m_RotationOffsets:
+  - {x: 0, y: 0, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_AffectRotationX: 1
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 1
+  m_IsContraintActive: 1
+  m_IsLocked: 0
+  m_Sources:
+  - sourceTransform: {fileID: 0}
+    weight: 1
 --- !u!1 &4525051349879396068
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,7 +620,7 @@ MonoBehaviour:
   maxRotationDegree: 2
   animator: {fileID: 7921593550586613074}
   lookPointPlayer: {fileID: 0}
-  headAim: {fileID: 0}
+  LookConstraint: {fileID: 6823824804288332418}
   propositionHologramContent: {fileID: 0}
   propositionHolograms: []
   useText: 1
