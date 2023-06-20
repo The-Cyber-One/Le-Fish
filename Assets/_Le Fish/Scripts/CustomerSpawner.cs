@@ -12,7 +12,7 @@ public class CustomerSpawner : Singleton<CustomerSpawner>
     public Transform ingredientSpawn;
     public Transform OrderPoint, AwayPoint;
 
-    private int customerIndex = 0;
+    private int _customerIndex = 0;
 
     private void Start()
     {
@@ -22,8 +22,8 @@ public class CustomerSpawner : Singleton<CustomerSpawner>
     [ContextMenu(nameof(SpawnCustomers))]
     public void SpawnCustomers()
     {
-        customerIndex = customerIndex++ % customers.Length;
-        CustomerBehavior instance = Instantiate(customers[customerIndex], spawnPoint.transform.position, Quaternion.identity).GetComponent<CustomerBehavior>();
+        _customerIndex = _customerIndex + 1 % customers.Length;
+        CustomerBehavior instance = Instantiate(customers[_customerIndex], spawnPoint.transform.position, Quaternion.identity).GetComponent<CustomerBehavior>();
         instance.GetSpawner(this);
     }
 

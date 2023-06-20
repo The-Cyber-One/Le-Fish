@@ -121,17 +121,17 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 1
         width: 540
-        height: 540
+        height: 539
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6002c98f1dc71d44f8df052765c3c019
+      spriteID: 8f64e30edc654394bb3e52f9942434b6
       internalID: 1546101050
       vertices: []
       indices: 

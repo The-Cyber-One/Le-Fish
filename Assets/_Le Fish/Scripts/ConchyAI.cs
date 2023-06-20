@@ -1,10 +1,9 @@
 using System;
 using System.Collections;
 using System.Linq;
-using System.Text;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public class ConchyAI : Singleton<ConchyAI>
 {
@@ -12,6 +11,7 @@ public class ConchyAI : Singleton<ConchyAI>
     [SerializeField] float movementSpeed = 0.5f, maxRotationDegree = 0.1f;
     [SerializeField] Animator animator;
     [SerializeField] Transform lookPointPlayer;
+    [SerializeField] MultiAimConstraint headAim;
 
     [Header("Proposition")]
     [SerializeField] GameObject propositionHologramContent;
@@ -115,6 +115,8 @@ public class ConchyAI : Singleton<ConchyAI>
 
     private IEnumerator C_Move(Transform waypoint, bool isLast = true)
     {
+        headAim.weight = 0;
+
         // Rotate towards destination
         Vector3 direction = (waypoint.position - transform.position).normalized;
         yield return Rotate(direction, animator.GetFloat("Move") != 1);
@@ -148,11 +150,13 @@ public class ConchyAI : Singleton<ConchyAI>
                 if (animate)
                 {
                     float t = Mathf.InverseLerp(startAngle, 0, Quaternion.Angle(transform.rotation, rotation));
+                    headAim.weight = t;
                     animator.SetFloat("Move", isLast ? 1 - t : t);
                 }
                 yield return null;
             }
         }
+
     }
 
     public void NewProposition(RecipeData[] recipes)

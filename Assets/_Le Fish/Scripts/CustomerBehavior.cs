@@ -35,13 +35,13 @@ public class CustomerBehavior : MonoBehaviour
         if (_customerWaiting)
         {
             DetectDish();
-        }
 
-        if (_specialIngredientSpawned && _spawnedSpecialIngredient == null)
-        {
-            _specialIngredientSpawned = false;
-            StopAllCoroutines();
-            StartCoroutine(Ruined());
+            if (_customerWaiting && _specialIngredientSpawned && _spawnedSpecialIngredient == null) // Double check for customer waitin is needed
+            {
+                _specialIngredientSpawned = false;
+                StopAllCoroutines();
+                StartCoroutine(Ruined());
+            }
         }
 
         animator.SetFloat("Velocity", navMeshAgent.velocity.sqrMagnitude / (navMeshAgent.speed * navMeshAgent.speed));
