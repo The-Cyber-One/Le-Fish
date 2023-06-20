@@ -10,6 +10,7 @@ public class CustomerBehavior : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private PropositionData proposition;
     [SerializeField] private Dialog introductionDialog, satisfiedDialog, unsatisfiedDialog, ruinedDialog;
+    [SerializeField] private string iconName;
 
     private RecipeData _correctDish;
     private CustomerSpawner _customerSpawner;
@@ -74,7 +75,7 @@ public class CustomerBehavior : MonoBehaviour
         _spawnedSpecialIngredient.GetComponent<Rigidbody>().isKinematic = false;
         _customerWaiting = true;
 
-        yield return SpeechBubble.Instance.C_ShowDialog(introductionDialog);
+        yield return SpeechBubble.Instance.C_ShowDialog(introductionDialog, iconName);
         ConchyAI.Instance.NewProposition(proposition.Recipes);
         ConchyAI.Instance.ToggleProposition(true);
     }
@@ -83,7 +84,7 @@ public class CustomerBehavior : MonoBehaviour
     {
         ConchyAI.Instance.ToggleProposition(false);
         animator.SetTrigger("Unsatisfied");
-        yield return SpeechBubble.Instance.C_ShowDialog(ruinedDialog);
+        yield return SpeechBubble.Instance.C_ShowDialog(ruinedDialog, iconName);
         yield return LeaveRestaurant();
     }
 
@@ -134,12 +135,12 @@ public class CustomerBehavior : MonoBehaviour
         if (satisfied)
         {
             animator.SetTrigger("Satisfied");
-            yield return SpeechBubble.Instance.C_ShowDialog(satisfiedDialog);
+            yield return SpeechBubble.Instance.C_ShowDialog(satisfiedDialog, iconName);
         }
         else
         {
             animator.SetTrigger("Unsatisfied");
-            yield return SpeechBubble.Instance.C_ShowDialog(unsatisfiedDialog);
+            yield return SpeechBubble.Instance.C_ShowDialog(unsatisfiedDialog, iconName);
         }
         Destroy(_customerSpawner.WaitingDish);
         yield return LeaveRestaurant();

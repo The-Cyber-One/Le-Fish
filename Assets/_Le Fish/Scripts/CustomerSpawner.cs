@@ -22,8 +22,8 @@ public class CustomerSpawner : Singleton<CustomerSpawner>
     [ContextMenu(nameof(SpawnCustomers))]
     public void SpawnCustomers()
     {
-        _customerIndex = _customerIndex + 1 % customers.Length;
         CustomerBehavior instance = Instantiate(customers[_customerIndex], spawnPoint.transform.position, Quaternion.identity).GetComponent<CustomerBehavior>();
+        _customerIndex = (_customerIndex + 1) % customers.Length;
         instance.GetSpawner(this);
     }
 
