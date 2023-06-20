@@ -621,6 +621,7 @@ MonoBehaviour:
   animator: {fileID: 7921593550586613074}
   lookPointPlayer: {fileID: 0}
   LookConstraint: {fileID: 6823824804288332418}
+  propositionsContent: []
   propositionHologramContent: {fileID: 0}
   propositionHolograms: []
   useText: 1
