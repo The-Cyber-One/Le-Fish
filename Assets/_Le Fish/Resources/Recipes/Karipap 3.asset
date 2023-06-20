@@ -12,11 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d04c1d17a338a47aee7b791610a1c9, type: 3}
   m_Name: Karipap 3
   m_EditorClassIdentifier: 
-  Name: Karipap Tomato sauce
-  Description: Classic karipap but with some delicious sauce to make the dish less
-    dry
-  Instructions: {fileID: 11400000, guid: ac81652bef47e274bafb4b8822350b56, type: 2}
-  DishPrefab: {fileID: 8202253657946807415, guid: c9b3b15cf52e5a049b8470d860ab7f6a, type: 3}
+  Name: KaripapThree
   Ingredients:
   - Ingredient: {fileID: 11400000, guid: f2131bd2d5c6a1b4095a3d356fc738b8, type: 2}
     CookingState: 1
@@ -30,3 +26,7 @@ MonoBehaviour:
   - Ingredient: {fileID: 11400000, guid: fdfc8023346e7b347bfe85d2390fdcd4, type: 2}
     CookingState: 1
     SliceState: 6
+  DishPrefab: {fileID: 8202253657946807415, guid: c9b3b15cf52e5a049b8470d860ab7f6a, type: 3}
+  Description: Classic karipap but with some delicious sauce to make the dish less
+    dry
+  Image: {fileID: 0}

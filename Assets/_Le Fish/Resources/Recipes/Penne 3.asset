@@ -12,10 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d04c1d17a338a47aee7b791610a1c9, type: 3}
   m_Name: Penne 3
   m_EditorClassIdentifier: 
-  Name: penne two
-  Description: Verry much template
-  Instructions: {fileID: 11400000, guid: 256b23e2eea94164e8489cfdc6a4813f, type: 2}
-  DishPrefab: {fileID: 2906389913339892459, guid: eaf387167dc7fef45a3fc800d5896973, type: 3}
+  Name: PenneThree
   Ingredients:
   - Ingredient: {fileID: 11400000, guid: e8a893323824d7d43ae39cdfaff73521, type: 2}
     CookingState: 1
@@ -26,3 +23,6 @@ MonoBehaviour:
   - Ingredient: {fileID: 11400000, guid: fdfc8023346e7b347bfe85d2390fdcd4, type: 2}
     CookingState: 1
     SliceState: 6
+  DishPrefab: {fileID: 2906389913339892459, guid: eaf387167dc7fef45a3fc800d5896973, type: 3}
+  Description: Verry much template
+  Image: {fileID: 0}

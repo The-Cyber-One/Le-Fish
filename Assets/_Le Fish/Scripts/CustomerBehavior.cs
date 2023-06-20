@@ -76,6 +76,8 @@ public class CustomerBehavior : MonoBehaviour
         _customerWaiting = true;
 
         yield return SpeechBubble.Instance.C_ShowDialog(introductionDialog, iconName);
+
+        ConchyAI.Instance.AssignProposition(proposition.Name);
         ConchyAI.Instance.NewProposition(proposition.Recipes);
         ConchyAI.Instance.ToggleProposition(true);
     }
