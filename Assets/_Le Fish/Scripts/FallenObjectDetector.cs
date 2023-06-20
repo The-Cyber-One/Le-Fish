@@ -1,18 +1,19 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class FallenObjectDetector : MonoBehaviour
 {
-    public GameObject conchyHelper;
+
+    [SerializeField] GameObject conchyHelper;
     private HashSet<Collider> enteredObjects = new HashSet<Collider>();
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ingredient")||other.CompareTag("Utensil"))
         {
-            if (other.transform.parent == null)
-            {
-                
+            if (!other.TryGetComponent<XRGrabInteractable>(out var interactable) || !interactable.isSelected)
+            {    
                     // Get the position of the entering object
                     Vector3 enteringObjectPosition = other.transform.position;
 

@@ -2088,7 +2088,7 @@ GameObject:
   - component: {fileID: 6338177819088921626}
   - component: {fileID: 7196720188622808440}
   - component: {fileID: 5541692645333651306}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Speech Bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2196,7 +2196,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: 119363527c13398439a6f8aea7df5dfd, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901

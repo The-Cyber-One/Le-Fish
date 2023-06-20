@@ -78,7 +78,7 @@ public class ConchyAI : Singleton<ConchyAI>
         yield return new WaitUntil(() => elevator.NotMoving);
         if (useText)
         {
-            SpeechBubble.Instance.ShowDialog(tutorialDialog);
+            SpeechBubble.Instance.ShowDialog(tutorialDialog, "Conchy");
             foreach (Waypoint waypoint in tutorialWaypoints)
             {
                 yield return new WaitUntil(() => SpeechBubble.Instance.DialogIndex == waypoint.TextIndex);
@@ -176,9 +176,8 @@ public class ConchyAI : Singleton<ConchyAI>
         }
     }
 
-    public void ShowProposition()
+    public void ToggleProposition(bool active)
     {
-        // TODO: add some cool animations
-        propositionHologramContent.SetActive(true);
+        propositionHologramContent.SetActive(active);
     }
 }

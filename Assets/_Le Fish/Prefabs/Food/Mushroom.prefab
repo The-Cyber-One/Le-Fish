@@ -102,11 +102,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa4ad84bee05224782b08444bd542e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsCooking: 0
+  Data: {fileID: 11400000, guid: e7fae4561acd6d2478372c2a1503fd1e, type: 2}
   meshFilter: {fileID: 1768969149397086157}
   meshRenderer: {fileID: 4310697484625365246}
   ashPrefab: {fileID: 4430372850999168191, guid: 375e48b40b3dfc04fbe9bdedaad878af, type: 3}
-  IsCooking: 0
-  Data: {fileID: 11400000, guid: e7fae4561acd6d2478372c2a1503fd1e, type: 2}
+  starParticlePrefab: {fileID: 570737255486232284, guid: 4ba8853bb80a518429f3cea8228988a4, type: 3}
 --- !u!114 &4736157035291148147
 MonoBehaviour:
   m_ObjectHideFlags: 0
