@@ -1,9 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using System.Linq;
-using static RecipeData;
-using System.Collections;
 
 [CreateAssetMenu(fileName = "ListRecipe", menuName = "ScriptableObjects/List of Recipes")]
 public class ListRecipeData : ScriptableObject

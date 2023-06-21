@@ -37,7 +37,7 @@ public class CustomerBehavior : MonoBehaviour
         {
             DetectDish();
 
-            if (_customerWaiting && _specialIngredientSpawned && _spawnedSpecialIngredient == null) // Double check for customer waitin is needed
+            if (_customerWaiting && _specialIngredientSpawned && _spawnedSpecialIngredient == null)
             {
                 _specialIngredientSpawned = false;
                 StopAllCoroutines();
@@ -75,7 +75,9 @@ public class CustomerBehavior : MonoBehaviour
         _spawnedSpecialIngredient.GetComponent<Rigidbody>().isKinematic = false;
         _customerWaiting = true;
 
-        yield return SpeechBubble.Instance.C_ShowDialog(introductionDialog, iconName);
+        bool dialogDone = false;
+        SpeechBubble.Instance.ShowDialog(introductionDialog, iconName, () => dialogDone = true);
+        yield return new WaitUntil(() => dialogDone);
 
         ConchyAI.Instance.AssignProposition(proposition.Name);
         ConchyAI.Instance.NewProposition(proposition.Recipes);
@@ -86,7 +88,9 @@ public class CustomerBehavior : MonoBehaviour
     {
         ConchyAI.Instance.ToggleProposition(false);
         animator.SetTrigger("Unsatisfied");
-        yield return SpeechBubble.Instance.C_ShowDialog(ruinedDialog, iconName);
+        bool dialogDone = false;
+        SpeechBubble.Instance.ShowDialog(ruinedDialog, iconName, () => dialogDone = true);
+        yield return new WaitUntil(() => dialogDone);
         yield return LeaveRestaurant();
     }
 
@@ -100,14 +104,15 @@ public class CustomerBehavior : MonoBehaviour
         _customerSpawner.SpawnCustomers();
     }
 
-    public void DetectDish()
+    private void DetectDish()
     {
-        if (_customerSpawner.WaitingDish == null || !_customerSpawner.WaitingDish.TryGetComponent(out DishData dishData))
+        if (_customerSpawner.FinishedDish == null)
             return;
 
-        StopCoroutine(WaitForOrder());
         _customerWaiting = false;
-        StartCoroutine(EatDish(MatchDish(dishData.Data)));
+        StopCoroutine(WaitForOrder());
+        SpeechBubble.Instance.StopAllCoroutines();
+        StartCoroutine(EatDish(MatchDish(_customerSpawner.FinishedDish.Data)));
     }
 
     private bool MatchDish(RecipeData receivedDish)
@@ -137,14 +142,18 @@ public class CustomerBehavior : MonoBehaviour
         if (satisfied)
         {
             animator.SetTrigger("Satisfied");
-            yield return SpeechBubble.Instance.C_ShowDialog(satisfiedDialog, iconName);
+            bool dialogDone = false;
+            SpeechBubble.Instance.ShowDialog(satisfiedDialog, iconName, () => dialogDone = true);
+            yield return new WaitUntil(() => dialogDone);
         }
         else
         {
             animator.SetTrigger("Unsatisfied");
-            yield return SpeechBubble.Instance.C_ShowDialog(unsatisfiedDialog, iconName);
+            bool dialogDone = false;
+            SpeechBubble.Instance.ShowDialog(unsatisfiedDialog, iconName, () => dialogDone = true);
+            yield return new WaitUntil(() => dialogDone);
         }
-        Destroy(_customerSpawner.WaitingDish);
+        Destroy(_customerSpawner.FinishedDish.gameObject);
         yield return LeaveRestaurant();
 
     }

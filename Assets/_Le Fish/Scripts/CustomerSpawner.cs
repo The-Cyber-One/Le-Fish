@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CustomerSpawner : Singleton<CustomerSpawner>
 {
-    [HideInInspector] public GameObject WaitingDish;
+    [HideInInspector] public DishData FinishedDish;
 
     [SerializeField] Transform spawnPoint;
     [SerializeField] GameObject[] customers;
@@ -27,12 +27,5 @@ public class CustomerSpawner : Singleton<CustomerSpawner>
         instance.GetSpawner(this);
     }
 
-    public void UpdateDish(Collider collider)
-    {
-        if (!collider.TryGetComponent(out RecipeData dish))
-            return;
-        
-        if (dish != null)
-            WaitingDish = collider.gameObject;
-    }
+    public void UpdateDish(DishData dishData) => FinishedDish = dishData;
 }
