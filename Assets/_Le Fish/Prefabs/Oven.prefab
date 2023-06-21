@@ -1661,6 +1661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 7974543649015295169}
+  stateText: {fileID: 8648790549401354812}
   audioSource: {fileID: 5230716249149028141}
   cookingColor: {r: 0, g: 1, b: 0, a: 1}
   burningColor: {r: 1, g: 0, b: 0, a: 1}

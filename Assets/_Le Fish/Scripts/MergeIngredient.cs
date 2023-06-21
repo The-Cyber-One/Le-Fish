@@ -40,6 +40,7 @@ public class MergeIngredient : MonoBehaviour
         {
             DishData dishData = Instantiate(dish.DishPrefab, _ingredients[^1].transform.position, Quaternion.identity).AddComponent<DishData>();
             dishData.Data = dish;
+            CustomerSpawner.Instance.UpdateDish(dishData);
             _ingredients.ForEach(ingredient => Destroy(ingredient.gameObject));
             _ingredients.Clear();
         }

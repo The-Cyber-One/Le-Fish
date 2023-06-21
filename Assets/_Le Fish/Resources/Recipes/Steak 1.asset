@@ -12,11 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d04c1d17a338a47aee7b791610a1c9, type: 3}
   m_Name: Steak 1
   m_EditorClassIdentifier: 
-  Name: Steak potato
-  Description: The bare bones (pun intended) of the steak dish. Emphasises the taste
-    of the steak itself.
-  Instructions: {fileID: 11400000, guid: 256b23e2eea94164e8489cfdc6a4813f, type: 2}
-  DishPrefab: {fileID: 902117034965825441, guid: 71a935129b9fafd4ea5c677108b1be0d, type: 3}
+  Name: SteakOne
   Ingredients:
   - Ingredient: {fileID: 11400000, guid: c6c68fee4c140c64296fdc357fb3e45d, type: 2}
     CookingState: 1
@@ -24,3 +20,7 @@ MonoBehaviour:
   - Ingredient: {fileID: 11400000, guid: 027e8f29e4fac1f409e1cc206dc61415, type: 2}
     CookingState: 1
     SliceState: 0
+  DishPrefab: {fileID: 902117034965825441, guid: 71a935129b9fafd4ea5c677108b1be0d, type: 3}
+  Description: The bare bones (pun intended) of the steak dish. Emphasises the taste
+    of the steak itself.
+  Image: {fileID: 0}

@@ -10,6 +10,7 @@ public class CustomerBehavior : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private PropositionData proposition;
     [SerializeField] private Dialog introductionDialog, satisfiedDialog, unsatisfiedDialog, ruinedDialog;
+    [SerializeField] private string iconName;
 
     private RecipeData _correctDish;
     private CustomerSpawner _customerSpawner;
@@ -35,13 +36,13 @@ public class CustomerBehavior : MonoBehaviour
         if (_customerWaiting)
         {
             DetectDish();
-        }
 
-        if (_specialIngredientSpawned && _spawnedSpecialIngredient == null)
-        {
-            _specialIngredientSpawned = false;
-            StopAllCoroutines();
-            StartCoroutine(Ruined());
+            if (_customerWaiting && _specialIngredientSpawned && _spawnedSpecialIngredient == null)
+            {
+                _specialIngredientSpawned = false;
+                StopAllCoroutines();
+                StartCoroutine(Ruined());
+            }
         }
 
         animator.SetFloat("Velocity", navMeshAgent.velocity.sqrMagnitude / (navMeshAgent.speed * navMeshAgent.speed));
@@ -74,7 +75,11 @@ public class CustomerBehavior : MonoBehaviour
         _spawnedSpecialIngredient.GetComponent<Rigidbody>().isKinematic = false;
         _customerWaiting = true;
 
-        yield return SpeechBubble.Instance.C_ShowDialog(introductionDialog);
+        bool dialogDone = false;
+        SpeechBubble.Instance.ShowDialog(introductionDialog, iconName, () => dialogDone = true);
+        yield return new WaitUntil(() => dialogDone);
+
+        ConchyAI.Instance.AssignProposition(proposition.Name);
         ConchyAI.Instance.NewProposition(proposition.Recipes);
         ConchyAI.Instance.ToggleProposition(true);
     }
@@ -83,7 +88,9 @@ public class CustomerBehavior : MonoBehaviour
     {
         ConchyAI.Instance.ToggleProposition(false);
         animator.SetTrigger("Unsatisfied");
-        yield return SpeechBubble.Instance.C_ShowDialog(ruinedDialog);
+        bool dialogDone = false;
+        SpeechBubble.Instance.ShowDialog(ruinedDialog, iconName, () => dialogDone = true);
+        yield return new WaitUntil(() => dialogDone);
         yield return LeaveRestaurant();
     }
 
@@ -97,14 +104,15 @@ public class CustomerBehavior : MonoBehaviour
         _customerSpawner.SpawnCustomers();
     }
 
-    public void DetectDish()
+    private void DetectDish()
     {
-        if (_customerSpawner.WaitingDish == null || !_customerSpawner.WaitingDish.TryGetComponent(out DishData dishData))
+        if (_customerSpawner.FinishedDish == null)
             return;
 
-        StopCoroutine(WaitForOrder());
         _customerWaiting = false;
-        StartCoroutine(EatDish(MatchDish(dishData.Data)));
+        StopCoroutine(WaitForOrder());
+        SpeechBubble.Instance.StopAllCoroutines();
+        StartCoroutine(EatDish(MatchDish(_customerSpawner.FinishedDish.Data)));
     }
 
     private bool MatchDish(RecipeData receivedDish)
@@ -134,14 +142,18 @@ public class CustomerBehavior : MonoBehaviour
         if (satisfied)
         {
             animator.SetTrigger("Satisfied");
-            yield return SpeechBubble.Instance.C_ShowDialog(satisfiedDialog);
+            bool dialogDone = false;
+            SpeechBubble.Instance.ShowDialog(satisfiedDialog, iconName, () => dialogDone = true);
+            yield return new WaitUntil(() => dialogDone);
         }
         else
         {
             animator.SetTrigger("Unsatisfied");
-            yield return SpeechBubble.Instance.C_ShowDialog(unsatisfiedDialog);
+            bool dialogDone = false;
+            SpeechBubble.Instance.ShowDialog(unsatisfiedDialog, iconName, () => dialogDone = true);
+            yield return new WaitUntil(() => dialogDone);
         }
-        Destroy(_customerSpawner.WaitingDish);
+        Destroy(_customerSpawner.FinishedDish.gameObject);
         yield return LeaveRestaurant();
 
     }

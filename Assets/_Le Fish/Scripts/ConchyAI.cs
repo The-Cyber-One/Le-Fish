@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
 using System.Linq;
-using System.Text;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Animations;
+using UnityEngine.Animations.Rigging;
 
 public class ConchyAI : Singleton<ConchyAI>
 {
@@ -12,10 +13,13 @@ public class ConchyAI : Singleton<ConchyAI>
     [SerializeField] float movementSpeed = 0.5f, maxRotationDegree = 0.1f;
     [SerializeField] Animator animator;
     [SerializeField] Transform lookPointPlayer;
+    [SerializeField] ParentConstraint LookConstraint;
 
     [Header("Proposition")]
+    [SerializeField] GameObject[] propositionsContent;
     [SerializeField] GameObject propositionHologramContent;
     [SerializeField] PropositionHologram[] propositionHolograms;
+    Canvas[] _propositionCanvas;
 
     [Header("Text")]
     [SerializeField] bool useText = true;
@@ -45,7 +49,8 @@ public class ConchyAI : Singleton<ConchyAI>
     [Serializable]
     public class PropositionHologram
     {
-        [SerializeField] public TextMeshProUGUI Title, Description, Instructions;
+        [SerializeField] public TextMeshProUGUI Title, Description;
+        [SerializeField] public Image Instructions;
     }
 
     [ContextMenu(nameof(UpdateWaypoints))]
@@ -115,6 +120,8 @@ public class ConchyAI : Singleton<ConchyAI>
 
     private IEnumerator C_Move(Transform waypoint, bool isLast = true)
     {
+        LookConstraint.weight = 0;
+
         // Rotate towards destination
         Vector3 direction = (waypoint.position - transform.position).normalized;
         yield return Rotate(direction, animator.GetFloat("Move") != 1);
@@ -148,11 +155,13 @@ public class ConchyAI : Singleton<ConchyAI>
                 if (animate)
                 {
                     float t = Mathf.InverseLerp(startAngle, 0, Quaternion.Angle(transform.rotation, rotation));
+                    LookConstraint.weight = t;
                     animator.SetFloat("Move", isLast ? 1 - t : t);
                 }
                 yield return null;
             }
         }
+
     }
 
     public void NewProposition(RecipeData[] recipes)
@@ -163,8 +172,9 @@ public class ConchyAI : Singleton<ConchyAI>
         for (int i = 0; i < recipes.Length; i++)
         {
             //RecipeData recipe = recipes[indecies[i]];
-            //propositionHolograms[i].Title.text = recipe.Name;
-            //propositionHolograms[i].Description.text = recipe.Description;
+            //propositionHolograms[i].Title.text = recipes[i].Name;
+            //propositionHolograms[i].Description.text = recipes[i].Description;
+            //propositionHolograms[i].Instructions = recipes[i].Image;
 
             //Dialog instructions = recipe.Instructions;
             //StringBuilder stringBuilder = new();
@@ -179,5 +189,55 @@ public class ConchyAI : Singleton<ConchyAI>
     public void ToggleProposition(bool active)
     {
         propositionHologramContent.SetActive(active);
+    }
+
+    // Cyril update 
+    public void AssignProposition(string propositionName)
+    {
+        switch (propositionName)
+        {
+            case "KaripapProposition":
+                propositionHologramContent = propositionsContent[0];
+                _propositionCanvas = propositionsContent[0].GetComponentsInChildren<Canvas>();
+                break;
+
+            case "SteakProposition":
+                propositionHologramContent = propositionsContent[1];
+                _propositionCanvas = propositionsContent[1].GetComponentsInChildren<Canvas>();
+                break;
+
+            case "PastaProposition":
+                propositionHologramContent = propositionsContent[2];
+                _propositionCanvas = propositionsContent[2].GetComponentsInChildren<Canvas>();
+                break;
+        }
+    }
+
+    // Used by ButtonsProposition prefab 
+    public void ShowFirstProposition()
+    {
+        _propositionCanvas[0].gameObject.SetActive(true);
+        _propositionCanvas[0].transform.position = new(0.380f, -0.380f, 0.0f);
+
+        _propositionCanvas[1].gameObject.SetActive(false);
+        _propositionCanvas[2].gameObject.SetActive(false);
+    }
+
+    public void ShowSecondProposition()
+    {
+        _propositionCanvas[1].gameObject.SetActive(true);
+        _propositionCanvas[1].transform.position = new(0.0f, 0.0f, 0.0f);
+
+        _propositionCanvas[0].gameObject.SetActive(false);
+        _propositionCanvas[2].gameObject.SetActive(false);
+    }
+
+    public void ShowThirdProposition()
+    {
+        _propositionCanvas[2].gameObject.SetActive(true);
+        _propositionCanvas[2].transform.position = new(-0.380f, 0.380f, 0.0f);
+
+        _propositionCanvas[0].gameObject.SetActive(false);
+        _propositionCanvas[1].gameObject.SetActive(false);
     }
 }

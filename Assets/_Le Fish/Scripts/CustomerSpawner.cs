@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CustomerSpawner : Singleton<CustomerSpawner>
 {
-    [HideInInspector] public GameObject WaitingDish;
+    [HideInInspector] public DishData FinishedDish;
 
     [SerializeField] Transform spawnPoint;
     [SerializeField] GameObject[] customers;
@@ -12,7 +12,7 @@ public class CustomerSpawner : Singleton<CustomerSpawner>
     public Transform ingredientSpawn;
     public Transform OrderPoint, AwayPoint;
 
-    private int customerIndex = 0;
+    private int _customerIndex = 0;
 
     private void Start()
     {
@@ -22,17 +22,10 @@ public class CustomerSpawner : Singleton<CustomerSpawner>
     [ContextMenu(nameof(SpawnCustomers))]
     public void SpawnCustomers()
     {
-        customerIndex = customerIndex++ % customers.Length;
-        CustomerBehavior instance = Instantiate(customers[customerIndex], spawnPoint.transform.position, Quaternion.identity).GetComponent<CustomerBehavior>();
+        CustomerBehavior instance = Instantiate(customers[_customerIndex], spawnPoint.transform.position, Quaternion.identity).GetComponent<CustomerBehavior>();
+        _customerIndex = (_customerIndex + 1) % customers.Length;
         instance.GetSpawner(this);
     }
 
-    public void UpdateDish(Collider collider)
-    {
-        if (!collider.TryGetComponent(out RecipeData dish))
-            return;
-        
-        if (dish != null)
-            WaitingDish = collider.gameObject;
-    }
+    public void UpdateDish(DishData dishData) => FinishedDish = dishData;
 }

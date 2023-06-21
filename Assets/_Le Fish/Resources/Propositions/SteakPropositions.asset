@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf851ceb3dc43142bdbbcf6b151d676, type: 3}
   m_Name: SteakPropositions
   m_EditorClassIdentifier: 
-  Name: Steak
+  Name: SteakProposition
   SpecialIngredient: {fileID: 11400000, guid: 027e8f29e4fac1f409e1cc206dc61415, type: 2}
   Recipes:
   - {fileID: 11400000, guid: 0f5cbae05d65d1e42a567dfa3fea57d6, type: 2}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d04c1d17a338a47aee7b791610a1c9, type: 3}
   m_Name: Penne 1
   m_EditorClassIdentifier: 
-  Name: penne one
+  Name: PenneOne
   Ingredients:
   - Ingredient: {fileID: 11400000, guid: e7fae4561acd6d2478372c2a1503fd1e, type: 2}
     CookingState: 1
