@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Animations;
 using UnityEngine.Animations.Rigging;
+using System.Reflection;
 
 public class ConchyAI : Singleton<ConchyAI>
 {
@@ -16,10 +17,8 @@ public class ConchyAI : Singleton<ConchyAI>
     [SerializeField] ParentConstraint LookConstraint;
 
     [Header("Proposition")]
-    [SerializeField] GameObject[] propositionsContent;
-    [SerializeField] GameObject propositionHologramContent;
+    [SerializeField] Animator propositionHologramAnimator;
     [SerializeField] PropositionHologram[] propositionHolograms;
-    Canvas[] _propositionCanvas;
 
     [Header("Text")]
     [SerializeField] bool useText = true;
@@ -166,78 +165,31 @@ public class ConchyAI : Singleton<ConchyAI>
 
     public void NewProposition(RecipeData[] recipes)
     {
-        propositionHologramContent.SetActive(false);
+        propositionHologramAnimator.SetBool("Active", false);
 
         int[] indecies = Enumerable.Range(0, recipes.Length).OrderBy(i => UnityEngine.Random.value).ToArray();
         for (int i = 0; i < recipes.Length; i++)
         {
-            //RecipeData recipe = recipes[indecies[i]];
-            //propositionHolograms[i].Title.text = recipes[i].Name;
-            //propositionHolograms[i].Description.text = recipes[i].Description;
-            //propositionHolograms[i].Instructions = recipes[i].Image;
-
-            //Dialog instructions = recipe.Instructions;
-            //StringBuilder stringBuilder = new();
-            //for (int j = 0; j < instructions.Length; j++)
-            //{
-            //    stringBuilder.AppendLine($"{j + 1} - {instructions[j].Content}");
-            //}
-            //propositionHolograms[i].Instructions.text = stringBuilder.ToString();
+            RecipeData recipe = recipes[indecies[i]];
+            propositionHolograms[i].Title.text = recipes[i].Name;
+            propositionHolograms[i].Title.transform.parent.gameObject.SetActive(true);
+            propositionHolograms[i].Description.text = recipes[i].Description;
+            propositionHolograms[i].Instructions.sprite = recipes[i].Sprite;
+            propositionHolograms[i].Instructions.gameObject.SetActive(false);
         }
     }
 
     public void ToggleProposition(bool active)
     {
-        propositionHologramContent.SetActive(active);
+        propositionHologramAnimator.SetBool("Active", active);
     }
 
-    // Cyril update 
-    public void AssignProposition(string propositionName)
+    public void ShowRecipe(int index)
     {
-        switch (propositionName)
+        for (int i = 0; i < propositionHolograms.Length; i++)
         {
-            case "KaripapProposition":
-                propositionHologramContent = propositionsContent[0];
-                _propositionCanvas = propositionsContent[0].GetComponentsInChildren<Canvas>();
-                break;
-
-            case "SteakProposition":
-                propositionHologramContent = propositionsContent[1];
-                _propositionCanvas = propositionsContent[1].GetComponentsInChildren<Canvas>();
-                break;
-
-            case "PastaProposition":
-                propositionHologramContent = propositionsContent[2];
-                _propositionCanvas = propositionsContent[2].GetComponentsInChildren<Canvas>();
-                break;
+            propositionHolograms[i].Title.transform.parent.gameObject.SetActive(false);
         }
-    }
-
-    // Used by ButtonsProposition prefab 
-    public void ShowFirstProposition()
-    {
-        _propositionCanvas[0].gameObject.SetActive(true);
-        _propositionCanvas[0].transform.position = new(0.380f, -0.380f, 0.0f);
-
-        _propositionCanvas[1].gameObject.SetActive(false);
-        _propositionCanvas[2].gameObject.SetActive(false);
-    }
-
-    public void ShowSecondProposition()
-    {
-        _propositionCanvas[1].gameObject.SetActive(true);
-        _propositionCanvas[1].transform.position = new(0.0f, 0.0f, 0.0f);
-
-        _propositionCanvas[0].gameObject.SetActive(false);
-        _propositionCanvas[2].gameObject.SetActive(false);
-    }
-
-    public void ShowThirdProposition()
-    {
-        _propositionCanvas[2].gameObject.SetActive(true);
-        _propositionCanvas[2].transform.position = new(-0.380f, 0.380f, 0.0f);
-
-        _propositionCanvas[0].gameObject.SetActive(false);
-        _propositionCanvas[1].gameObject.SetActive(false);
+        propositionHolograms[index].Instructions.gameObject.SetActive(true);
     }
 }

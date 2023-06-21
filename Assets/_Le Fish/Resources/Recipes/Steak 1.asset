@@ -23,4 +23,4 @@ MonoBehaviour:
   DishPrefab: {fileID: 902117034965825441, guid: 71a935129b9fafd4ea5c677108b1be0d, type: 3}
   Description: The bare bones (pun intended) of the steak dish. Emphasises the taste
     of the steak itself.
-  Image: {fileID: 0}
+  Sprite: {fileID: 21300000, guid: 69cfd310ab92ef143ae11319d4962af4, type: 3}

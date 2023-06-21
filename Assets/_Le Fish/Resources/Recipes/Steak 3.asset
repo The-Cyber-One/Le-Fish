@@ -25,4 +25,4 @@ MonoBehaviour:
     SliceState: 0
   DishPrefab: {fileID: 902117034965825441, guid: 71a935129b9fafd4ea5c677108b1be0d, type: 3}
   Description: Template
-  Image: {fileID: 0}
+  Sprite: {fileID: 21300000, guid: 5171004d213ae444da5e22b87369b9b7, type: 3}
