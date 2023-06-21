@@ -5,8 +5,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Animations;
-using UnityEngine.Animations.Rigging;
-using System.Reflection;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine.XR.Interaction.Toolkit.Inputs.Composites;
 
 public class ConchyAI : Singleton<ConchyAI>
 {
@@ -18,7 +19,12 @@ public class ConchyAI : Singleton<ConchyAI>
 
     [Header("Proposition")]
     [SerializeField] Animator propositionHologramAnimator;
+    [SerializeField] GameObject buttons;
     [SerializeField] PropositionHologram[] propositionHolograms;
+
+    private RecipeData[] _currentProposition;
+    private int _currentPropositionIndex = 0;
+    private int[] _propositionRandomIndecies;
 
     [Header("Text")]
     [SerializeField] bool useText = true;
@@ -37,6 +43,17 @@ public class ConchyAI : Singleton<ConchyAI>
     bool _tutorialAvailible = true;
 
     Transform _waypointRoot;
+
+    public List<RecipeData> MergableRecipes
+    {
+        get
+        {
+            if (_currentProposition != null && _currentProposition.Length > 0)
+                return new List<RecipeData>() { _currentProposition[_currentPropositionIndex] };
+
+            return Resources.Load<ListRecipeData>("ListRecipes").ListRecipes;
+        }
+    }
 
     [Serializable]
     public class Waypoint
@@ -165,23 +182,27 @@ public class ConchyAI : Singleton<ConchyAI>
 
     public void NewProposition(RecipeData[] recipes)
     {
-        propositionHologramAnimator.SetBool("Active", false);
+        ToggleProposition(false);
 
-        int[] indecies = Enumerable.Range(0, recipes.Length).OrderBy(i => UnityEngine.Random.value).ToArray();
+        _propositionRandomIndecies = Enumerable.Range(0, recipes.Length).OrderBy(i => UnityEngine.Random.value).ToArray();
         for (int i = 0; i < recipes.Length; i++)
         {
-            RecipeData recipe = recipes[indecies[i]];
+            RecipeData recipe = recipes[_propositionRandomIndecies[i]];
             propositionHolograms[i].Title.text = recipes[i].Name;
             propositionHolograms[i].Title.transform.parent.gameObject.SetActive(true);
             propositionHolograms[i].Description.text = recipes[i].Description;
             propositionHolograms[i].Instructions.sprite = recipes[i].Sprite;
             propositionHolograms[i].Instructions.gameObject.SetActive(false);
         }
+
+        _currentProposition = recipes;
     }
 
     public void ToggleProposition(bool active)
     {
         propositionHologramAnimator.SetBool("Active", active);
+        if (active)
+            buttons.SetActive(false);
     }
 
     public void ShowRecipe(int index)
@@ -191,5 +212,7 @@ public class ConchyAI : Singleton<ConchyAI>
             propositionHolograms[i].Title.transform.parent.gameObject.SetActive(false);
         }
         propositionHolograms[index].Instructions.gameObject.SetActive(true);
+
+        _currentPropositionIndex = _propositionRandomIndecies[index];
     }
 }

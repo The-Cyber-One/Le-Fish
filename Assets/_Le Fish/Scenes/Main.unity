@@ -9700,7 +9700,7 @@ Transform:
   - {fileID: 665502869}
   - {fileID: 1112471843}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1394854206
 PrefabInstance:
@@ -23764,7 +23764,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4768232567485640381, guid: 5ead45f81bd0ea84fbae2cd677f04a8c, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4768232567485640381, guid: 5ead45f81bd0ea84fbae2cd677f04a8c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23810,14 +23810,26 @@ PrefabInstance:
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 5054333425279877194}
+    - target: {fileID: 5599437456680644796, guid: 5ead45f81bd0ea84fbae2cd677f04a8c, type: 3}
+      propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ShowRecipe
+      objectReference: {fileID: 0}
     - target: {fileID: 5599437457155935687, guid: 5ead45f81bd0ea84fbae2cd677f04a8c, type: 3}
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 5054333425279877194}
+    - target: {fileID: 5599437457155935687, guid: 5ead45f81bd0ea84fbae2cd677f04a8c, type: 3}
+      propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ShowRecipe
+      objectReference: {fileID: 0}
     - target: {fileID: 5599437457171583251, guid: 5ead45f81bd0ea84fbae2cd677f04a8c, type: 3}
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 5054333425279877194}
+    - target: {fileID: 5599437457171583251, guid: 5ead45f81bd0ea84fbae2cd677f04a8c, type: 3}
+      propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ShowRecipe
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ead45f81bd0ea84fbae2cd677f04a8c, type: 3}
 --- !u!33 &4812060307771137478
@@ -29667,7 +29679,7 @@ GameObject:
   - component: {fileID: 6923780372700545618}
   - component: {fileID: 5607486690840470629}
   - component: {fileID: 8417125333188213197}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

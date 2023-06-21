@@ -28,5 +28,5 @@ MonoBehaviour:
     SliceState: 3
   DishPrefab: {fileID: 8202253657946807415, guid: c9b3b15cf52e5a049b8470d860ab7f6a, type: 3}
   Description: Classic karipap but with some added mushrooms to add some more filling
-    and flavour
+    and flavour.
   Sprite: {fileID: 21300000, guid: a7dd9d74ca4e1a94c8682e5b6f70c143, type: 3}
