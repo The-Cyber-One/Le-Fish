@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8ce5cdba7c6d15d4598ba55dbb6f9110
+guid: 48930e2e10b769a45ad435efe2025391
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -120,10 +120,10 @@ TextureImporter:
       name: Conchy
       rect:
         serializedVersion: 2
-        x: 68
-        y: 570
-        width: 1200
-        height: 1200
+        x: 60
+        y: 340
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42e6842afc97d7a48a7ad2280d639f4f
-      internalID: 154119259
+      spriteID: 42fc43721fb4d524ea52b294ba4c6a22
+      internalID: 521878696
       vertices: []
       indices: 
       edges: []
@@ -141,10 +141,10 @@ TextureImporter:
       name: Lisa
       rect:
         serializedVersion: 2
-        x: 1328
-        y: 570
-        width: 1200
-        height: 1200
+        x: 720
+        y: 340
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,8 +152,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02afbce4be0e2f14085c40da69d11ca3
-      internalID: -1807246699
+      spriteID: a5dd8f730c7e4ed468cc8a5874b97f23
+      internalID: -472082437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lannet
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 340
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a5dd49bb2353bc47a10d1f514ab59e3
+      internalID: 1149977801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marko
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 340
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e47927f9cc3323e4cb5d3916e9defde1
+      internalID: 1765353832
       vertices: []
       indices: 
       edges: []
@@ -161,7 +203,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0021643df70283c49b3c945ff9f26a2a
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -169,8 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Conchy: 154119259
-      Lisa: -1807246699
+      Conchy: 521878696
+      Lannet: 1149977801
+      Lisa: -472082437
+      Marko: 1765353832
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
