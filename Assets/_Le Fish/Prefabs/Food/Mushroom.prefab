@@ -108,6 +108,8 @@ MonoBehaviour:
   meshRenderer: {fileID: 4310697484625365246}
   ashPrefab: {fileID: 4430372850999168191, guid: 375e48b40b3dfc04fbe9bdedaad878af, type: 3}
   starParticlePrefab: {fileID: 570737255486232284, guid: 4ba8853bb80a518429f3cea8228988a4, type: 3}
+  _currentState: 0
+  _currentSlice: 0
 --- !u!114 &4736157035291148147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +231,7 @@ MonoBehaviour:
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
