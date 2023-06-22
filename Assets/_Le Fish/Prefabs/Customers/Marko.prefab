@@ -263,6 +263,7 @@ MonoBehaviour:
   satisfiedDialog: {fileID: 11400000, guid: 50b01bbde325c2f40bc2e4d381bfdfca, type: 2}
   unsatisfiedDialog: {fileID: 11400000, guid: a26b6412f63eb15479e8f9bc80bc5d23, type: 2}
   ruinedDialog: {fileID: 11400000, guid: e3c211ef65e74c7468524d64e27db19d, type: 2}
+  iconName: Marko
 --- !u!1 &697818659583153932
 GameObject:
   m_ObjectHideFlags: 0
