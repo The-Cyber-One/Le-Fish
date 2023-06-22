@@ -14,12 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Pasta
   CanChangeState: 1
-  IngredientPrefab: {fileID: 1966506426559401296, guid: d53558d3d0f2b75478c7dc7f520a90a1, type: 3}
+  IngredientPrefab: {fileID: 2957193420065416412, guid: 6ecd9f8b4922e9648a02f5ff1ab77835, type: 3}
   Slices:
-  - States: 000000000100000002000000
+  - IsSpice: 0
+    States: 000000000100000002000000
     Meshes:
-    - {fileID: 4300000, guid: e050c2b16fe384bd994474655a4b4968, type: 2}
-    - {fileID: 4300000, guid: e050c2b16fe384bd994474655a4b4968, type: 2}
-    - {fileID: 4300000, guid: e050c2b16fe384bd994474655a4b4968, type: 2}
-  CookingTime: 40
-  BurnTime: 20
+    - Mesh: {fileID: 1581195806292707583, guid: 7c846e00d55af074fa424ad24cb99e4d, type: 3}
+      Materials:
+      - {fileID: 7363330341948990313, guid: 7c846e00d55af074fa424ad24cb99e4d, type: 3}
+    - Mesh: {fileID: -7214893867347281116, guid: 684538d83abe16b4f954dc011418b748, type: 3}
+      Materials:
+      - {fileID: 7363330341948990313, guid: 7c846e00d55af074fa424ad24cb99e4d, type: 3}
+    - Mesh: {fileID: 0}
+      Materials: []
+  CookingTime: 30
+  BurnTime: 15

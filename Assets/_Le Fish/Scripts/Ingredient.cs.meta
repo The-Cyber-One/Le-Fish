@@ -3,7 +3,12 @@ guid: eaa4ad84bee05224782b08444bd542e6
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Data: {instanceID: 0}
+  - meshFilter: {instanceID: 0}
+  - meshRenderer: {instanceID: 0}
+  - ashPrefab: {fileID: 4430372850999168191, guid: 375e48b40b3dfc04fbe9bdedaad878af, type: 3}
+  - starParticlePrefab: {fileID: 570737255486232284, guid: 4ba8853bb80a518429f3cea8228988a4, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

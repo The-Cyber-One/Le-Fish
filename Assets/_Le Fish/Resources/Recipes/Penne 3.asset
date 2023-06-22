@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d04c1d17a338a47aee7b791610a1c9, type: 3}
+  m_Name: Penne 3
+  m_EditorClassIdentifier: 
+  Name: Penne Onion
+  Ingredients:
+  - Ingredient: {fileID: 11400000, guid: e8a893323824d7d43ae39cdfaff73521, type: 2}
+    CookingState: 1
+    SliceState: 7
+  - Ingredient: {fileID: 11400000, guid: 61254943c9b666c47b43b6d701a5bcde, type: 2}
+    CookingState: 1
+    SliceState: 0
+  - Ingredient: {fileID: 11400000, guid: fdfc8023346e7b347bfe85d2390fdcd4, type: 2}
+    CookingState: 1
+    SliceState: 6
+  DishPrefab: {fileID: 2906389913339892459, guid: eaf387167dc7fef45a3fc800d5896973, type: 3}
+  Description: Penne that contains some onion slices.
+  Sprite: {fileID: 0}

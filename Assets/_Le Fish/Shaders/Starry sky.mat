@@ -64,7 +64,7 @@ Material:
     - _NebulaMax: 0.9
     - _NebulaMin: 0.532
     - _NebulaNoise: 25
-    - _NebulaSpeed: 25
+    - _NebulaSpeed: 50
     - _NoiseScale: 2
     - _NoiseScale1: 571
     - _NoiseScale2: 404.7

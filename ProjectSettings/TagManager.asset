@@ -8,6 +8,8 @@ TagManager:
   - Ingredient
   - DishFloor
   - Grabbable
+  - DepositPoint
+  - Utensil
   layers:
   - Default
   - TransparentFX
@@ -17,8 +19,8 @@ TagManager:
   - UI
   - Hand
   - DialogText
-  - 
-  - 
+  - Bar
+  - Button
   - 
   - 
   - 

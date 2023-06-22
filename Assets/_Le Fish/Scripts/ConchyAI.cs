@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Linq;
-using System.Text;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Animations;
+using System.Collections.Generic;
+using UnityEngine.Animations.Rigging;
 
 public class ConchyAI : Singleton<ConchyAI>
 {
@@ -12,10 +14,16 @@ public class ConchyAI : Singleton<ConchyAI>
     [SerializeField] float movementSpeed = 0.5f, maxRotationDegree = 0.1f;
     [SerializeField] Animator animator;
     [SerializeField] Transform lookPointPlayer;
+    [SerializeField] MultiAimConstraint LookConstraint;
 
     [Header("Proposition")]
-    [SerializeField] GameObject propositionHologramContent;
+    [SerializeField] Animator propositionHologramAnimator;
+    [SerializeField] GameObject buttons;
     [SerializeField] PropositionHologram[] propositionHolograms;
+
+    private RecipeData[] _currentProposition;
+    private int _currentPropositionIndex = 0;
+    private int[] _propositionRandomIndecies;
 
     [Header("Text")]
     [SerializeField] bool useText = true;
@@ -27,11 +35,24 @@ public class ConchyAI : Singleton<ConchyAI>
     [SerializeField] AudioClip[] tutorialSpeechClips;
 
     [Header("Tutorial")]
+    [SerializeField] ElevatorScript elevator;
     [SerializeField] Transform waypointRoot;
     [SerializeField] Waypoint[] tutorialWaypoints;
     [SerializeField] Transform tutorialEndpoint;
+    bool _tutorialAvailible = true;
 
     Transform _waypointRoot;
+
+    public List<RecipeData> MergableRecipes
+    {
+        get
+        {
+            if (_currentProposition != null && _currentProposition.Length > 0)
+                return new List<RecipeData>() { _currentProposition[_currentPropositionIndex] };
+
+            return Resources.Load<ListRecipeData>("ListRecipes").ListRecipes;
+        }
+    }
 
     [Serializable]
     public class Waypoint
@@ -43,7 +64,8 @@ public class ConchyAI : Singleton<ConchyAI>
     [Serializable]
     public class PropositionHologram
     {
-        [SerializeField] public TextMeshProUGUI Title, Description, Instructions;
+        [SerializeField] public TextMeshProUGUI Title, Description;
+        [SerializeField] public Image Instructions;
     }
 
     [ContextMenu(nameof(UpdateWaypoints))]
@@ -60,16 +82,23 @@ public class ConchyAI : Singleton<ConchyAI>
         }
     }
 
-    private void Start()
+    [ContextMenu(nameof(Tutorial))]
+    public void Tutorial()
     {
-        StartCoroutine(C_Tutorial());
+        if (_tutorialAvailible)
+        {
+            _tutorialAvailible = false;
+            StartCoroutine(C_Tutorial());
+        }
     }
 
     private IEnumerator C_Tutorial()
     {
+        yield return null;
+        yield return new WaitUntil(() => elevator.NotMoving);
         if (useText)
         {
-            SpeechBubble.Instance.ShowDialog(tutorialDialog);
+            SpeechBubble.Instance.ShowDialog(tutorialDialog, "Conchy");
             foreach (Waypoint waypoint in tutorialWaypoints)
             {
                 yield return new WaitUntil(() => SpeechBubble.Instance.DialogIndex == waypoint.TextIndex);
@@ -108,7 +137,7 @@ public class ConchyAI : Singleton<ConchyAI>
     {
         // Rotate towards destination
         Vector3 direction = (waypoint.position - transform.position).normalized;
-        yield return Rotate(direction, animator.GetFloat("Move") != 1);
+        yield return Rotate(direction, animator.GetFloat("Move") != 1, false);
 
         // Move towards destination
         bool inRange;
@@ -126,10 +155,10 @@ public class ConchyAI : Singleton<ConchyAI>
             // Rotate towards player
             Vector3 playerDirection = lookPointPlayer.position - transform.position;
             playerDirection.y = 0;
-            yield return Rotate(playerDirection, true);
+            yield return Rotate(playerDirection, true, true);
         }
 
-        IEnumerator Rotate(Vector3 direction, bool animate)
+        IEnumerator Rotate(Vector3 direction, bool animate, bool finish)
         {
             Quaternion rotation = Quaternion.LookRotation(direction);
             float startAngle = animate ? Quaternion.Angle(transform.rotation, rotation) : 0;
@@ -139,37 +168,48 @@ public class ConchyAI : Singleton<ConchyAI>
                 if (animate)
                 {
                     float t = Mathf.InverseLerp(startAngle, 0, Quaternion.Angle(transform.rotation, rotation));
+                    LookConstraint.weight = finish ? t : 1 - t;
                     animator.SetFloat("Move", isLast ? 1 - t : t);
                 }
                 yield return null;
             }
         }
+
     }
 
     public void NewProposition(RecipeData[] recipes)
     {
-        propositionHologramContent.SetActive(false);
+        ToggleProposition(false);
 
-        int[] indecies = Enumerable.Range(0, recipes.Length).OrderBy(i => UnityEngine.Random.value).ToArray();
+        _propositionRandomIndecies = Enumerable.Range(0, recipes.Length).OrderBy(i => UnityEngine.Random.value).ToArray();
         for (int i = 0; i < recipes.Length; i++)
         {
-            RecipeData recipe = recipes[indecies[i]];
-            propositionHolograms[i].Title.text = recipe.Name;
-            propositionHolograms[i].Description.text = recipe.Description;
-
-            Dialog instructions = recipe.Instructions;
-            StringBuilder stringBuilder = new();
-            for (int j = 0; j < instructions.Length; j++)
-            {
-                stringBuilder.AppendLine($"{j + 1} - {instructions[j].Content}");
-            }
-            propositionHolograms[i].Instructions.text = stringBuilder.ToString();
+            RecipeData recipe = recipes[_propositionRandomIndecies[i]];
+            propositionHolograms[i].Title.text = recipes[i].Name;
+            propositionHolograms[i].Title.transform.parent.gameObject.SetActive(true);
+            propositionHolograms[i].Description.text = recipes[i].Description;
+            propositionHolograms[i].Instructions.sprite = recipes[i].Sprite;
+            propositionHolograms[i].Instructions.gameObject.SetActive(false);
         }
+
+        _currentProposition = recipes;
     }
 
-    public void ShowProposition()
+    public void ToggleProposition(bool active)
     {
-        // TODO: add some cool animations
-        propositionHologramContent.SetActive(true);
+        propositionHologramAnimator.SetBool("Active", active);
+        if (active)
+            buttons.SetActive(false);
+    }
+
+    public void ShowRecipe(int index)
+    {
+        for (int i = 0; i < propositionHolograms.Length; i++)
+        {
+            propositionHolograms[i].Title.transform.parent.gameObject.SetActive(false);
+        }
+        propositionHolograms[index].Instructions.gameObject.SetActive(true);
+
+        _currentPropositionIndex = _propositionRandomIndecies[index];
     }
 }

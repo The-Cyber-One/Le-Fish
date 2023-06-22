@@ -43,16 +43,20 @@ public class SpeechBubble : Singleton<SpeechBubble>
         transform.parent.SetPositionAndRotation(Vector3.Lerp(transform.parent.position, camera.position, smoothing), Quaternion.LookRotation(textDirection));
     }
 
-    public void ShowDialog(Dialog dialog)
+    public delegate void DialogCallBack();
+
+    public void ShowDialog(Dialog dialog, string speakerIconName = "", DialogCallBack callBack = null)
     {
         if (_coroutine != null)
             StopCoroutine(_coroutine);
-        _coroutine = StartCoroutine(C_ShowDialog(dialog));
+        _coroutine = StartCoroutine(C_ShowDialog(dialog, callBack, speakerIconName));
     }
 
-    private IEnumerator C_ShowDialog(Dialog dialog)
+    private IEnumerator C_ShowDialog(Dialog dialog, DialogCallBack callBack, string speakerIconName = "")
     {
         _textMeshPro.text = string.Empty;
+
+        string iconTag = string.IsNullOrEmpty(speakerIconName) ? "" : $"<sprite name=\"{speakerIconName}\">";
 
         for (_dialogIndex = 0; _dialogIndex < dialog.Length; _dialogIndex++)
         {
@@ -78,9 +82,10 @@ public class SpeechBubble : Singleton<SpeechBubble>
                 }
             }
 
+
             for (int i = 0; i < textSections.Count; i++)
             {
-                _textMeshPro.text = string.Join("", textSections.Take(i + 1)) + "<color=#fff0>" + string.Join("", textSections.TakeLast(textSections.Count - 1 - i));
+                _textMeshPro.text = iconTag + string.Join("", textSections.Take(i + 1)) + "<color=#fff0>" + string.Join("", textSections.TakeLast(textSections.Count - 1 - i));
                 yield return _waitForChar;
             }
 
@@ -89,6 +94,8 @@ public class SpeechBubble : Singleton<SpeechBubble>
             _textMeshPro.text = string.Empty;
             yield return new WaitForSeconds(dialogText.EmptyTime);
         }
+
+        callBack?.Invoke();
     }
 
     [ContextMenu(nameof(PlayNextText))]

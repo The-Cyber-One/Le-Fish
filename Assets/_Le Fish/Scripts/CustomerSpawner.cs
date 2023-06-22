@@ -1,47 +1,31 @@
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class CustomerSpawner : Singleton<CustomerSpawner>
 {
-    public List<Transform> EatPoints = new();
-    public Transform ingredientSpawn;
-    [HideInInspector] public List<bool> AvailableSeats = new();
-    [HideInInspector] public GameObject WaitingDish;
-    public Transform OrderPoint, AwayPoint;
+    [HideInInspector] public DishData FinishedDish;
 
     [SerializeField] Transform spawnPoint;
-    [SerializeField] int maxNumberOfCustomers = 8;
     [SerializeField] GameObject[] customers;
 
-    int _customerNumber;
+    public Transform ingredientSpawn;
+    public Transform OrderPoint, AwayPoint;
 
-    void Start()
+    private int _customerIndex = 0;
+
+    private void Start()
     {
-        //Spawns the first customer to start the sequence, if the number of customers is smaller than the max amount of customers
-        for (int i = 0; i < EatPoints.Count; i++)
-            AvailableSeats.Add(true);
+        customers = customers.OrderBy(_ => Random.value).ToArray<GameObject>();
     }
 
+    [ContextMenu(nameof(SpawnCustomers))]
     public void SpawnCustomers()
     {
-        if (_customerNumber++ < maxNumberOfCustomers)
-        {
-            int random = Random.Range(0, customers.Length);
-            CustomerBehavior instance = Instantiate(customers[random], spawnPoint.transform.position, Quaternion.identity).GetComponent<CustomerBehavior>();
-            instance.gameObject.AddComponent<NavMeshAgent>();
-            instance.GetSpawner(this);
-        }
+        CustomerBehavior instance = Instantiate(customers[_customerIndex], spawnPoint.transform.position, Quaternion.identity).GetComponent<CustomerBehavior>();
+        _customerIndex = (_customerIndex + 1) % customers.Length;
+        instance.GetSpawner(this);
     }
 
-    public void UpdateDish(Collider collider)
-    {
-        if (!collider.TryGetComponent(out RecipeData dish))
-            return;
-        
-        if (dish != null)
-            WaitingDish = collider.gameObject;
-    }
+    public void UpdateDish(DishData dishData) => FinishedDish = dishData;
 }

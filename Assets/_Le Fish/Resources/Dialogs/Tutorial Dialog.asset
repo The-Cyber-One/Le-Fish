@@ -16,162 +16,136 @@ MonoBehaviour:
   - _inspectorTitle: 0 - Welcome
     Title: Welcome
     WaitForTrigger: 0
-    DisplayTime: 2
+    DisplayTime: 1.5
     Content: Hey there, welcome to your new restaurant.
     EmptyTime: 0.5
-  - _inspectorTitle: 1 - Like look?
-    Title: Like look?
-    WaitForTrigger: 0
-    DisplayTime: 2
-    Content: You like the look?
-    EmptyTime: 1
-  - _inspectorTitle: '2 - Bit empty '
-    Title: 'Bit empty '
-    WaitForTrigger: 1
-    DisplayTime: 2
-    Content: Still feels a bit empty though.
-    EmptyTime: 0.5
-  - _inspectorTitle: 3 - Your here
-    Title: Your here
-    WaitForTrigger: 0
-    DisplayTime: 2
-    Content: But hey that is why you are here.
-    EmptyTime: 0.5
-  - _inspectorTitle: 4 - Show around
+  - _inspectorTitle: 1 - Show around
     Title: Show around
     WaitForTrigger: 0
-    DisplayTime: 2
-    Content: So lets show you around a bit.
+    DisplayTime: 1.5
+    Content: So let me show you around a bit.
     EmptyTime: 0.5
-  - _inspectorTitle: 5 - Barley Approved Reception
+  - _inspectorTitle: 2 - Barley Approved Reception
     Title: Barley Approved Reception
     WaitForTrigger: 0
     DisplayTime: 2
-    Content: This place your now standing in is the 'Barley Approved Reception'
+    Content: This place you are now standing on is the 'Barley Approved Reception'
     EmptyTime: 0.5
-  - _inspectorTitle: 6 - B.A.R.
+  - _inspectorTitle: 3 - B.A.R.
     Title: B.A.R.
     WaitForTrigger: 0
     DisplayTime: 1
     Content: Or B.A.R. for short.
     EmptyTime: 0.5
-  - _inspectorTitle: 7 - Serve
+  - _inspectorTitle: 4 - Serve
     Title: Serve
     WaitForTrigger: 0
     DisplayTime: 2
     Content: Here you will serve the customers.
     EmptyTime: 0.5
-  - _inspectorTitle: 8 - Differences
+  - _inspectorTitle: 5 - Differences
     Title: Differences
     WaitForTrigger: 0
     DisplayTime: 2
-    Content: When you start cooking you will find some slight differences than you
-      might be used to.
+    Content: You might find cooking here slightly different to what you are used
+      to.
     EmptyTime: 0.5
-  - _inspectorTitle: 9 - First thing
+  - _inspectorTitle: 6 - First thing
     Title: First thing
     WaitForTrigger: 0
     DisplayTime: 2
     Content: First thing is that since there isn't much food around anymore, ...
     EmptyTime: 0
-  - _inspectorTitle: 10 - Special ingredient
+  - _inspectorTitle: 7 - Special ingredient
     Title: Special ingredient
     WaitForTrigger: 0
     DisplayTime: 2
-    Content: we asked customers to bring a special ingridient themselfs.
+    Content: we asked customers to bring a special ingredient themself.
     EmptyTime: 0.5
-  - _inspectorTitle: 11 - Why special
+  - _inspectorTitle: 8 - Why special
     Title: Why special
     WaitForTrigger: 0
     DisplayTime: 2
-    Content: The customer will then also tell you why this ingridient is special
+    Content: The customer will then also tell you why this ingredient is special
       to them.
     EmptyTime: 0.5
-  - _inspectorTitle: 12 - Listen close
+  - _inspectorTitle: 9 - Listen close
     Title: Listen close
     WaitForTrigger: 0
     DisplayTime: 2
-    Content: We will listen close and when the customer is finished I will give you
-      some options for recipies
+    Content: We will listen closely and then I will give you some options for recipies
+      you can make with it.
     EmptyTime: 0.5
-  - _inspectorTitle: 13 - Second thing
+  - _inspectorTitle: 10 - Second thing
     Title: Second thing
-    WaitForTrigger: 1
-    DisplayTime: 2
-    Content: Second thing is that we just installed the brand new food accelerators.
-    EmptyTime: 0.5
-  - _inspectorTitle: 14 - To the right
-    Title: To the right
     WaitForTrigger: 0
     DisplayTime: 2
-    Content: This can be found to the right.
+    Content: We also just installed the brand new food accelerators.
     EmptyTime: 0.5
-  - _inspectorTitle: 15 - Device grows stuff
+  - _inspectorTitle: 11 - To the right
+    Title: To the right
+    WaitForTrigger: 0
+    DisplayTime: 1.5
+    Content: Those can be found to the right.
+    EmptyTime: 0.5
+  - _inspectorTitle: 12 - Device grows stuff
     Title: Device grows stuff
     WaitForTrigger: 0
     DisplayTime: 2
-    Content: This device will make sure we can grow some nice vegtables and other
-      stuff.
+    Content: These devices will make sure we have access to some vegtables and more.
     EmptyTime: 0.5
-  - _inspectorTitle: 16 - Parts of the kitchen
+  - _inspectorTitle: 13 - Parts of the kitchen
     Title: Parts of the kitchen
     WaitForTrigger: 0
     DisplayTime: 2
     Content: Lets show you some parts of the kitchen.
     EmptyTime: 0.5
-  - _inspectorTitle: 17 - Cutting board
+  - _inspectorTitle: 14 - Cutting board
     Title: Cutting board
-    WaitForTrigger: 1
-    DisplayTime: 2
+    WaitForTrigger: 0
+    DisplayTime: 1.5
     Content: Please look at the cutting board below me.
     EmptyTime: 0.5
-  - _inspectorTitle: 18 - Cutting area
+  - _inspectorTitle: 15 - Cutting area
     Title: Cutting area
     WaitForTrigger: 0
     DisplayTime: 2
-    Content: This place is the cutting area, here you will need to slice up certain
-      ingredients.
+    Content: This place is the cutting area where you will slice up certain ingredients.
     EmptyTime: 0.5
-  - _inspectorTitle: 19 - Heat ingredients
-    Title: Heat ingredients
-    WaitForTrigger: 1
-    DisplayTime: 2
-    Content: Next you might need to heat up some ingredients.
-    EmptyTime: 0.5
-  - _inspectorTitle: 20 - Done over here
+  - _inspectorTitle: 16 - Done over here
     Title: Done over here
     WaitForTrigger: 0
     DisplayTime: 2
-    Content: That can be done over here, with the food heater.
+    Content: Cooking ingredients can be done over here, with the food heater.
     EmptyTime: 0.5
-  - _inspectorTitle: 21 - Lastly
+  - _inspectorTitle: 17 - Lastly
     Title: Lastly
-    WaitForTrigger: 1
+    WaitForTrigger: 0
     DisplayTime: 2
-    Content: Lastly you will need to put al the prepered ingredients on the plate
-      here, so that the customers will taste it.
+    Content: Lastly you will need to put all the prepared ingredients on the plate
+      here, so that the customers can eat it.
     EmptyTime: 0.5
-  - _inspectorTitle: 22 - Like it?
+  - _inspectorTitle: 18 - Like it?
     Title: Like it?
     WaitForTrigger: 0
     DisplayTime: 2
     Content: If they like it they will stay in the restaurant and finish the dish.
     EmptyTime: 0.5
-  - _inspectorTitle: 23 - Don't like it
+  - _inspectorTitle: 19 - Don't like it
     Title: Don't like it
     WaitForTrigger: 0
     DisplayTime: 2
     Content: If they don't, they might just walk out.
     EmptyTime: 0.5
-  - _inspectorTitle: 24 - Ready?
-    Title: Ready?
-    WaitForTrigger: 0
-    DisplayTime: 1
-    Content: You ready?
-    EmptyTime: 0
-  - _inspectorTitle: 25 - First customer
+  - _inspectorTitle: 20 - First customer
     Title: First customer
     WaitForTrigger: 0
-    DisplayTime: 2
-    Content: Here comes the first costumer!
+    DisplayTime: 1.5
+    Content: And here comes already the first costumer!
+    EmptyTime: 0.5
+  - _inspectorTitle: 21 - Let's go
+    Title: Let's go
+    WaitForTrigger: 0
+    DisplayTime: 1.5
+    Content: Let's go!
     EmptyTime: 0.5

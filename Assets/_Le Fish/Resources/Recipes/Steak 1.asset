@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d04c1d17a338a47aee7b791610a1c9, type: 3}
+  m_Name: Steak 1
+  m_EditorClassIdentifier: 
+  Name: Steak Potato
+  Ingredients:
+  - Ingredient: {fileID: 11400000, guid: c6c68fee4c140c64296fdc357fb3e45d, type: 2}
+    CookingState: 1
+    SliceState: 4
+  - Ingredient: {fileID: 11400000, guid: 027e8f29e4fac1f409e1cc206dc61415, type: 2}
+    CookingState: 1
+    SliceState: 0
+  DishPrefab: {fileID: 902117034965825441, guid: 71a935129b9fafd4ea5c677108b1be0d, type: 3}
+  Description: The bare bones, pun intended, of a steak. Emphasises the taste of
+    the steak itself.
+  Sprite: {fileID: 21300000, guid: 69cfd310ab92ef143ae11319d4962af4, type: 3}

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_Le Fish/Textures/Asphalt_001-20230525T130241Z-001/Asphalt_001/asphalt_001_ao_2k.jpg.meta
+guid: 87819ad5293126d42ac45a0bbf0faf97
+========
 guid: 59551f15b6c08404ca02699da7b439d9
+>>>>>>>> dev:Assets/_Le Fish/Textures/Asphalt_001-20230525T130241Z-001/Asphalt_001/Asphalt_001.jpg.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
