@@ -342,6 +342,7 @@ MonoBehaviour:
   satisfiedDialog: {fileID: 11400000, guid: a6e732be22d93264d9443b940fb7d01b, type: 2}
   unsatisfiedDialog: {fileID: 11400000, guid: 5386fe5034f97864a8b57e29ed384509, type: 2}
   ruinedDialog: {fileID: 11400000, guid: 94c0ce89d58b4b848bd61e95fc74e0ad, type: 2}
+  iconName: Lannet
 --- !u!1 &198993359664298812
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 using static IngredientData;
 using static RecipeData;
@@ -6,8 +7,8 @@ using static RecipeData;
 [Serializable, RequireComponent(typeof(Timer))]
 public class Ingredient : MonoBehaviour
 {
-    public IngredientState CurrentState { get; private set; }
-    public int CurrentSlice { get; private set; }
+    public IngredientState CurrentState { get => _currentState; private set => _currentState = value; }
+    public int CurrentSlice { get => _currentSlice; private set => _currentSlice = value; }
     public bool IsCooking = false;
     public IngredientData Data;
     [SerializeField] MeshFilter meshFilter;
@@ -16,6 +17,9 @@ public class Ingredient : MonoBehaviour
     [SerializeField] ParticleSystem starParticlePrefab;
 
     Timer _timer;
+    [SerializeField, HideInInspector] private IngredientState _currentState;
+    [SerializeField, HideInInspector] private int _currentSlice;
+
     public Timer Timer => _timer = _timer != null ? _timer : GetComponent<Timer>();
 
     public static implicit operator DataStateSlice(Ingredient ingredient) => new()
@@ -75,5 +79,32 @@ public class Ingredient : MonoBehaviour
         var data = Data.Slices[CurrentSlice].Meshes[(int)CurrentState];
         meshFilter.mesh = data.Mesh;
         meshRenderer.materials = data.Materials;
+    }
+
+    [ContextMenu(nameof(Finish))]
+    private void Finish()
+    {
+        for (int i = CurrentSlice; i < Data.Slices.Length; i++)
+            Slice();
+        if (CurrentState == IngredientState.Raw)
+            Bake();
+    }
+}
+
+[CustomEditor(typeof(Ingredient))]
+public class IngredientEditor : Editor
+{
+    SerializedProperty _currentSlice, _currentState;
+
+    private void OnEnable()
+    {
+        _currentSlice = serializedObject.FindProperty("_currentSlice");
+        _currentState = serializedObject.FindProperty("_currentState");
+    }
+
+    public override void OnInspectorGUI()
+    {
+        EditorGUILayout.HelpBox($"Slice: {_currentSlice.intValue}\nState: {_currentState.enumDisplayNames[_currentState.intValue]}", MessageType.Info);
+        base.OnInspectorGUI();
     }
 }
