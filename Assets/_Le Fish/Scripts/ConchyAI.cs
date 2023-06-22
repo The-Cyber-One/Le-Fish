@@ -6,8 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Animations;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine.XR.Interaction.Toolkit.Inputs.Composites;
+using UnityEngine.Animations.Rigging;
 
 public class ConchyAI : Singleton<ConchyAI>
 {
@@ -15,7 +14,7 @@ public class ConchyAI : Singleton<ConchyAI>
     [SerializeField] float movementSpeed = 0.5f, maxRotationDegree = 0.1f;
     [SerializeField] Animator animator;
     [SerializeField] Transform lookPointPlayer;
-    [SerializeField] ParentConstraint LookConstraint;
+    [SerializeField] MultiAimConstraint LookConstraint;
 
     [Header("Proposition")]
     [SerializeField] Animator propositionHologramAnimator;
@@ -136,11 +135,9 @@ public class ConchyAI : Singleton<ConchyAI>
 
     private IEnumerator C_Move(Transform waypoint, bool isLast = true)
     {
-        LookConstraint.weight = 0;
-
         // Rotate towards destination
         Vector3 direction = (waypoint.position - transform.position).normalized;
-        yield return Rotate(direction, animator.GetFloat("Move") != 1);
+        yield return Rotate(direction, animator.GetFloat("Move") != 1, false);
 
         // Move towards destination
         bool inRange;
@@ -158,10 +155,10 @@ public class ConchyAI : Singleton<ConchyAI>
             // Rotate towards player
             Vector3 playerDirection = lookPointPlayer.position - transform.position;
             playerDirection.y = 0;
-            yield return Rotate(playerDirection, true);
+            yield return Rotate(playerDirection, true, true);
         }
 
-        IEnumerator Rotate(Vector3 direction, bool animate)
+        IEnumerator Rotate(Vector3 direction, bool animate, bool finish)
         {
             Quaternion rotation = Quaternion.LookRotation(direction);
             float startAngle = animate ? Quaternion.Angle(transform.rotation, rotation) : 0;
@@ -171,7 +168,7 @@ public class ConchyAI : Singleton<ConchyAI>
                 if (animate)
                 {
                     float t = Mathf.InverseLerp(startAngle, 0, Quaternion.Angle(transform.rotation, rotation));
-                    LookConstraint.weight = t;
+                    LookConstraint.weight = finish ? t : 1 - t;
                     animator.SetFloat("Move", isLast ? 1 - t : t);
                 }
                 yield return null;

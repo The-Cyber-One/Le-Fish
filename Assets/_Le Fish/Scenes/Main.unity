@@ -21768,26 +21768,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1375967402}
     m_Modifications:
-    - target: {fileID: 3631375927384275113, guid: 30d5e054613f3ba488bcee706194fc03, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -10.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 3631375927384275113, guid: 30d5e054613f3ba488bcee706194fc03, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 18.061
-      objectReference: {fileID: 0}
-    - target: {fileID: 3631375927384275113, guid: 30d5e054613f3ba488bcee706194fc03, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.79335356
-      objectReference: {fileID: 0}
-    - target: {fileID: 3631375927384275113, guid: 30d5e054613f3ba488bcee706194fc03, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.60876125
-      objectReference: {fileID: 0}
-    - target: {fileID: 3631375927384275113, guid: 30d5e054613f3ba488bcee706194fc03, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -75
-      objectReference: {fileID: 0}
     - target: {fileID: 3631375929238539422, guid: 30d5e054613f3ba488bcee706194fc03, type: 3}
       propertyPath: m_Name
       value: Conchy Tutorial waypoints
@@ -24683,7 +24663,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9028265280117159267, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
       propertyPath: useText
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9028265280117159267, guid: 2d6350397adad714fbf296bc1556678f, type: 3}
       propertyPath: elevator

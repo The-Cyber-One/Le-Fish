@@ -620,9 +620,9 @@ MonoBehaviour:
   maxRotationDegree: 2
   animator: {fileID: 7921593550586613074}
   lookPointPlayer: {fileID: 0}
-  LookConstraint: {fileID: 6823824804288332418}
-  propositionsContent: []
-  propositionHologramContent: {fileID: 0}
+  LookConstraint: {fileID: 7980961811900554971}
+  propositionHologramAnimator: {fileID: 0}
+  buttons: {fileID: 0}
   propositionHolograms: []
   useText: 1
   tutorialDialog: {fileID: 11400000, guid: 864b939fd694ea94a9e216e5eeac67e8, type: 2}
