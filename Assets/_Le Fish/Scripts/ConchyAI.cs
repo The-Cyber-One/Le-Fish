@@ -4,7 +4,6 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Animations;
 using System.Collections.Generic;
 using UnityEngine.Animations.Rigging;
 
@@ -101,13 +100,13 @@ public class ConchyAI : Singleton<ConchyAI>
             SpeechBubble.Instance.ShowDialog(tutorialDialog, "Conchy");
             foreach (Waypoint waypoint in tutorialWaypoints)
             {
-                yield return new WaitUntil(() => SpeechBubble.Instance.DialogIndex == waypoint.TextIndex);
+                yield return new WaitUntil(() => SpeechBubble.Instance.DialogIndex >= waypoint.TextIndex);
                 int subWaypointAmount = waypoint.SubWaypoints.Length;
                 for (int i = 0; i < waypoint.SubWaypoints.Length; i++)
                     yield return C_Move(waypoint.SubWaypoints[i], subWaypointAmount - i == 1);
                 SpeechBubble.Instance.PlayNextText();
             }
-            yield return new WaitUntil(() => SpeechBubble.Instance.DialogIndex == tutorialDialog.Length);
+            yield return new WaitUntil(() => SpeechBubble.Instance.DialogIndex >= tutorialDialog.Length);
         }
         else if (useSpeech)
         {
@@ -185,10 +184,10 @@ public class ConchyAI : Singleton<ConchyAI>
         for (int i = 0; i < recipes.Length; i++)
         {
             RecipeData recipe = recipes[_propositionRandomIndecies[i]];
-            propositionHolograms[i].Title.text = recipes[i].Name;
+            propositionHolograms[i].Title.text = recipe.Name;
             propositionHolograms[i].Title.transform.parent.gameObject.SetActive(true);
-            propositionHolograms[i].Description.text = recipes[i].Description;
-            propositionHolograms[i].Instructions.sprite = recipes[i].Sprite;
+            propositionHolograms[i].Description.text = recipe.Description;
+            propositionHolograms[i].Instructions.sprite = recipe.Sprite;
             propositionHolograms[i].Instructions.gameObject.SetActive(false);
         }
 
@@ -199,7 +198,7 @@ public class ConchyAI : Singleton<ConchyAI>
     {
         propositionHologramAnimator.SetBool("Active", active);
         if (active)
-            buttons.SetActive(false);
+            buttons.SetActive(true);
     }
 
     public void ShowRecipe(int index)

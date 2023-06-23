@@ -25,4 +25,4 @@ MonoBehaviour:
     SliceState: 6
   DishPrefab: {fileID: 2906389913339892459, guid: eaf387167dc7fef45a3fc800d5896973, type: 3}
   Description: Penne that contains some onion slices.
-  Sprite: {fileID: 0}
+  Sprite: {fileID: 21300000, guid: 5d7e3c05d48c987498229d9d35bca8fc, type: 3}
