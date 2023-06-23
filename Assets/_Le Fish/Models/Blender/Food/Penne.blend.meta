@@ -3,7 +3,32 @@ guid: 684538d83abe16b4f954dc011418b748
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Inside
+    second: {fileID: 2100000, guid: 4d06293667f5ce849a98e4c78ccc51b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: d8737afb2cc837048b328a13a3297c8d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Outside
+    second: {fileID: 2100000, guid: b15491afe6dfe864fbd0129279560452, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pasta
+    second: {fileID: 2100000, guid: f93a8ad1b9be58546abe2f81fc789ab7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sauce
+    second: {fileID: 2100000, guid: 003bacf4eaebf5e4c9d3cb47a381aa31, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

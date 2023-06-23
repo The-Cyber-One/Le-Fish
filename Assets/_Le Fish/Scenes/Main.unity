@@ -24911,6 +24911,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plate
       objectReference: {fileID: 0}
+    - target: {fileID: 8209977513036081990, guid: cfe66816578c73845b7793672611a366, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b25399307030b0d4dac87ef1e50ed0ec, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfe66816578c73845b7793672611a366, type: 3}
 --- !u!4 &4987642587307913043

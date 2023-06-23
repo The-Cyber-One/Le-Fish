@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3057553198717318078}
   - component: {fileID: 8105898216101558943}
   m_Layer: 3
-  m_Name: Karipap
+  m_Name: karipap
   m_TagString: Utensil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8202253657946807415}
-  m_Mesh: {fileID: -8803937527578110353, guid: 59645d84b575a7e43bc59207ee1fdcd1, type: 3}
+  m_Mesh: {fileID: -8803937527578110353, guid: a652d929a8660ce48a53e24c2672a2a4, type: 3}
 --- !u!23 &7697986908005006754
 MeshRenderer:
   m_ObjectHideFlags: 0
