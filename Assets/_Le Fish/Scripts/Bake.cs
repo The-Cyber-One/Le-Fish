@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static IngredientData;
@@ -7,6 +8,7 @@ using static IngredientData;
 public class Bake : MonoBehaviour
 {
     [SerializeField] private Slider slider;
+    [SerializeField] private TextMeshProUGUI stateText;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private Color cookingColor, burningColor;
 
@@ -28,11 +30,13 @@ public class Bake : MonoBehaviour
                 {
                     case IngredientState.Raw:
                         slider.fillRect.GetComponent<Image>().color = cookingColor;
+                        stateText.text = "Cooking";
                         ingredient.Timer.onTimerFinished.AddListener(() => StateCook(ingredient));
                         ingredient.Timer.StartTimer(ingredient.Data.CookingTime);
                         break;
                     case IngredientState.Cooked:
                         slider.fillRect.GetComponent<Image>().color = burningColor;
+                        stateText.text = "Burning";
                         ingredient.Timer.onTimerFinished.AddListener(() => StateBurn(ingredient));
                         ingredient.Timer.StartTimer(ingredient.Data.BurnTime);
                         break;
@@ -69,6 +73,7 @@ public class Bake : MonoBehaviour
 
         ingredient.Timer.onTimerUpdate.AddListener(Percentage);
         slider.fillRect.GetComponent<Image>().color = burningColor;
+        stateText.text = "Burning";
         ingredient.Timer.onTimerFinished.AddListener(() => StateBurn(ingredient));
         ingredient.Timer.StartTimer(ingredient.Data.BurnTime);
 

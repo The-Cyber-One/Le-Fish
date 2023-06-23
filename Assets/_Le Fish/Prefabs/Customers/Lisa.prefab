@@ -2351,6 +2351,7 @@ MonoBehaviour:
   satisfiedDialog: {fileID: 11400000, guid: 85d2f76109d587a46b8334fbf1c68268, type: 2}
   unsatisfiedDialog: {fileID: 11400000, guid: 45e73f48c6a2f7c4da56f3d73d463ac5, type: 2}
   ruinedDialog: {fileID: 11400000, guid: 21a5af44ba12b4247a641103d4570c60, type: 2}
+  iconName: Lisa
 --- !u!195 &-7866092732099699290
 NavMeshAgent:
   m_ObjectHideFlags: 0

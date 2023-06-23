@@ -43,14 +43,16 @@ public class SpeechBubble : Singleton<SpeechBubble>
         transform.parent.SetPositionAndRotation(Vector3.Lerp(transform.parent.position, camera.position, smoothing), Quaternion.LookRotation(textDirection));
     }
 
-    public void ShowDialog(Dialog dialog, string speakerIconName = "")
+    public delegate void DialogCallBack();
+
+    public void ShowDialog(Dialog dialog, string speakerIconName = "", DialogCallBack callBack = null)
     {
         if (_coroutine != null)
             StopCoroutine(_coroutine);
-        _coroutine = StartCoroutine(C_ShowDialog(dialog, speakerIconName));
+        _coroutine = StartCoroutine(C_ShowDialog(dialog, callBack, speakerIconName));
     }
 
-    public IEnumerator C_ShowDialog(Dialog dialog, string speakerIconName = "")
+    private IEnumerator C_ShowDialog(Dialog dialog, DialogCallBack callBack, string speakerIconName = "")
     {
         _textMeshPro.text = string.Empty;
 
@@ -92,6 +94,8 @@ public class SpeechBubble : Singleton<SpeechBubble>
             _textMeshPro.text = string.Empty;
             yield return new WaitForSeconds(dialogText.EmptyTime);
         }
+
+        callBack?.Invoke();
     }
 
     [ContextMenu(nameof(PlayNextText))]

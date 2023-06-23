@@ -15,6 +15,6 @@ MonoBehaviour:
   Name: PastaProposition
   SpecialIngredient: {fileID: 11400000, guid: 61254943c9b666c47b43b6d701a5bcde, type: 2}
   Recipes:
-  - {fileID: 11400000, guid: 01da459cfd4275e4ebb004d22cc82621, type: 2}
   - {fileID: 11400000, guid: e3bbd5cb56c4b104bb3267285b268dc0, type: 2}
+  - {fileID: 11400000, guid: 01da459cfd4275e4ebb004d22cc82621, type: 2}
   - {fileID: 11400000, guid: b9bb4b8f67882ac4fb143b8e19e7e677, type: 2}

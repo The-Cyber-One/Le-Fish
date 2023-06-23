@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 3057553198717318078}
   - component: {fileID: 8105898216101558943}
   m_Layer: 3
-  m_Name: karipap
-  m_TagString: Untagged
+  m_Name: Karipap
+  m_TagString: Utensil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

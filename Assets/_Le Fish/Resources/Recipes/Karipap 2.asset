@@ -13,10 +13,6 @@ MonoBehaviour:
   m_Name: Karipap 2
   m_EditorClassIdentifier: 
   Name: Karipap Mushroom
-  Description: Classic karipap but with some added mushrooms to add some more filling
-    and flavour
-  Instructions: {fileID: 11400000, guid: 5f0b46671cc94cb48873140e39d2f699, type: 2}
-  DishPrefab: {fileID: 8202253657946807415, guid: c9b3b15cf52e5a049b8470d860ab7f6a, type: 3}
   Ingredients:
   - Ingredient: {fileID: 11400000, guid: f2131bd2d5c6a1b4095a3d356fc738b8, type: 2}
     CookingState: 1
@@ -30,3 +26,7 @@ MonoBehaviour:
   - Ingredient: {fileID: 11400000, guid: f182bf6e97b6c3c4e96fe1a38451012f, type: 2}
     CookingState: 1
     SliceState: 3
+  DishPrefab: {fileID: 8202253657946807415, guid: c9b3b15cf52e5a049b8470d860ab7f6a, type: 3}
+  Description: Classic karipap but with some added mushrooms to add some more filling
+    and flavour.
+  Sprite: {fileID: 21300000, guid: a7dd9d74ca4e1a94c8682e5b6f70c143, type: 3}
