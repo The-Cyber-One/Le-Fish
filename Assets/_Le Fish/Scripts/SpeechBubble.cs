@@ -20,6 +20,7 @@ public class SpeechBubble : Singleton<SpeechBubble>
     Vector3 _cameraOffset;
 
     Coroutine _coroutine;
+    DialogCallBack _previousDialogCallBack;
     WaitForSeconds _waitForChar;
     WaitUntil _waitForPlayNextText;
 
@@ -54,6 +55,7 @@ public class SpeechBubble : Singleton<SpeechBubble>
 
     private IEnumerator C_ShowDialog(Dialog dialog, DialogCallBack callBack, string speakerIconName = "")
     {
+        _previousDialogCallBack = callBack;
         _textMeshPro.text = string.Empty;
 
         string iconTag = string.IsNullOrEmpty(speakerIconName) ? "" : $"<sprite name=\"{speakerIconName}\">";
@@ -103,6 +105,8 @@ public class SpeechBubble : Singleton<SpeechBubble>
     public void StopDialog()
     {
         _textMeshPro.text = string.Empty;
+        _dialogIndex = 30;
+        _previousDialogCallBack?.Invoke();
         StopAllCoroutines();
     }
 }

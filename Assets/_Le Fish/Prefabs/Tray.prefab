@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314395920011486059}
   m_LocalRotation: {x: 0.7071067, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.00000001720254, z: 0.11500023}
+  m_LocalPosition: {x: 0, y: -0.00000002580381, z: 0.18099964}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -257,7 +257,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314395921084100113}
   m_LocalRotation: {x: 0.7071067, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0, z: 0.108}
+  m_LocalPosition: {x: 0, y: -0.00000000860127, z: 0.1739994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -288,7 +288,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314395921329666212}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.00000001720254, z: 0.14900023}
+  m_LocalPosition: {x: 0, y: -0, z: 0.215}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 4975842526022741792}
   - component: {fileID: 7127308303852297194}
   - component: {fileID: 7127308303852297193}
-  - component: {fileID: 7127308303852297192}
+  - component: {fileID: 7773993106964395956}
   - component: {fileID: 7127308303852297195}
   m_Layer: 0
   m_Name: Tray
@@ -500,9 +500,9 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!64 &7127308303852297192
-MeshCollider:
+  m_CollisionDetection: 2
+--- !u!65 &7773993106964395956
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -511,10 +511,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5495902117074765545, guid: 0fa4fcd06a7d87244b394e93c59ab975, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 2.1999996, y: 1.6999997, z: 0.08750007}
+  m_Center: {x: 0, y: -3.1086279e-16, z: 0.043750037}
 --- !u!114 &7127308303852297195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,7 +604,7 @@ MonoBehaviour:
   m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
-  m_AngularVelocityDamping: 1
+  m_AngularVelocityDamping: 0.5
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
   m_SmoothPosition: 0

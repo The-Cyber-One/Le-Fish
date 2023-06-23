@@ -969,6 +969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerCharacteristics: 320
+  interactor: {fileID: 0}
   handAnimator: {fileID: 818280808115014791}
   fingerChains:
   - {fileID: 893458000885702322}
@@ -980,6 +981,7 @@ MonoBehaviour:
   activationDistance: 0.1
   activationSmoothing: 0.02
   ignoreControllers: 0
+  grabbedLayerName: Grabbed Object
   showGizmos: 0
 --- !u!54 &7002848759265058243
 Rigidbody:

@@ -100,13 +100,13 @@ public class ConchyAI : Singleton<ConchyAI>
             SpeechBubble.Instance.ShowDialog(tutorialDialog, "Conchy");
             foreach (Waypoint waypoint in tutorialWaypoints)
             {
-                yield return new WaitUntil(() => SpeechBubble.Instance.DialogIndex == waypoint.TextIndex);
+                yield return new WaitUntil(() => SpeechBubble.Instance.DialogIndex >= waypoint.TextIndex);
                 int subWaypointAmount = waypoint.SubWaypoints.Length;
                 for (int i = 0; i < waypoint.SubWaypoints.Length; i++)
                     yield return C_Move(waypoint.SubWaypoints[i], subWaypointAmount - i == 1);
                 SpeechBubble.Instance.PlayNextText();
             }
-            yield return new WaitUntil(() => SpeechBubble.Instance.DialogIndex == tutorialDialog.Length);
+            yield return new WaitUntil(() => SpeechBubble.Instance.DialogIndex >= tutorialDialog.Length);
         }
         else if (useSpeech)
         {

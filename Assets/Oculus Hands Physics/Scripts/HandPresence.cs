@@ -13,6 +13,7 @@ public class HandPresence : MonoBehaviour
     [SerializeField] Transform activationCenter;
     [SerializeField] float activationDistance = 0.1f, activationSmoothing = 0.02f;
     [SerializeField] bool ignoreControllers;
+    [SerializeField] string grabbedLayerName;
 
     private InputDevice targetDevice;
     private bool _useButtons = true;
@@ -63,7 +64,7 @@ public class HandPresence : MonoBehaviour
     {
         _isGrabbing = true;
         _previousLayer = args.interactableObject.transform.gameObject.layer;
-        args.interactableObject.transform.gameObject.layer = gameObject.layer;
+        args.interactableObject.transform.gameObject.layer = LayerMask.NameToLayer(grabbedLayerName);
     }
 
     public void Release(SelectExitEventArgs args)
