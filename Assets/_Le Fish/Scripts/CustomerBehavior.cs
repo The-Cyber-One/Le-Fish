@@ -79,7 +79,6 @@ public class CustomerBehavior : MonoBehaviour
         SpeechBubble.Instance.ShowDialog(introductionDialog, iconName, () => dialogDone = true);
         yield return new WaitUntil(() => dialogDone);
 
-        ConchyAI.Instance.AssignProposition(proposition.Name);
         ConchyAI.Instance.NewProposition(proposition.Recipes);
         ConchyAI.Instance.ToggleProposition(true);
     }

@@ -10,7 +10,7 @@ public class RecipeData : ScriptableObject
     public List<DataStateSlice> Ingredients;
     public GameObject DishPrefab;
     [TextArea(3, 5)] public string Description;
-    [SerializeField] public Image Image;
+    [SerializeField] public Sprite Sprite;
 
     [Serializable]
     public class DataStateSlice
