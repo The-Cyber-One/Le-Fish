@@ -24524,6 +24524,30 @@ PrefabInstance:
       propertyPath: OnActivated.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: ShowRecipe
       objectReference: {fileID: 0}
+    - target: {fileID: 8290466986619530998, guid: 5ead45f81bd0ea84fbae2cd677f04a8c, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 11.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290466986619530998, guid: 5ead45f81bd0ea84fbae2cd677f04a8c, type: 3}
+      propertyPath: m_AutoConfigureConnectedAnchor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290466987101032281, guid: 5ead45f81bd0ea84fbae2cd677f04a8c, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 11.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290466987101032281, guid: 5ead45f81bd0ea84fbae2cd677f04a8c, type: 3}
+      propertyPath: m_AutoConfigureConnectedAnchor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290466987180438050, guid: 5ead45f81bd0ea84fbae2cd677f04a8c, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 11.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290466987180438050, guid: 5ead45f81bd0ea84fbae2cd677f04a8c, type: 3}
+      propertyPath: m_AutoConfigureConnectedAnchor
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ead45f81bd0ea84fbae2cd677f04a8c, type: 3}
 --- !u!33 &4812060307771137478
