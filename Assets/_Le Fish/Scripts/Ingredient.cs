@@ -1,5 +1,7 @@
 using System;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 using static IngredientData;
 using static RecipeData;
@@ -91,6 +93,7 @@ public class Ingredient : MonoBehaviour
     }
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(Ingredient))]
 public class IngredientEditor : Editor
 {
@@ -108,3 +111,4 @@ public class IngredientEditor : Editor
         base.OnInspectorGUI();
     }
 }
+#endif

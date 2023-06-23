@@ -25,4 +25,4 @@ MonoBehaviour:
     SliceState: 6
   DishPrefab: {fileID: 2906389913339892459, guid: eaf387167dc7fef45a3fc800d5896973, type: 3}
   Description: A nicely prepared Penne with some added mushrooms.
-  Sprite: {fileID: 0}
+  Sprite: {fileID: 21300000, guid: 41cade8498085e24b98f4db736630d2c, type: 3}
