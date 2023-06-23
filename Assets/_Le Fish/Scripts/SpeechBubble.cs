@@ -100,4 +100,9 @@ public class SpeechBubble : Singleton<SpeechBubble>
 
     [ContextMenu(nameof(PlayNextText))]
     public void PlayNextText() => _playNextText = true;
+    public void StopDialog()
+    {
+        _textMeshPro.text = string.Empty;
+        StopAllCoroutines();
+    }
 }
