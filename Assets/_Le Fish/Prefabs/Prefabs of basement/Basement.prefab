@@ -2215,7 +2215,7 @@ GameObject:
   - component: {fileID: 7374078582613834001}
   - component: {fileID: 5919938276754623630}
   - component: {fileID: 8620804033287627053}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Teleport area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4155,8 +4155,7 @@ MonoBehaviour:
   lever: {fileID: 2188740159949053814}
   minOffset: -1
   maxOffset: 1
-  targetObject: {fileID: 0}
-  referenceObject: {fileID: 0}
+  speechBubbleObject: {fileID: 0}
 --- !u!4 &2080355224306847519 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2343956071742490275, guid: 482a52a959538624f9a68a56805e3d87, type: 3}

@@ -21,6 +21,8 @@ TagManager:
   - DialogText
   - Bar
   - Button
+  - Tray
+  - Grabbed Object
   - 
   - 
   - 
@@ -40,9 +42,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - Teleport
   m_SortingLayers:
   - name: Default
     uniqueID: 0

@@ -21,7 +21,7 @@ MonoBehaviour:
     Meshes:
     - Mesh: {fileID: -5495902117074765545, guid: f980758b84603cf46bbe9a2fad977899, type: 3}
       Materials:
-      - {fileID: -876546973899608171, guid: f980758b84603cf46bbe9a2fad977899, type: 3}
+      - {fileID: 2100000, guid: a57ae81aaa4daea48b6d0e16e38bc816, type: 2}
     - Mesh: {fileID: 0}
       Materials: []
     - Mesh: {fileID: 0}
@@ -29,10 +29,10 @@ MonoBehaviour:
   - IsSpice: 0
     States: 000000000100000002000000
     Meshes:
-    - Mesh: {fileID: 4493585093827132993, guid: f980758b84603cf46bbe9a2fad977899, type: 3}
+    - Mesh: {fileID: 4493585093827132993, guid: a4b507632bda27e4db92e6ec1c73f0e0, type: 3}
       Materials:
-      - {fileID: -876546973899608171, guid: f980758b84603cf46bbe9a2fad977899, type: 3}
-      - {fileID: -6478536213147159724, guid: f980758b84603cf46bbe9a2fad977899, type: 3}
+      - {fileID: 2100000, guid: a57ae81aaa4daea48b6d0e16e38bc816, type: 2}
+      - {fileID: 2100000, guid: 32d501ab1d793f04eb7b73b3e807cc8d, type: 2}
     - Mesh: {fileID: 0}
       Materials: []
     - Mesh: {fileID: 0}
@@ -40,10 +40,10 @@ MonoBehaviour:
   - IsSpice: 0
     States: 000000000100000002000000
     Meshes:
-    - Mesh: {fileID: -1550514412580984892, guid: f980758b84603cf46bbe9a2fad977899, type: 3}
+    - Mesh: {fileID: -1550514412580984892, guid: a4b507632bda27e4db92e6ec1c73f0e0, type: 3}
       Materials:
-      - {fileID: -876546973899608171, guid: f980758b84603cf46bbe9a2fad977899, type: 3}
-      - {fileID: -6478536213147159724, guid: f980758b84603cf46bbe9a2fad977899, type: 3}
+      - {fileID: 2100000, guid: a57ae81aaa4daea48b6d0e16e38bc816, type: 2}
+      - {fileID: 2100000, guid: 32d501ab1d793f04eb7b73b3e807cc8d, type: 2}
     - Mesh: {fileID: 0}
       Materials: []
     - Mesh: {fileID: 0}
@@ -51,17 +51,15 @@ MonoBehaviour:
   - IsSpice: 0
     States: 000000000100000002000000
     Meshes:
-    - Mesh: {fileID: -8678823145569952518, guid: f980758b84603cf46bbe9a2fad977899, type: 3}
+    - Mesh: {fileID: -8678823145569952518, guid: a4b507632bda27e4db92e6ec1c73f0e0, type: 3}
       Materials:
-      - {fileID: -876546973899608171, guid: f980758b84603cf46bbe9a2fad977899, type: 3}
-      - {fileID: -6478536213147159724, guid: f980758b84603cf46bbe9a2fad977899, type: 3}
-    - Mesh: {fileID: -8678823145569952518, guid: f980758b84603cf46bbe9a2fad977899, type: 3}
+      - {fileID: 2100000, guid: a57ae81aaa4daea48b6d0e16e38bc816, type: 2}
+      - {fileID: 2100000, guid: 32d501ab1d793f04eb7b73b3e807cc8d, type: 2}
+    - Mesh: {fileID: -8678823145569952518, guid: a4b507632bda27e4db92e6ec1c73f0e0, type: 3}
       Materials:
-      - {fileID: -876546973899608171, guid: f980758b84603cf46bbe9a2fad977899, type: 3}
-      - {fileID: -6478536213147159724, guid: f980758b84603cf46bbe9a2fad977899, type: 3}
-    - Mesh: {fileID: -8678823145569952518, guid: f980758b84603cf46bbe9a2fad977899, type: 3}
-      Materials:
-      - {fileID: -876546973899608171, guid: f980758b84603cf46bbe9a2fad977899, type: 3}
-      - {fileID: -6478536213147159724, guid: f980758b84603cf46bbe9a2fad977899, type: 3}
+      - {fileID: 2100000, guid: 585fec2d958f92249b93d62cd76c3d21, type: 2}
+      - {fileID: 2100000, guid: 3db8461260b058e439caf0cd7cc22c64, type: 2}
+    - Mesh: {fileID: 0}
+      Materials: []
   CookingTime: 30
   BurnTime: 15

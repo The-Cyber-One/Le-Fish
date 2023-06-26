@@ -29,4 +29,4 @@ MonoBehaviour:
   DishPrefab: {fileID: 2906389913339892459, guid: eaf387167dc7fef45a3fc800d5896973, type: 3}
   Description: Penne that will contain both mushroom and onion to add all the flavour
     we have to offer.
-  Sprite: {fileID: 0}
+  Sprite: {fileID: 21300000, guid: 65250a04746a5f34a92c03aa33372159, type: 3}
