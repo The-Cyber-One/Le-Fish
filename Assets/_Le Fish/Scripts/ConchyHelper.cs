@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class ConchyHelper : MonoBehaviour
 {
@@ -80,6 +81,8 @@ public class ConchyHelper : MonoBehaviour
         {
             if (child.CompareTag(tag))
             {
+                XRGrabInteractable enteringObjectGrab = child.GetComponent<XRGrabInteractable>();
+                enteringObjectGrab.enabled = true;
                 // Activate gravity for the child object's Rigidbody component
                 Rigidbody childRigidbody = child.GetComponent<Rigidbody>();
                 if (childRigidbody != null)
