@@ -5,6 +5,7 @@ using UnityEngine;
 public class MergeIngredient : MonoBehaviour
 {
     private readonly List<Ingredient> _ingredients = new();
+    [SerializeField] Transform spawnDishTransform;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -30,7 +31,7 @@ public class MergeIngredient : MonoBehaviour
     {
         if (TryFindDish(_ingredients, out var dish))
         {
-            DishData dishData = Instantiate(dish.DishPrefab, _ingredients[^1].transform.position, Quaternion.identity).AddComponent<DishData>();
+            DishData dishData = Instantiate(dish.DishPrefab, spawnDishTransform.position, Quaternion.identity).AddComponent<DishData>();
             dishData.Data = dish;
             CustomerSpawner.Instance.UpdateDish(dishData);
             _ingredients.ForEach(ingredient => Destroy(ingredient.gameObject));
