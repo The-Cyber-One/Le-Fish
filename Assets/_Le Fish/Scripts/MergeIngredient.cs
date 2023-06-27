@@ -39,7 +39,7 @@ public class MergeIngredient : MonoBehaviour
         }
     }
 
-    public bool TryFindDish(List<Ingredient> ingredients, out RecipeData dish)
+    private bool TryFindDish(List<Ingredient> ingredients, out RecipeData dish)
     {
         List<RecipeData> listRecipes = ConchyAI.Instance.MergableRecipes;
         for (int i = 0; i < listRecipes.Count; i++)
