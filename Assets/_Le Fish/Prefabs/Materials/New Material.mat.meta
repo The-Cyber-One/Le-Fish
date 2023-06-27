@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_Le Fish/Materials/Interia/Ash Wood.mat.meta
+guid: 5bbb9d0b7639cb540b38e9f481d70ea9
+========
 guid: 79c966cf3a546a64ba9a3c3560ca3e08
+>>>>>>>> dev:Assets/_Le Fish/Prefabs/Materials/New Material.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000
