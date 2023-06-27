@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/_Le Fish/Textures/Greeble_Techno_002_SD-20230525T130404Z-001/Greeble_Techno_002_SD/Greeble_Techno_002_normal.jpg.meta
 guid: 5578276c7eb857044bce783f80434096
-========
-guid: 396cd928978f05741882d9995e714496
->>>>>>>> dev:Assets/_Le Fish/Textures/Beton_Normal.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -58,7 +54,7 @@ TextureImporter:
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 1
-  textureShape: 1
+  textureShape: 2
   singleChannelComponent: 0
   flipbookRows: 1
   flipbookColumns: 1
@@ -66,8 +62,8 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 0
-  cookieLightType: 0
+  applyGammaDecoding: 1
+  cookieLightType: 2
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform

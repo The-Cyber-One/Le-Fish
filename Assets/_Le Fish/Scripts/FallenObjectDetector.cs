@@ -25,7 +25,10 @@ public class FallenObjectDetector : MonoBehaviour
 
                     // Set the entering object as the child of the conchy instance
                     other.transform.SetParent(conchyInstance.transform);
-
+                    // Make the entering object not grabable
+                    XRGrabInteractable enteringObjectGrab = other.GetComponent<XRGrabInteractable>();
+                    enteringObjectGrab.enabled = false;
+                
                     // Make the entering object's Rigidbody kinematic and zero out the y-velocity
                     Rigidbody enteringObjectRigidbody = other.GetComponent<Rigidbody>();
                     if (enteringObjectRigidbody != null)
