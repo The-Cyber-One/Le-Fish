@@ -5728,6 +5728,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1375967402}
     m_Modifications:
+    - target: {fileID: 662960442244137463, guid: 6ba9fb7de24866f4eb38aba4795f2d50, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 662960442244137463, guid: 6ba9fb7de24866f4eb38aba4795f2d50, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 662960442244137463, guid: 6ba9fb7de24866f4eb38aba4795f2d50, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2845356664093004885, guid: 6ba9fb7de24866f4eb38aba4795f2d50, type: 3}
       propertyPath: m_Name
       value: Plate
@@ -5738,15 +5750,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3186134434319273711, guid: 6ba9fb7de24866f4eb38aba4795f2d50, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3186134434319273711, guid: 6ba9fb7de24866f4eb38aba4795f2d50, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3186134434319273711, guid: 6ba9fb7de24866f4eb38aba4795f2d50, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3186134434319273711, guid: 6ba9fb7de24866f4eb38aba4795f2d50, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20516,7 +20528,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2425029526247912291
 Transform:
